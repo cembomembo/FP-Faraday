@@ -1,7 +1,7 @@
 \documentclass[a4paper]{article}
 
 % --- Page layout and spacing ---
-\usepackage[top=3cm, left=3.5cm, right=3.5cm, bottom=3cm]{geometry}
+\usepackage[top=2.5cm, left=3cm, right=3cm, bottom=3cm]{geometry}
 \usepackage[utf8]{inputenc}      % input encoding
 \usepackage[T1]{fontenc}         % font encoding
 \usepackage[english]{babel}
@@ -107,12 +107,104 @@
 
 \section{Introduction}
 
-xxx
+The Faraday effect is a magneto-optical phenomenon in which the plane of polarization of linearly polarized light rotates while passing through a transparent medium in an axial magnetic field.
+For small rotations, the angle $\theta$ scales with the magnetic flux density $B$ and the path length $L$ in the material, $\theta = VBL$, where $V$ is the material- and wavelength-dependent Verdet constant.
+Discovered by Michael Faraday in 1845, the effect is widely regarded as one of the first experimental hints that light and electromagnetism are deeply connected.
+
+What makes Faraday rotation especially useful is that it is non-reciprocal, meaning the sense of rotation does not simply cancel when light travels back through the same element.  
+This is why Faraday rotators are used in optical isolators, which act like optical diodes and protect lasers from harmful back reflections~\cite{FARAnleitung}.
+Faraday rotation is also used as a sensing principle, for example in fiber-optic current sensors in which the polarization rotation induced by the magnetic field of a current-carrying conductor is used to infer the current magnitude~\cite{mihailovic_fos_faraday_2021}.
+
+In this experiment, we measure the Verdet constant of optical glasses at several wavelengths and relate the observed rotation strength to the wavelength dependence of the refractive index using simple dispersion-based models.
 
 % --- Physical Principles ---
+
 \section{Physical Principles}
 
-xxx~\cite{FARAnleitung}
+In the following, we develop the Faraday rotation effect from basic polarization optics and wave propagation in matter to the practical signal extraction method used in the experiment.
+
+\subsection{Polarization States of Light}
+
+We consider a monochromatic plane wave propagating in the $+z$ direction, so that the electric field $\mathbf{E}(z,t)$ oscillates transversely in the $x$-$y$ plane.
+Linear polarization means that the tip of the electric field vector oscillates back and forth along a fixed line in the transverse plane, for example along the $x$ axis, $E_x(z,t)=E_0\cos(\omega t-kz)$ and $E_y(z,t)=0$.
+
+Circular polarization means that the tip of the electric field vector rotates at constant magnitude in the transverse plane, which occurs when two orthogonal components of equal amplitude have a phase shift of $\pm 90^\circ$.
+A convenient representation is
+\begin{align}
+\text{RCP:}\quad &E_x^{(r)}(z,t)=E_0\cos(\omega t-kz),\quad E_y^{(r)}(z,t)=E_0\sin(\omega t-kz), \\
+\text{LCP:}\quad &E_x^{(l)}(z,t)=E_0\cos(\omega t-kz),\quad E_y^{(l)}(z,t)=-E_0\sin(\omega t-kz),
+\end{align}
+where the opposite sign in $E_y$ corresponds to the opposite sense of rotation.
+
+A central fact for the Faraday effect is that a linearly polarized wave can be written as the superposition of a left- and a right-circularly polarized wave of equal amplitude.  
+Intuitively, adding two counter-rotating circular motions of the same strength cancels the rotational character and leaves a back-and-forth oscillation along a fixed direction, i.e. linear polarization.
+This decomposition is particularly useful because Faraday rotation arises when the medium causes the left- and right-circular components to accumulate different phases during propagation, which then leads to a rotation of their linear superposition.
+
+\subsection{Phase Accumulation in a Medium and the Refractive Index}
+
+To understand how the refractive index enters the Faraday effect, it is useful to describe light propagation in terms of wave phase.
+We consider a monochromatic plane wave propagating in the $+z$ direction and focus on a single transverse field component, for example $E_x(z,t)$.
+
+In vacuum, a monochromatic plane wave can be written as
+\begin{equation}
+E_x(z,t) = E_0 \cos(\omega t - k_0 z),
+\end{equation}
+where $\omega$ is the angular frequency and $k_0 = 2\pi / \lambda_0$ is the vacuum wavenumber.
+The spatial term $k_0 z$ determines how quickly the phase of the wave changes as it propagates along the $z$ direction.
+
+When light enters a medium with refractive index $n$, its frequency remains unchanged, but its wavelength is reduced to $\lambda = \lambda_0 / n$.
+As a result, the phase changes more rapidly with position and the wavenumber increases to
+\begin{equation}
+k = \frac{2\pi}{\lambda} = \frac{2\pi}{\lambda_0 / n} = n k_0.
+\end{equation}
+A larger refractive index therefore means that the phase of the wave ``winds up'' faster per unit length inside the material.
+
+After propagating a distance $L$ through the medium, the accumulated spatial phase advance is
+\begin{equation}
+\phi = kL = n k_0 L = n \frac{2\pi}{\lambda_0} L.
+\end{equation}
+This phase directly measures how many oscillation cycles the wave completes over the distance $L$.
+
+This situation is illustrated in Fig.~\ref{fig:phase_accumulation}, which shows how the wavelength is shortened inside a dielectric medium and how this leads to a larger phase accumulation over the same physical distance.
+
+\vspace{1em}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\linewidth]{../resources/figures/phase_accumulation.png}
+\caption{Propagation of a plane electromagnetic wave through a medium of refractive index $n$.
+Inside the medium the wavelength is reduced to $\lambda = \lambda_0/n$, leading to a faster spatial phase accumulation compared to vacuum.
+Adapted from~\cite{demtroeder2013_emwellen}.}
+\label{fig:phase_accumulation}
+\end{figure}
+
+If two waves propagate through the same length $L$ but experience different refractive indices, they accumulate different phases.
+For two polarization components with refractive indices $n_1$ and $n_2$, the resulting phase difference is
+\begin{equation}
+\Delta\phi = (n_1 - n_2) k_0 L.
+\end{equation}
+In the Faraday effect, a magnetic field causes left- and right-circularly polarized light to experience slightly different refractive indices, $n_l \neq n_r$, so that a relative phase shift builds up between the two components.
+
+\subsection{Microscopic Origin of $n_l \neq n_r$ in an Axial Magnetic Field}
+We present the classical picture in which the magnetic field introduces a handedness through the Lorentz force and leads to different responses for left- and right-circular driving fields.  
+We then give a minimal quantum interpretation via Zeeman splitting and the association of $\sigma^{\pm}$ transitions with opposite circular polarizations, motivating why $n_l$ and $n_r$ differ in a magnetic field.  
+
+\subsection{Dispersion, the Verdet Constant, and the Becquerel Relation}
+We connect the small difference $\Delta n = n_l-n_r$ to the slope of the dispersion curve using the linear approximation $\Delta n \approx \Delta\lambda\, dn/d\lambda$.  
+We derive $\theta = VBL$ and the Becquerel form $V \propto \lambda\, dn/d\lambda$ including a discussion of the sign convention and the physical meaning of the effective oscillator mass $m_e^*$.  
+
+\subsection{Modulation Method and Signal Extraction}
+We start from Malus' law and show why the working point $\phi = 45^\circ$ maximizes sensitivity.  
+We derive the relation between the rotation amplitude $\theta_B$ and the measured detector signals, clarifying the difference between amplitude and peak-to-peak values and obtaining $\theta_B = I_{SS}/(4I_{DC})$ in the ideal case.  
+We then introduce the modified Malus law with leakage intensity, define the contrast factor $K$, and derive the corrected expression $\theta_B = (1/K)\, I_{SS}/(4I_{DC})$ together with the exact procedure to set $\phi=45^\circ$ via $I_{\parallel}$ and $I_{\perp}$.  
+
+\subsection{Magnetic Field Calibration and Length-Averaged Field}
+We explain why the finite solenoid field is not uniform along the optical path and why an average field must be used.  
+We define $B_{\mathrm{avg}} = (1/l)\int_0^l B(z)\,dz$ and justify this averaging by the linear dependence of $\theta$ on $B$.  
+
+\subsection{Dispersion Model for $n(\lambda)$ and Determination of $\lambda_R$ and $N$}
+We introduce the one-resonance dispersion model used in the evaluation and its linearized form.  
+We explain the straight-line plot of $1/(n^2-1)$ versus $1/\lambda^2$ and how the slope and intercept yield the model resonance wavelength $\lambda_R$.  
+Finally, we show how the slope together with the experimentally obtained $m_e^*$ determines the density of dispersion electrons $N$.  
 
 % --- Experimental Setup ---
 \section{Experimental Setup}
