@@ -177,25 +177,179 @@ Adapted from~\cite{demtroeder2013_emwellen}.}
 \label{fig:phase_accumulation}
 \end{figure}
 
-If two waves propagate through the same length $L$ but experience different refractive indices, they accumulate different phases.
+If two waves propagate through the same length $L$ but experience different refractive indices, they accumulate different phases.  
 For two polarization components with refractive indices $n_1$ and $n_2$, the resulting phase difference is
 \begin{equation}
 \Delta\phi = (n_1 - n_2) k_0 L.
 \end{equation}
 In the Faraday effect, a magnetic field causes left- and right-circularly polarized light to experience slightly different refractive indices, $n_l \neq n_r$, so that a relative phase shift builds up between the two components.
 
-\subsection{Microscopic Origin of $n_l \neq n_r$ in an Axial Magnetic Field}
-We present the classical picture in which the magnetic field introduces a handedness through the Lorentz force and leads to different responses for left- and right-circular driving fields.  
-We then give a minimal quantum interpretation via Zeeman splitting and the association of $\sigma^{\pm}$ transitions with opposite circular polarizations, motivating why $n_l$ and $n_r$ differ in a magnetic field.  
+This relative phase shift has a direct geometric consequence for the polarization state.  
+Since a linearly polarized wave can be written as the superposition of left- and right-circularly polarized components of equal amplitude, a relative phase shift between these components rotates the resulting linear polarization direction.
 
+For a phase difference $\Delta\phi$, the rotation angle of the polarization plane is
+\begin{equation}
+\theta = \frac{\Delta\phi}{2},
+\end{equation}
+which follows by explicitly adding the two circular fields and using trigonometric identities.
+
+Inserting the expression for $\Delta\phi$ yields
+\begin{equation}
+\theta = \frac{(n_l - n_r) k_0 L}{2} = \frac{(n_l - n_r) (2\pi / \lambda_0) L}{2} = \frac{\pi}{\lambda_0}(n_l - n_r)L,
+\end{equation}
+which relates the observed Faraday rotation directly to the refractive index difference of the two circular polarization modes.
+
+\subsection{Microscopic Origin of \texorpdfstring{$n_l \neq n_r$}{} in an Axial Magnetic Field}
+
+The refractive index of a transparent medium originates from the interaction between the electric field of the light wave and the bound electrons in the material.
+When an electromagnetic wave propagates through a dielectric, its oscillating electric field drives small oscillatory motions of the electrons around their equilibrium positions.
+These driven charges re-radiate electromagnetic waves, and the superposition of the incident and re-radiated fields leads to a phase delay of the transmitted wave.
+On a macroscopic level, this phase delay is described by the refractive index $n$, which therefore reflects how strongly the electrons in the medium respond to the applied optical field.
+
+In the absence of a magnetic field, the medium is isotropic with respect to the sense of rotation of the electric field.
+Left- and right-circularly polarized light then drive equivalent electronic motions, and both polarization components experience the same refractive index.
+As a result, $n_l = n_r$ and no Faraday rotation occurs.
+
+Applying a magnetic field $\mathbf{B}$ along the propagation direction introduces a preferred axial direction and breaks this symmetry.
+In the classical picture, the electron motion induced by the optical electric field acquires an additional contribution from the magnetic Lorentz force
+\begin{equation}
+\mathbf{F}_B = -e\,\mathbf{v} \times \mathbf{B},
+\end{equation}
+where $\mathbf{v}$ is the electron velocity.
+This force bends the electron trajectories in a way that depends on the sense of their rotational motion relative to the magnetic field direction.
+As a consequence, electrons driven by left- and right-circularly polarized light respond slightly differently, leading to different polarization strengths and phase delays for the two circular components.
+On the macroscopic level, this manifests itself as a small difference between the refractive indices $n_l$ and $n_r$, a phenomenon known as circular birefringence.
+
+The same effect can also be understood from a minimal quantum-mechanical viewpoint.
+A helpful way to think about this is that the refractive index of a dielectric is ultimately determined by how easily its bound electrons can be excited by an optical electric field.
+In typical optical glasses, the strongest electronic excitations correspond to transitions at much higher frequencies, usually in the ultraviolet.
+Visible light is therefore far away from these resonances and is transmitted with little absorption.
+Nevertheless, even far from resonance the electrons are still driven weakly by the optical field, and this weak response determines the refractive index observed in the visible range.
+
+Because the electronic response depends on how close the driving frequency is to an underlying resonance, the refractive index is generally not constant but depends on wavelength, $n = n(\lambda)$.
+This wavelength dependence is known as dispersion and reflects the gradual change of the electronic phase response with optical frequency.
+When a magnetic field is applied, the electronic energy levels associated with these resonances are shifted slightly due to the Zeeman effect.
+Since left- and right-circularly polarized light carry opposite angular momentum, they couple to different Zeeman-shifted transitions, which are commonly referred to as $\sigma^+$ and $\sigma^-$ transitions.
+As a result, the two circular polarization components effectively probe slightly different parts of the dispersive response curve $n(\lambda)$.
+This leads to a small difference between the refractive indices experienced by left- and right-circularly polarized light, again resulting in $n_l \neq n_r$.
+
+Both the classical and the quantum pictures therefore lead to the same conclusion.
+An axial magnetic field introduces a handedness into the medium and breaks the equivalence between left- and right-circularly polarized light.
+This difference in the optical response is encoded in a small refractive index difference $\Delta n = n_l - n_r$, which ultimately gives rise to the observed rotation of the plane of linear polarization.
+ 
 \subsection{Dispersion, the Verdet Constant, and the Becquerel Relation}
-We connect the small difference $\Delta n = n_l-n_r$ to the slope of the dispersion curve using the linear approximation $\Delta n \approx \Delta\lambda\, dn/d\lambda$.  
-We derive $\theta = VBL$ and the Becquerel form $V \propto \lambda\, dn/d\lambda$ including a discussion of the sign convention and the physical meaning of the effective oscillator mass $m_e^*$.  
+
+Since the refractive index of a dielectric depends on wavelength, $n = n(\lambda)$, a small magnetic-field-induced shift of the underlying electronic response can be described by stating that the two circular polarization components effectively sample the dispersion curve at slightly different wavelengths.
+We therefore write
+\begin{equation}
+n_l \approx n(\lambda + \Delta\lambda), \qquad n_r \approx n(\lambda - \Delta\lambda),
+\end{equation}
+where $\Delta\lambda$ is small and proportional to the applied magnetic field $B$.
+This parameter does not represent a change of the light wavelength itself, but rather encodes the small Zeeman-induced shift of the electronic resonance that determines the dispersive optical response.
+
+For sufficiently small $\Delta\lambda$, the refractive index can be expanded to first order,
+\begin{equation}
+n(\lambda \pm \Delta\lambda) \approx n(\lambda) \pm \Delta\lambda \frac{dn}{d\lambda}.
+\end{equation}
+Taking the difference of the two expressions yields
+\begin{equation}
+\Delta n = n_l - n_r \approx 2 \Delta\lambda \frac{dn}{d\lambda}.
+\end{equation}
+
+We now insert this result into the expression for the Faraday rotation angle derived earlier,
+\begin{equation}
+\theta = \frac{\pi}{\lambda_0} \Delta n\, L.
+\end{equation}
+This gives
+\begin{equation}
+\theta \approx \frac{\pi}{\lambda_0} \left(2 \Delta\lambda \frac{dn}{d\lambda}\right) L.
+\end{equation}
+Since $\Delta\lambda$ is proportional to the magnetic field $B$, the rotation angle is linear in both $B$ and the optical path length $L$.
+This motivates writing the Faraday rotation in the form
+\begin{equation}
+\theta = V(\lambda)\, B\, L,
+\end{equation}
+which defines the wavelength-dependent Verdet constant $V(\lambda)$.
+
+A more detailed microscopic treatment of the electron dynamics, in which bound electrons are modeled as driven oscillators in the presence of a magnetic field, leads to an explicit expression for $V(\lambda)$.
+In this approach, the Zeeman splitting of circular electron motion results in the so-called Becquerel relation,
+\begin{equation}
+V(\lambda) = -\frac{1}{2}\frac{e}{m_e^* c}\,\lambda\,\frac{dn}{d\lambda},
+\end{equation}
+where $e$ is the elementary charge, $c$ the speed of light, and $m_e^*$ an effective electron mass characterizing the optical response of the material.
+This relation shows explicitly that the strength of Faraday rotation is governed by the dispersion of the refractive index and is therefore strongly wavelength dependent.
 
 \subsection{Modulation Method and Signal Extraction}
-We start from Malus' law and show why the working point $\phi = 45^\circ$ maximizes sensitivity.  
-We derive the relation between the rotation amplitude $\theta_B$ and the measured detector signals, clarifying the difference between amplitude and peak-to-peak values and obtaining $\theta_B = I_{SS}/(4I_{DC})$ in the ideal case.  
-We then introduce the modified Malus law with leakage intensity, define the contrast factor $K$, and derive the corrected expression $\theta_B = (1/K)\, I_{SS}/(4I_{DC})$ together with the exact procedure to set $\phi=45^\circ$ via $I_{\parallel}$ and $I_{\perp}$.  
+
+In the experiment, the Faraday rotation angles are very small and cannot be determined accurately by directly measuring changes in the analyzer angle.
+Instead, the rotation is converted into a measurable intensity modulation using a polarimetric detection scheme.
+
+The transmitted intensity behind an analyzer is governed by Malus' law,
+\begin{equation}
+I = I_0 \cos^2 \phi,
+\end{equation}
+where $\phi$ is the angle between the polarization direction of the light and the transmission axis of the analyzer.
+If the polarization is rotated by a small Faraday angle $\theta$, the effective angle becomes $\phi + \theta$ and the transmitted intensity is
+\begin{equation}
+I(\theta) = I_0 \cos^2(\phi + \theta).
+\end{equation}
+
+To achieve maximum sensitivity to small rotations, the analyzer is set to $\phi = 45^\circ$.
+At this working point, the slope of the intensity with respect to $\theta$ is maximal, so even very small changes in polarization lead to a measurable change in intensity.
+For small rotation angles $\theta \ll 1$, the cosine term can be expanded to first order, yielding
+\begin{equation}
+I(\theta) \approx \frac{I_0}{2} - I_0 \theta.
+\end{equation}
+The transmitted signal therefore consists of a constant part and a contribution that depends linearly on the rotation angle.
+
+During the measurement, the magnetic field is not applied statically but is modulated sinusoidally by driving the solenoid with an alternating current.
+As a result, the Faraday rotation also oscillates in time,
+\begin{equation}
+\theta(t) = \theta_B \sin(\Omega t),
+\end{equation}
+where $\theta_B$ is the rotation amplitude and $\Omega$ the modulation frequency.
+Inserting this into the linearized intensity expression gives
+\begin{equation}
+I(t) \approx I_{DC} + I_{AC} \sin(\Omega t),
+\end{equation}
+with a constant offset
+\begin{equation}
+I_{DC} = \frac{I_0}{2}
+\end{equation}
+and an oscillating component of amplitude
+\begin{equation}
+I_{AC} = I_0 \theta_B.
+\end{equation}
+
+In practice, the DC component $I_{DC}$ is measured with a multimeter, while the oscillating signal is observed on an oscilloscope.
+The oscilloscope typically displays the peak-to-peak value of the oscillation,
+\begin{equation}
+I_{SS} = 2 I_{AC}.
+\end{equation}
+Using $I_0 = 2 I_{DC}$, the rotation amplitude can therefore be expressed as
+\begin{equation}
+\theta_B = \frac{I_{SS}}{4 I_{DC}}.
+\end{equation}
+
+In real optical systems, finite polarizer extinction ratios and stress-induced birefringence lead to a non-zero transmitted intensity even for crossed polarizers.
+To account for this, a modified form of Malus' law is used,
+\begin{equation}
+I(\phi) = (I_{\parallel} - I_{\perp}) \cos^2 \phi + I_{\perp},
+\end{equation}
+where $I_{\parallel}$ and $I_{\perp}$ are the transmitted intensities for parallel and crossed polarizers, respectively.
+This leads to the definition of a contrast factor
+\begin{equation}
+K = \frac{I_{\parallel} - I_{\perp}}{I_{\parallel} + I_{\perp}},
+\end{equation}
+which corrects for imperfect polarization.
+
+Including this correction, the experimentally relevant expression for the rotation amplitude becomes
+\begin{equation}
+\theta_B = \frac{1}{K} \frac{I_{SS}}{4 I_{DC}}.
+\end{equation}
+
+This modulation technique allows the Faraday rotation to be extracted with high sensitivity from the ratio of the oscillating and constant detector signals, while suppressing slow drifts and noise in the optical system.
+ 
 
 \subsection{Magnetic Field Calibration and Length-Averaged Field}
 We explain why the finite solenoid field is not uniform along the optical path and why an average field must be used.  
