@@ -117,6 +117,17 @@ Faraday rotation is also used as a sensing principle, for example in fiber-optic
 
 In this experiment, we measure the Verdet constant of optical glasses at several wavelengths and relate the observed rotation strength to the wavelength dependence of the refractive index using simple dispersion-based models.
 
+\vspace{1em}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\linewidth]{../resources/figures/faraday_effect.png}
+\caption{Schematic illustration of the Faraday effect.
+Linearly polarized light propagates through a transparent medium in the presence of a magnetic field applied parallel to the propagation direction.
+Inside the material, the plane of polarization rotates continuously due to the different phase velocities of left- and right-circularly polarized components.
+The total rotation angle is proportional to the magnetic field strength and the optical path length~\cite{wikimedia_faraday_effect}.}
+\label{fig:faraday_effect_schematic}
+\end{figure}
+
 % --- Physical Principles ---
 
 \section{Physical Principles}
@@ -170,7 +181,7 @@ This situation is illustrated in Fig.~\ref{fig:phase_accumulation}, which shows 
 \vspace{1em}
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.75\linewidth]{../resources/figures/phase_accumulation.png}
+\includegraphics[width=0.95\linewidth]{../resources/figures/phase_accumulation.png}
 \caption{Propagation of a plane electromagnetic wave through a medium of refractive index $n$.
 Inside the medium the wavelength is reduced to $\lambda = \lambda_0/n$, leading to a faster spatial phase accumulation compared to vacuum.
 Adapted from~\cite{demtroeder2013_emwellen}.}
@@ -183,7 +194,6 @@ For two polarization components with refractive indices $n_1$ and $n_2$, the res
 \Delta\phi = (n_1 - n_2) k_0 L.
 \end{equation}
 In the Faraday effect, a magnetic field causes left- and right-circularly polarized light to experience slightly different refractive indices, $n_l \neq n_r$, so that a relative phase shift builds up between the two components.
-
 This relative phase shift has a direct geometric consequence for the polarization state.  
 Since a linearly polarized wave can be written as the superposition of left- and right-circularly polarized components of equal amplitude, a relative phase shift between these components rotates the resulting linear polarization direction.
 
@@ -281,38 +291,56 @@ This relation shows explicitly that the strength of Faraday rotation is governed
 
 \subsection{Modulation Method and Signal Extraction}
 
-In the experiment, the Faraday rotation angles are very small and cannot be determined accurately by directly measuring changes in the analyzer angle.
-Instead, the rotation is converted into a measurable intensity modulation using a polarimetric detection scheme.
+The goal of this part of the experiment is to measure very small Faraday rotation angles $\theta$ with high sensitivity.
+Instead of directly determining the rotation angle by mechanically adjusting optical components, the rotation is converted into a measurable change of light intensity behind a polarizing element.
+This allows the rotation to be extracted from electrical detector signals with high precision.
 
-The transmitted intensity behind an analyzer is governed by Malus' law,
+After passing through the sample, the light is linearly polarized but rotated by the Faraday angle $\theta$.
+The analyzer is a second polarizer placed behind the sample, whose purpose is to convert changes in polarization direction into changes in transmitted intensity.
+The transmitted intensity behind the analyzer is described by Malus' law,
 \begin{equation}
 I = I_0 \cos^2 \phi,
 \end{equation}
 where $\phi$ is the angle between the polarization direction of the light and the transmission axis of the analyzer.
-If the polarization is rotated by a small Faraday angle $\theta$, the effective angle becomes $\phi + \theta$ and the transmitted intensity is
+
+If the polarization is rotated by a small Faraday angle $\theta$, the effective angle becomes $\phi + \theta$, and the transmitted intensity is
 \begin{equation}
 I(\theta) = I_0 \cos^2(\phi + \theta).
 \end{equation}
+The analyzer angle $\phi$ is chosen deliberately to maximize the sensitivity of the transmitted intensity to small changes in $\theta$.
 
-To achieve maximum sensitivity to small rotations, the analyzer is set to $\phi = 45^\circ$.
-At this working point, the slope of the intensity with respect to $\theta$ is maximal, so even very small changes in polarization lead to a measurable change in intensity.
-For small rotation angles $\theta \ll 1$, the cosine term can be expanded to first order, yielding
+The analyzer is set to $\phi = 45^\circ$, because at this angle the slope of the $\cos^2$ function is maximal and approximately linear in the vicinity of the working point.
+This means that small polarization rotations lead to the largest possible relative change in intensity.
+This behavior is illustrated schematically in Fig.~\ref{fig:malus_slope}.
+
+\vspace{1em}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\linewidth]{../resources/figures/malus_slope.png}
+\caption{Schematic illustration of Malus' law $I \propto \cos^2 \phi$.
+At $\phi = 45^\circ$ the slope of the curve is maximal and approximately linear, which makes this angle an optimal working point for detecting small polarization rotations.}
+\label{fig:malus_slope}
+\end{figure}
+
+For small Faraday rotation angles $\theta \ll 1$, the intensity can be expanded around the working point $\phi = 45^\circ$.
+Using a first-order Taylor expansion of $\cos^2(\phi + \theta)$, one obtains
 \begin{equation}
 I(\theta) \approx \frac{I_0}{2} - I_0 \theta.
 \end{equation}
-The transmitted signal therefore consists of a constant part and a contribution that depends linearly on the rotation angle.
+This expression shows that the transmitted intensity consists of a constant offset and a term that depends linearly on the rotation angle.
+The linear dependence is essential, because it allows the rotation angle to be determined directly from changes in intensity.
 
 During the measurement, the magnetic field is not applied statically but is modulated sinusoidally by driving the solenoid with an alternating current.
-As a result, the Faraday rotation also oscillates in time,
+As a result, the Faraday rotation angle oscillates in time,
 \begin{equation}
 \theta(t) = \theta_B \sin(\Omega t),
 \end{equation}
 where $\theta_B$ is the rotation amplitude and $\Omega$ the modulation frequency.
-Inserting this into the linearized intensity expression gives
+The intensity behind the analyzer therefore becomes
 \begin{equation}
 I(t) \approx I_{DC} + I_{AC} \sin(\Omega t),
 \end{equation}
-with a constant offset
+with a constant component
 \begin{equation}
 I_{DC} = \frac{I_0}{2}
 \end{equation}
@@ -321,41 +349,48 @@ and an oscillating component of amplitude
 I_{AC} = I_0 \theta_B.
 \end{equation}
 
-In practice, the DC component $I_{DC}$ is measured with a multimeter, while the oscillating signal is observed on an oscilloscope.
-The oscilloscope typically displays the peak-to-peak value of the oscillation,
+Experimentally, the light intensity behind the analyzer is detected by a photodiode, which converts the optical signal into an electrical voltage.
+This voltage contains both a constant (time-averaged) part and a small oscillating part.
+The constant component $I_{DC}$ is measured using a multimeter in DC mode, while the oscillating component is observed with an oscilloscope.
+
+On the oscilloscope, the oscillation is typically read as a peak-to-peak signal.
+This quantity is denoted by $I_{SS}$, where ``SS'' refers to the peak-to-peak swing of the signal.
+Since the peak-to-peak value is twice the oscillation amplitude, one has
 \begin{equation}
 I_{SS} = 2 I_{AC}.
 \end{equation}
-Using $I_0 = 2 I_{DC}$, the rotation amplitude can therefore be expressed as
+Using $I_0 = 2 I_{DC}$, the rotation amplitude can therefore be written as
 \begin{equation}
 \theta_B = \frac{I_{SS}}{4 I_{DC}}.
 \end{equation}
 
-In real optical systems, finite polarizer extinction ratios and stress-induced birefringence lead to a non-zero transmitted intensity even for crossed polarizers.
+In real optical systems, the transmitted intensity does not vanish completely even when the polarizers are crossed.
+This can be caused by imperfect polarizers, slight misalignments, or stress-induced changes of the polarization state inside the glass.
 To account for this, a modified form of Malus' law is used,
 \begin{equation}
 I(\phi) = (I_{\parallel} - I_{\perp}) \cos^2 \phi + I_{\perp},
 \end{equation}
-where $I_{\parallel}$ and $I_{\perp}$ are the transmitted intensities for parallel and crossed polarizers, respectively.
-This leads to the definition of a contrast factor
-\begin{equation}
-K = \frac{I_{\parallel} - I_{\perp}}{I_{\parallel} + I_{\perp}},
-\end{equation}
-which corrects for imperfect polarization.
+where $I_{\parallel}$ and $I_{\perp}$ are the intensities measured for parallel and crossed polarizers, respectively.
 
-Including this correction, the experimentally relevant expression for the rotation amplitude becomes
+From these quantities, a contrast factor
+\begin{equation}
+K = \frac{I_{\parallel} - I_{\perp}}{I_{\parallel} + I_{\perp}}
+\end{equation}
+is defined, which quantifies how well the polarization modulation is preserved.
+Including this correction, the experimentally relevant expression for the Faraday rotation amplitude becomes
 \begin{equation}
 \theta_B = \frac{1}{K} \frac{I_{SS}}{4 I_{DC}}.
 \end{equation}
 
-This modulation technique allows the Faraday rotation to be extracted with high sensitivity from the ratio of the oscillating and constant detector signals, while suppressing slow drifts and noise in the optical system.
- 
+This modulation-based detection method allows very small Faraday rotations to be extracted reliably from electrical signals, even in the presence of slow drifts and imperfections in the optical setup.
 
 \subsection{Magnetic Field Calibration and Length-Averaged Field}
+
 We explain why the finite solenoid field is not uniform along the optical path and why an average field must be used.  
 We define $B_{\mathrm{avg}} = (1/l)\int_0^l B(z)\,dz$ and justify this averaging by the linear dependence of $\theta$ on $B$.  
 
-\subsection{Dispersion Model for $n(\lambda)$ and Determination of $\lambda_R$ and $N$}
+\subsection{Dispersion Model for \texorpdfstring{$n(\lambda)$}{} and Determination of \texorpdfstring{$\lambda_R$ and $N$}{}}
+
 We introduce the one-resonance dispersion model used in the evaluation and its linearized form.  
 We explain the straight-line plot of $1/(n^2-1)$ versus $1/\lambda^2$ and how the slope and intercept yield the model resonance wavelength $\lambda_R$.  
 Finally, we show how the slope together with the experimentally obtained $m_e^*$ determines the density of dispersion electrons $N$.  
