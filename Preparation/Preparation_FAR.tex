@@ -395,24 +395,36 @@ Since the Faraday rotation accumulates continuously along the optical path, the 
 \theta = \int_0^L V(\lambda)\, B(z)\, \mathrm{d}z,
 \end{equation}
 where $L$ is the length of the sample and $B(z)$ is the magnetic flux density along the propagation direction.
-Because the Verdet constant is uniform within the sample and the rotation depends linearly on $B$, this expression can be rewritten using a length-averaged magnetic field,
+Because the Verdet constant is uniform within the sample and the rotation depends linearly on $B$, this expression can be rewritten in terms of a length-averaged magnetic field,
 \begin{equation}
-\theta = V(\lambda)\, B_{\mathrm{avg}}\, L,
+\theta = V(\lambda)\, \bar{B}\, L,
 \end{equation}
 with
 \begin{equation}
-B_{\mathrm{avg}} = \frac{1}{L} \int_0^L B(z)\, \mathrm{d}z.
+\bar{B} = \frac{1}{L} \int_0^L B(z)\, \mathrm{d}z.
 \end{equation}
 
 This definition shows that the Faraday rotation depends only on the average magnetic field experienced by the light inside the material, not on the exact spatial distribution of the field.
-Using the averaged field therefore allows the standard Faraday relation $\theta = V B L$ to remain valid even for a non-uniform solenoid field.
+Using the averaged field therefore allows the standard Faraday relation $\theta = VBL$ to remain valid even for a non-uniform solenoid field.
 
 In practice, the magnetic field profile $B(z)$ is determined experimentally by measuring the axial field of the solenoid as a function of position using a Hall probe.
 From this measured field profile, the length-averaged magnetic field is calculated and used in the determination of the Verdet constant.
 For $N$ discrete field values $B(z_i)$ measured at positions $z_i$ with approximately constant spacing $\Delta z$, the integral average is approximated by
 \begin{equation}
 B_{\mathrm{avg}} \approx \frac{1}{L} \sum_{i=1}^{N} B(z_i)\,\Delta z \,=\, \frac{\Delta z}{L} \sum_{i=1}^{N} B(z_i).
+\label{eq:Bavg_discrete}
 \end{equation}
+
+During the actual Faraday-rotation measurements, the solenoid is not driven with a static current but with an alternating current, such that the magnetic field oscillates sinusoidally in time.
+The calibration measurements performed with a direct current therefore correspond to the effective (root-mean-square) value of the magnetic field.
+
+For a sinusoidally modulated magnetic field, the amplitude of the length-averaged flux density is related to its effective value by
+\begin{equation}
+B_{\mathrm{Ampl}} = \sqrt{2}\,\bar{B}.
+\label{eq:B_amplitude}
+\end{equation}
+
+This relation allows the DC calibration of the solenoid field to be converted into the corresponding magnetic field amplitude relevant for the modulated Faraday-rotation measurements.
 
 \subsection{Dispersion Model for \texorpdfstring{$n(\lambda)$}{} and Determination of \texorpdfstring{$\lambda_R$ and $N$}{}}
 
@@ -477,16 +489,15 @@ In this way, the refractive index dispersion and the magneto-optical response ar
 % --- Experimental Setup ---
 \section{Experimental Setup}
 
+\vspace{1em}
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.9\linewidth]{../resources/figures/schematic_setup.png}
+\includegraphics[width=0.9\linewidth]{../resources/figures/setup_faraday.png}
 \caption{Schematic Setup \cite{FARAnleitung}}
 \label{fig:schematic_setup}
 \end{figure}
 
-
 The experimental setup as is shown in picture \ref{fig:schematic_setup} consists of a LED that emittes light that is shown through a collector lense that creates a parallel beam,
-
 
 The light the comes from the LED is shown through a lense collector lense that creates a parallel beam. The beam then passes through a linear polarizer and then through an iris diaphragm to confine the beam so that unwanted reflections are minimized. Then the light passes through a glassblock that is surrounded by a coil, which creates the magnetic field. 
 Then comes another polarizer, which is used as an analyzer, the transmitted light is then focused by another lense and detected by a silica photodiode with an integrated organic photovoltaic.
@@ -495,10 +506,46 @@ The coil for the magnetic field is powered by a frequency generator with an inte
 
 For the examination of the wavelength dependence there are differently colored LEDs.
 
+\vspace{1em}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.65\linewidth]{../resources/figures/led_table_manual.png}
+\caption{LED spectral maxima and half widths (HWHM) used in the experiment~\cite{FARAnleitung}.}
+\label{fig:led_table_manual}
+\end{figure}
+
 % --- Procedure ---
 \section{Procedure}
 
-xxx
+\subsection{Task 1 (Preparation)}
+
+For the two optical glasses N-BK7 and SF10, tabulated refractive-index data $n(\lambda)$ are obtained from the database \texttt{refractiveindex.info} as specified in the lab manual~\cite{FARAnleitung}.
+
+For each wavelength $\lambda_i$, the data are transformed into $x_i = 1/\lambda_i^2$ and $y_i = 1/(n(\lambda_i)^2 - 1)$.
+
+For each glass type, the transformed data $y$ are plotted versus $x$, and a linear fit of the form $y = A x - B$ is performed to obtain the slope $A$ and the intercept $-B$.
+
+From the fitted parameters, the effective resonance wavelength of the single-oscillator model is calculated as $\lambda_R = \sqrt{A/B}$.
+
+The extracted slope $A$ is retained for later evaluation tasks, where it enters the determination of further microscopic material parameters.
+
+\subsection{Task 2}
+
+With the axial Hall probe of the teslameter, the axial magnetic flux density $B(z)$ is measured along the solenoid axis inside the coil at a fixed direct current (e.g. $I = 0.8\,\mathrm{A}$).
+
+The field is recorded at discrete positions $z_i$ with approximately constant spacing $\Delta z$ over the region relevant for the sample.
+
+From the measured values $B(z_i)$, the length-averaged magnetic flux density $B_{\mathrm{avg}}$ is calculated using Eq.~\ref{eq:Bavg_discrete}.
+
+\subsection{Task 3}
+
+The calibration curve of the magnetic flux density is determined by measuring the length-averaged magnetic field $\bar{B}$ as a function of the coil current $I$ in the range $0 < I < 2\,\mathrm{A}$.
+
+For several selected current values, the corresponding averaged magnetic flux density $\bar{B}(I)$ is obtained using the procedure described in Task~2.
+
+The resulting values are used to establish the calibration curve $B = f(I)$.
+For later measurements with an alternating current, the amplitude of the averaged magnetic flux density is obtained from the DC calibration using Eq.~\ref{eq:B_amplitude}.
+
 
 % --- Evaluation ---
 
