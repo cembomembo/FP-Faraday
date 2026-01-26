@@ -370,6 +370,7 @@ This can be caused by imperfect polarizers, slight misalignments, or stress-indu
 To account for this, a modified form of Malus' law is used,
 \begin{equation}
 I(\phi) = (I_{\parallel} - I_{\perp}) \cos^2 \phi + I_{\perp},
+\label{eq:malus_modified}
 \end{equation}
 where $I_{\parallel}$ and $I_{\perp}$ are the intensities measured for parallel and crossed polarizers, respectively.
 
@@ -443,47 +444,50 @@ where $N$ is the density of optically active electrons, $m_e^*$ is an effective 
 This expression corresponds to the response of bound electrons modeled as driven harmonic oscillators far below resonance.
 
 To obtain a form suitable for data evaluation, the frequency dependence is rewritten in terms of the wavelength.
-Using $\omega = 2\pi c / \lambda$ and $\omega_R = 2\pi c / \lambda_R$, the denominator can be expressed as
+Using $\omega = 2\pi c/\lambda$ and $\omega_R = 2\pi c/\lambda_R$, the denominator becomes
 \begin{equation}
-\omega_R^2 - \omega^2 = (2\pi c)^2 \left( \frac{1}{\lambda_R^2} - \frac{1}{\lambda^2} \right).
+\omega_R^2 - \omega^2 = (2\pi c)^2\left(\frac{1}{\lambda_R^2} - \frac{1}{\lambda^2}\right).
 \end{equation}
-Inserting this into the dispersion relation and rearranging yields
+Inserting this into the dispersion relation yields
 \begin{equation}
-n^2(\lambda) - 1 = \frac{N e^2}{\varepsilon_0 m_e^* (2\pi c)^2} \frac{1}{\frac{1}{\lambda_R^2} - \frac{1}{\lambda^2}}.
+n^2(\lambda) - 1 = \frac{N e^2}{\varepsilon_0 m_e^* (2\pi c)^2}\,\frac{1}{\frac{1}{\lambda_R^2} - \frac{1}{\lambda^2}}.
 \end{equation}
-Taking the reciprocal of both sides gives
+Taking the reciprocal of both sides gives the so called Sellmeier equation
 \begin{equation}
 \frac{1}{n^2(\lambda) - 1} = \frac{\varepsilon_0 m_e^* (2\pi c)^2}{N e^2}
-\left( \frac{1}{\lambda^2} - \frac{1}{\lambda_R^2} \right).
+\left(\frac{1}{\lambda_R^2} - \frac{1}{\lambda^2}\right).
+\label{eq:sellmeier}
 \end{equation}
 
 This expression is linear in $1/\lambda^2$ and can therefore be written as
 \begin{equation}
-\frac{1}{n^2(\lambda) - 1} = A \frac{1}{\lambda^2} - B,
+\frac{1}{n^2(\lambda) - 1} = -A\,\frac{1}{\lambda^2} + B,
 \end{equation}
 with
 \begin{equation}
 A = \frac{\varepsilon_0 m_e^* (2\pi c)^2}{N e^2},
 \qquad
-B = \frac{\varepsilon_0 m_e^* (2\pi c)^2}{N e^2} \frac{1}{\lambda_R^2}.
+B = \frac{\varepsilon_0 m_e^* (2\pi c)^2}{N e^2}\,\frac{1}{\lambda_R^2}.
 \end{equation}
-According to this model, a plot of $1/(n^2 - 1)$ versus $1/\lambda^2$ yields a straight line with slope $A$ and intercept $-B$.
+According to this model, a plot of $1/(n^2-1)$ versus $1/\lambda^2$ yields a straight line with slope $-A$ and intercept $B$.
 
 The refractive index values $n(\lambda)$ entering this model are taken from literature data for the respective glass types used in the experiment.
 For each wavelength $\lambda$ of the employed LEDs, the corresponding refractive index $n(\lambda)$ is obtained from an external database as specified in the preparation task~\cite{FARAnleitung}.
-These tabulated pairs $(\lambda, n)$ then form the input for the dispersion analysis carried out in the evaluation.
+These tabulated pairs $(\lambda,n)$ then form the input for the dispersion analysis carried out in the evaluation.
 
-From the ratio of slope and intercept, the effective resonance wavelength of the model oscillator is obtained as
+From the ratio of intercept and (absolute) slope, the effective resonance wavelength of the model oscillator is obtained as
 \begin{equation}
-\lambda_R = \sqrt{\frac{A}{B}}.
+\lambda_R = \sqrt{\frac{A}{B}} \;=\; \sqrt{\frac{-\text{slope}}{\text{intercept}}}.
 \end{equation}
 The parameter $\lambda_R$ does not correspond to a specific optical transition but characterizes the dominant electronic resonance that governs the dispersion behavior in the visible range.
 
 The relevance of $\lambda_R$ becomes clear when the dispersion analysis is combined with the Faraday rotation measurements.
 From the wavelength dependence of the Verdet constant, the effective electron mass $m_e^*$ is determined independently by fitting the Becquerel relation to the experimental Faraday rotation data.
-With $m_e^*$ thus known, the slope $A$ of the linear dispersion plot can be used to calculate the density of optically active electrons as
+With $m_e^*$ thus known, the slope of the linear dispersion plot can be used to calculate the density of optically active electrons as
 \begin{equation}
-N = \frac{\varepsilon_0 m_e^* (2\pi c)^2}{A e^2}.
+N = \frac{\varepsilon_0 m_e^*(2\pi c)^2}{e^2\,A}
+\;=\;
+\frac{\varepsilon_0 m_e^*(2\pi c)^2}{e^2\,|\text{slope}|}.
 \label{eq:N_from_slope}
 \end{equation}
 In this way, the refractive index dispersion and the magneto-optical response are linked consistently, allowing microscopic material parameters to be extracted from macroscopic optical measurements.
@@ -523,13 +527,26 @@ For the examination of the wavelength dependence there are differently colored L
 
 For the two optical glasses N-BK7 and SF10, tabulated refractive-index data $n(\lambda)$ are obtained from the database \texttt{refractiveindex.info} as specified in the lab manual~\cite{FARAnleitung}.
 
-For each wavelength $\lambda_i$, the data are transformed into $x_i = 1/\lambda_i^2$ and $y_i = 1/(n(\lambda_i)^2 - 1)$.
+For each wavelength $\lambda_i$, the data are transformed into
+\begin{equation}
+x_i = \frac{1}{\lambda_i^2},
+\qquad
+y_i = \frac{1}{n(\lambda_i)^2 - 1}.
+\end{equation}
 
-For each glass type, the transformed data $y$ are plotted versus $x$, and a linear fit of the form $y = A x - B$ is performed to obtain the slope $A$ and the intercept $-B$.
+According to Eq.~\ref{eq:sellmeier}, these two quantities follow a linear relation
+\begin{equation}
+y = -A\,x + B.
+\end{equation}
+For each glass type, the values $y_i$ are therefore plotted versus $x_i$, and a linear fit is performed to obtain the slope $(-A)$ and the intercept $B$.
 
-From the fitted parameters, the effective resonance wavelength of the single-oscillator model is calculated as $\lambda_R = \sqrt{A/B}$.
+From the fit parameters, the effective resonance wavelength of the one-resonance model is determined as
+\begin{equation}
+\lambda_R = \sqrt{\frac{A}{B}} \;=\; \sqrt{\frac{-\text{slope}}{\text{intercept}}}.
+\end{equation}
 
-The extracted slope $A$ is retained for later evaluation tasks, where it enters the determination of further microscopic material parameters.
+The parameter $A$ (or equivalently the absolute value of the fitted slope) is retained for later evaluation tasks, where it enters the determination of the dispersion-electron density $N$ via Eq.~\ref{eq:N_from_slope}.
+
 
 \subsection{Task 2}
 
@@ -608,19 +625,28 @@ The alignment is iteratively adjusted and the procedure is repeated until $G > 4
 
 \subsection{Task 8}
 
-The magnetic field is modulated by driving the solenoid with an alternating current at a frequency in the range $40\,\mathrm{Hz} \le \Omega \le 90\,\mathrm{Hz}$.
+The magnetic field is modulated by driving the solenoid with an alternating current at a frequency in the range
+$40\,\mathrm{Hz} \le \Omega \le 90\,\mathrm{Hz}$.
 
-For a fixed wavelength, the first polarizer is kept at a constant orientation while the analyzer angle $\varphi$ is varied.
-For each analyzer angle, the peak-to-peak amplitude $I_{SS}$ of the intensity modulation is measured using the oscilloscope.
+The analyzer working point $\varphi = 45^\circ$ is set via the DC detector signal.
+From the modified Malus relation, Eq.~\ref{eq:malus_modified}, one obtains for $\varphi = 45^\circ$:
+\begin{equation}
+I_{DC}(\varphi=45^\circ)=\frac{1}{2}\left(I_{\parallel}+I_{\perp}\right).
+\label{eq:IDC_workingpoint}
+\end{equation}
+Experimentally, $I_{\parallel}$ and $I_{\perp}$ are measured with parallel and crossed polarizers, and the analyzer angle is adjusted until the multimeter reads the midpoint value given by Eq.~\ref{eq:IDC_workingpoint}.
 
-The measured values $I_{SS}(\varphi)$ are plotted as a function of the analyzer angle.
-From this dependence, it is verified that the modulation signal reaches its maximum at $\varphi = 45^\circ$.
+Setting $\varphi$ by searching the maximum of the modulated signal $I_{SS}(\varphi)$ is too inaccurate because the modulation curve is very flat near its maximum.
+Small changes in $\varphi$ then produce only tiny changes in $I_{SS}$ which are comparable to noise and reading uncertainties, making the peak position poorly defined.
+
+With the analyzer adjusted to the working point, the analyzer angle $\varphi$ is varied and for each angle the peak-to-peak amplitude $I_{SS}$ is recorded on the oscilloscope.
+The values $I_{SS}(\varphi)$ are plotted and the maximum at $\varphi \approx 45^\circ$ is verified.
 
 \subsection{Task 9}
 
 For each of the five LED wavelengths, the Faraday rotation is measured for four different magnetic field strengths.
 
-The analyzer is set to the working point $\varphi = 45^\circ$ and the magnetic field strength is varied by adjusting the frequency generator settings.
+The analyzer is set to the working point $\varphi = 45^\circ$ using the DC criterion described in Task~8, and the magnetic field strength is varied by adjusting the frequency generator settings.
 
 For each field setting, the effective coil current $I_{\mathrm{eff}}$ as well as the corresponding detector signals $I_{DC}$ and $I_{SS}$ are recorded.
 
@@ -648,7 +674,6 @@ The investigations described in Tasks~9 to~11 are repeated analogously for the g
 The corresponding Verdet constants, effective electron mass, and dispersion-electron density are determined using the same evaluation procedures as for BK7.
 
 % --- Evaluation ---
-
 \section{Evaluation}
 
 \subsection{Task 1}
