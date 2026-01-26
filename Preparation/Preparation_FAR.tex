@@ -285,6 +285,7 @@ A more detailed microscopic treatment of the electron dynamics, in which bound e
 In this approach, the Zeeman splitting of circular electron motion results in the so-called Becquerel relation,
 \begin{equation}
 V(\lambda) = -\frac{1}{2}\frac{e}{m_e^* c}\,\lambda\,\frac{dn}{d\lambda},
+\label{eq:becquerel}
 \end{equation}
 where $e$ is the elementary charge, $c$ the speed of light, and $m_e^*$ an effective electron mass characterizing the optical response of the material.
 This relation shows explicitly that the strength of Faraday rotation is governed by the dispersion of the refractive index and is therefore strongly wavelength dependent.
@@ -483,6 +484,7 @@ From the wavelength dependence of the Verdet constant, the effective electron ma
 With $m_e^*$ thus known, the slope $A$ of the linear dispersion plot can be used to calculate the density of optically active electrons as
 \begin{equation}
 N = \frac{\varepsilon_0 m_e^* (2\pi c)^2}{A e^2}.
+\label{eq:N_from_slope}
 \end{equation}
 In this way, the refractive index dispersion and the magneto-optical response are linked consistently, allowing microscopic material parameters to be extracted from macroscopic optical measurements.
 
@@ -546,6 +548,104 @@ For several selected current values, the corresponding averaged magnetic flux de
 The resulting values are used to establish the calibration curve $B = f(I)$.
 For later measurements with an alternating current, the amplitude of the averaged magnetic flux density is obtained from the DC calibration using Eq.~\ref{eq:B_amplitude}.
 
+\subsection{Task 4}
+
+The experimental setup for the measurement of the Faraday rotation is assembled according to Fig.~\ref{fig:schematic_setup}.
+
+The LED and the first lens are adjusted such that a beam that is as parallel as possible is produced.
+Using the iris diaphragm, the beam diameter is reduced to ensure that the light propagates through the glass block without intersecting the longitudinal side faces, in order to avoid internal reflections within the glass.
+
+The glass block is positioned inside the solenoid along the optical axis.
+When handling the glass block, the cotton gloves provided at the experimental station are used.
+
+\subsection{Task 5}
+
+With the glass block removed and the magnetic field switched off, Malus’ law is verified for a fixed wavelength.
+
+The first polarizer is kept at a fixed orientation, while the analyzer is rotated over an angular range from $0^\circ$ to $180^\circ$.
+For each analyzer angle $\phi$, the transmitted intensity $I(\phi)$ is measured and the resulting curve is recorded.
+
+From the measured intensity curve, the maximum intensity $I_{\parallel}$ and the minimum intensity $I_{\perp}$ are determined.
+Using these values, the contrast
+\begin{equation}
+K = \frac{I_{\parallel} - I_{\perp}}{I_{\parallel} + I_{\perp}}
+\end{equation}
+and the degree of polarization
+\begin{equation}
+G = \frac{I_{\parallel}}{I_{\perp}}
+\end{equation}
+are calculated.
+
+\subsection{Task 6}
+
+The measurement of Malus’ law is repeated with the glass block inserted into the beam path and with the magnetic field switched off.
+
+The first polarizer is kept at a fixed orientation, while the analyzer is rotated over an angular range from $0^\circ$ to $180^\circ$.
+For each analyzer angle $\varphi$, the transmitted intensity $I(\varphi)$ is measured and recorded.
+
+From the resulting intensity curve, the maximum intensity $I_{\parallel}$ and the minimum intensity $I_{\perp}$ are determined.
+Using these values, the contrast
+\begin{equation}
+K = \frac{I_{\parallel} - I_{\perp}}{I_{\parallel} + I_{\perp}}
+\end{equation}
+and the degree of polarization
+\begin{equation}
+G = \frac{I_{\parallel}}{I_{\perp}}
+\end{equation}
+are calculated.
+
+In addition, the slope of the intensity curve $\mathrm{d}I/\mathrm{d}\varphi$ is determined at the analyzer angle $\varphi = 45^\circ$.
+
+\subsection{Task 7}
+
+With the glass block inserted and the magnetic field switched off, the optical alignment of the setup is optimized to achieve a degree of polarization of $G > 40$.
+
+For each alignment step, the analyzer is first set parallel to the fixed polarizer to measure the maximum transmitted intensity $I_{\parallel}$.
+The analyzer is then rotated by $90^\circ$ to the crossed position to measure the minimum transmitted intensity $I_{\perp}$.
+
+From these two readings, the degree of polarization $G = I_{\parallel}/I_{\perp}$ is calculated.
+The alignment is iteratively adjusted and the procedure is repeated until $G > 40$ is reached.
+
+\subsection{Task 8}
+
+The magnetic field is modulated by driving the solenoid with an alternating current at a frequency in the range $40\,\mathrm{Hz} \le \Omega \le 90\,\mathrm{Hz}$.
+
+For a fixed wavelength, the first polarizer is kept at a constant orientation while the analyzer angle $\varphi$ is varied.
+For each analyzer angle, the peak-to-peak amplitude $I_{SS}$ of the intensity modulation is measured using the oscilloscope.
+
+The measured values $I_{SS}(\varphi)$ are plotted as a function of the analyzer angle.
+From this dependence, it is verified that the modulation signal reaches its maximum at $\varphi = 45^\circ$.
+
+\subsection{Task 9}
+
+For each of the five LED wavelengths, the Faraday rotation is measured for four different magnetic field strengths.
+
+The analyzer is set to the working point $\varphi = 45^\circ$ and the magnetic field strength is varied by adjusting the frequency generator settings.
+
+For each field setting, the effective coil current $I_{\mathrm{eff}}$ as well as the corresponding detector signals $I_{DC}$ and $I_{SS}$ are recorded.
+
+The recorded values are used to determine the Faraday rotation amplitude $\theta_B$ for each wavelength and magnetic field strength using the signal-extraction relation from the Physical Principles section, including the contrast correction factor $K$.
+
+\subsection{Task 10}
+
+For each wavelength, the measured rotation angles $\theta$ are plotted as a function of the magnetic field amplitude $\bar{B}_{\mathrm{Ampl}}$ in a common graphical representation.
+
+For each wavelength, the Verdet constant $V(\lambda)$ is determined from the slope of the corresponding $\theta(\bar{B}_{\mathrm{Ampl}})$ dependence.
+
+Using the Becquerel relation, Eq.~\ref{eq:becquerel}, the effective oscillator mass $m_e^*$ of the dispersion electrons is calculated.
+For this purpose, the values of $\mathrm{d}n/\mathrm{d}\lambda$ for the glass type BK7 are taken from \texttt{refractiveindex.info}.
+
+\subsection{Task 11}
+
+From the slope $A$ of the linear dispersion plot $1/(n^2-1)$ versus $1/\lambda^2$ obtained in Task~1 and using the effective electron mass $m_e^*$ determined in Task~10, the density $N$ of dispersion electrons is calculated according to Eq.~\ref{eq:N_from_slope}.
+
+The resulting electron density $N$ is then compared to the number density of atoms (or formula units) of the respective glass, which is calculated from the given material density and chemical composition.
+
+\subsection{Task 12}
+
+The investigations described in Tasks~9 to~11 are repeated analogously for the glass type SF10.
+
+The corresponding Verdet constants, effective electron mass, and dispersion-electron density are determined using the same evaluation procedures as for BK7.
 
 % --- Evaluation ---
 
