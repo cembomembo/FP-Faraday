@@ -300,17 +300,17 @@ After passing through the sample, the light is linearly polarized but rotated by
 The analyzer is a second polarizer placed behind the sample, whose purpose is to convert changes in polarization direction into changes in transmitted intensity.
 The transmitted intensity behind the analyzer is described by Malus' law,
 \begin{equation}
-I = I_0 \cos^2 \phi,
+I = I_0 \cos^2 \varphi,
 \end{equation}
-where $\phi$ is the angle between the polarization direction of the light and the transmission axis of the analyzer.
+where $\varphi$ is the angle between the polarization direction of the light and the transmission axis of the analyzer.
 
-If the polarization is rotated by a small Faraday angle $\theta$, the effective angle becomes $\phi + \theta$, and the transmitted intensity is
+If the polarization is rotated by a small Faraday angle $\theta$, the effective angle becomes $\varphi + \theta$, and the transmitted intensity is
 \begin{equation}
-I(\theta) = I_0 \cos^2(\phi + \theta).
+I(\theta) = I_0 \cos^2(\varphi + \theta).
 \end{equation}
-The analyzer angle $\phi$ is chosen deliberately to maximize the sensitivity of the transmitted intensity to small changes in $\theta$.
+The analyzer angle $\varphi$ is chosen deliberately to maximize the sensitivity of the transmitted intensity to small changes in $\theta$.
 
-The analyzer is set to $\phi = 45^\circ$, because at this angle the slope of the $\cos^2$ function is maximal and approximately linear in the vicinity of the working point.
+The analyzer is set to $\varphi = 45^\circ$, because at this angle the slope of the $\cos^2$ function is maximal and approximately linear in the vicinity of the working point.
 This means that small polarization rotations lead to the largest possible relative change in intensity.
 This behavior is illustrated schematically in Fig.~\ref{fig:malus_slope}.
 
@@ -318,13 +318,13 @@ This behavior is illustrated schematically in Fig.~\ref{fig:malus_slope}.
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.95\linewidth]{../resources/figures/malus_slope.png}
-\caption{Schematic illustration of Malus' law $I \propto \cos^2 \phi$.
-At $\phi = 45^\circ$ the slope of the curve is maximal and approximately linear, which makes this angle an optimal working point for detecting small polarization rotations.}
+\caption{Schematic illustration of Malus' law $I \propto \cos^2 \varphi$.
+At $\varphi = 45^\circ$ the slope of the curve is maximal and approximately linear, which makes this angle an optimal working point for detecting small polarization rotations.}
 \label{fig:malus_slope}
 \end{figure}
 
-For small Faraday rotation angles $\theta \ll 1$, the intensity can be expanded around the working point $\phi = 45^\circ$.
-Using a first-order Taylor expansion of $\cos^2(\phi + \theta)$, one obtains
+For small Faraday rotation angles $\theta \ll 1$, the intensity can be expanded around the working point $\varphi = 45^\circ$.
+Using a first-order Taylor expansion of $\cos^2(\varphi + \theta)$, one obtains
 \begin{equation}
 I(\theta) \approx \frac{I_0}{2} - I_0 \theta.
 \end{equation}
@@ -372,7 +372,7 @@ In real optical systems, the transmitted intensity does not vanish completely ev
 This can be caused by imperfect polarizers, slight misalignments, or stress-induced changes of the polarization state inside the glass.
 To account for this, a modified form of Malus' law is used,
 \begin{equation}
-I(\phi) = (I_{\parallel} - I_{\perp}) \cos^2 \phi + I_{\perp},
+I(\varphi) = (I_{\parallel} - I_{\perp}) \cos^2 \varphi + I_{\perp},
 \label{eq:malus_modified}
 \end{equation}
 where $I_{\parallel}$ and $I_{\perp}$ are the intensities measured for parallel and crossed polarizers, respectively.
@@ -602,7 +602,7 @@ When handling the glass block, the cotton gloves provided at the experimental st
 With the glass block removed and the magnetic field switched off, Malus’ law is verified for a fixed wavelength.
 
 The first polarizer is kept at a fixed orientation, while the analyzer is rotated over an angular range from $0^\circ$ to $180^\circ$.
-For each analyzer angle $\phi$, the transmitted intensity $I(\phi)$ is measured and the resulting curve is recorded.
+For each analyzer angle $\varphi$, the transmitted intensity $I(\varphi)$ is measured and the resulting curve is recorded.
 
 From the measured intensity curve, the maximum intensity $I_{\parallel}$ and the minimum intensity $I_{\perp}$ are determined.
 Using these values, the contrast
