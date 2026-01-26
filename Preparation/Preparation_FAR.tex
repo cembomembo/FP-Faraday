@@ -365,6 +365,9 @@ Using $I_0 = 2 I_{DC}$, the rotation amplitude can therefore be written as
 \theta_B = \frac{I_{SS}}{4 I_{DC}}.
 \end{equation}
 
+\subsubsection{Contrast Correction and Setting of the Working Point \texorpdfstring{$\varphi=45^\circ$}{}}
+\label{sec:contrast_correction}
+
 In real optical systems, the transmitted intensity does not vanish completely even when the polarizers are crossed.
 This can be caused by imperfect polarizers, slight misalignments, or stress-induced changes of the polarization state inside the glass.
 To account for this, a modified form of Malus' law is used,
@@ -374,17 +377,36 @@ I(\phi) = (I_{\parallel} - I_{\perp}) \cos^2 \phi + I_{\perp},
 \end{equation}
 where $I_{\parallel}$ and $I_{\perp}$ are the intensities measured for parallel and crossed polarizers, respectively.
 
-From these quantities, a contrast factor
+From this expression, the DC component of the detector signal at the working point $\varphi = 45^\circ$ follows directly as
+\begin{equation}
+I_{DC}(\varphi = 45^\circ) = \frac{1}{2}\left(I_{\parallel} + I_{\perp}\right).
+\label{eq:IDC_workingpoint}
+\end{equation}
+This relation provides a precise experimental criterion for setting the analyzer angle.
+For each wavelength, $I_{\parallel}$ and $I_{\perp}$ are measured, the corresponding midpoint value of $I_{DC}$ is calculated, and the analyzer is adjusted until the multimeter reading matches this value.
+
+Setting the working point by searching for the maximum of the modulated signal $I_{SS}(\varphi)$ is unsuitable, because the modulation amplitude exhibits a broad and flat maximum around $\varphi = 45^\circ$.
+Near this maximum, small changes of the analyzer angle lead to only very small variations of $I_{SS}$, which are comparable to noise and reading uncertainties.
+As a result, the position of the maximum cannot be determined with sufficient precision.
+
+In contrast, the DC signal varies monotonically with $\varphi$ in the vicinity of $45^\circ$, and the midpoint condition~\eqref{eq:IDC_workingpoint} therefore allows a much more accurate and reproducible adjustment of the analyzer angle.
+This precise setting of the working point is essential for an accurate determination of the Verdet constant using the modulation method.
+
+In practice, the crossed setting is not perfectly dark, i.e. $I_{\perp}\neq 0$.
+This finite offset also means that the intensity modulation is weaker than in the ideal case.
+To account for this, a contrast factor
 \begin{equation}
 K = \frac{I_{\parallel} - I_{\perp}}{I_{\parallel} + I_{\perp}}
 \end{equation}
-is defined, which quantifies how well the polarization modulation is preserved.
-Including this correction, the experimentally relevant expression for the Faraday rotation amplitude becomes
+is introduced.
+It describes how strongly the analyzer can modulate the detected intensity between the parallel and crossed configurations.
+With this correction, the experimentally relevant expression for the Faraday rotation amplitude becomes
 \begin{equation}
-\theta_B = \frac{1}{K} \frac{I_{SS}}{4 I_{DC}}.
+\theta_B = \frac{1}{K}\,\frac{I_{SS}}{4 I_{DC}}.
+\label{eq:rotation_corrected}
 \end{equation}
 
-This modulation-based detection method allows very small Faraday rotations to be extracted reliably from electrical signals, even in the presence of slow drifts and imperfections in the setup.
+This corrected relation is then used to extract $\theta_B$ from the simultaneously recorded DC (multimeter) and AC (oscilloscope) detector signals.
 
 \subsection{Magnetic Field Calibration and Length-Averaged Field}
 
@@ -628,16 +650,8 @@ The alignment is iteratively adjusted and the procedure is repeated until $G > 4
 The magnetic field is modulated by driving the solenoid with an alternating current at a frequency in the range
 $40\,\mathrm{Hz} \le \Omega \le 90\,\mathrm{Hz}$.
 
-The analyzer working point $\varphi = 45^\circ$ is set via the DC detector signal.
-From the modified Malus relation, Eq.~\ref{eq:malus_modified}, one obtains for $\varphi = 45^\circ$:
-\begin{equation}
-I_{DC}(\varphi=45^\circ)=\frac{1}{2}\left(I_{\parallel}+I_{\perp}\right).
-\label{eq:IDC_workingpoint}
-\end{equation}
+The analyzer working point $\varphi = 45^\circ$ is set via the DC detector signal, as described in~\ref{sec:contrast_correction}.
 Experimentally, $I_{\parallel}$ and $I_{\perp}$ are measured with parallel and crossed polarizers, and the analyzer angle is adjusted until the multimeter reads the midpoint value given by Eq.~\ref{eq:IDC_workingpoint}.
-
-Setting $\varphi$ by searching the maximum of the modulated signal $I_{SS}(\varphi)$ is too inaccurate because the modulation curve is very flat near its maximum.
-Small changes in $\varphi$ then produce only tiny changes in $I_{SS}$ which are comparable to noise and reading uncertainties, making the peak position poorly defined.
 
 With the analyzer adjusted to the working point, the analyzer angle $\varphi$ is varied and for each angle the peak-to-peak amplitude $I_{SS}$ is recorded on the oscilloscope.
 The values $I_{SS}(\varphi)$ are plotted and the maximum at $\varphi \approx 45^\circ$ is verified.
