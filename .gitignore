@@ -53,3 +53,7 @@ Thumbs.db
 # 🔐 Environment / secrets
 # ======================================
 .env
+resources/miscellaneous/malus_slope.ipynb
+Preparation/aufgabe1.py
+resources/miscellaneous/malus_slope.ipynb
+.gitignore
