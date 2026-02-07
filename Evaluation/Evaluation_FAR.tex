@@ -55,7 +55,9 @@
 
 \begin{document}
 
+% ------------------
 % --- Title page ---
+% ------------------
 \begin{titlepage}
   \thispagestyle{empty}
   \begin{center}
@@ -91,7 +93,9 @@
   \end{center}
 \end{titlepage}
 
+% -------------------------
 % --- Table of contents ---
+% -------------------------
 \clearpage
 \renewcommand*\contentsname{\huge Contents}
 {
@@ -101,7 +105,9 @@
 }
 \pagenumbering{arabic}
 
+% --------------------
 % --- Introduction ---
+% --------------------
 \newpage
 \setcounter{page}{1}
 
@@ -128,9 +134,10 @@ In this experiment, we measure the Verdet constant of optical glasses at several
   \label{fig:faraday_effect_schematic}
 \end{figure}
 
-% --- Physical Principles ---
-
-\section{Physical Principles}
+% --------------
+% --- Theory ---
+% --------------
+\section{Theory}
 
 In the following, we develop the Faraday rotation effect from basic polarization optics and wave propagation in matter to the practical signal extraction method used in the experiment.
 
@@ -206,6 +213,7 @@ which follows by explicitly adding the two circular fields and using trigonometr
 Inserting the expression for $\Delta\phi$ yields
 \begin{equation}
   \theta = \frac{(n_l - n_r) k_0 L}{2} = \frac{(n_l - n_r) (2\pi / \lambda_0) L}{2} = \frac{\pi}{\lambda_0}(n_l - n_r)L,
+  \label{eq:theta_from_delta_n}
 \end{equation}
 which relates the observed Faraday rotation directly to the refractive index difference of the two circular polarization modes.
 
@@ -278,6 +286,7 @@ Since $\Delta\lambda$ is proportional to the magnetic field $B$, the rotation an
 This motivates writing the Faraday rotation in the form
 \begin{equation}
   \theta = V(\lambda)\, B\, L,
+  \label{eq:faraday_verdet}
 \end{equation}
 which defines the wavelength-dependent Verdet constant $V(\lambda)$.
 
@@ -355,7 +364,7 @@ This voltage contains both a constant (time-averaged) part and a small oscillati
 The constant component $I_{DC}$ is measured using a multimeter in DC mode, while the oscillating component is observed with an oscilloscope.
 
 On the oscilloscope, the oscillation is typically read as a peak-to-peak signal.
-This quantity is denoted by $I_{SS}$, where ``SS'' refers to the peak-to-peak swing of the signal.
+This quantity is denoted by $I_{SS}$, where ``SS'' refers to the peak-to-peak (Spitze-Spitze) swing of the signal.
 Since the peak-to-peak value is twice the oscillation amplitude, one has
 \begin{equation}
   I_{SS} = 2 I_{AC}.
@@ -397,6 +406,7 @@ This finite offset also means that the intensity modulation is weaker than in th
 To account for this, a contrast factor
 \begin{equation}
   K = \frac{I_{\parallel} - I_{\perp}}{I_{\parallel} + I_{\perp}}
+  \label{eq:contrast_factor}
 \end{equation}
 is introduced.
 It describes how strongly the analyzer can modulate the detected intensity between the parallel and crossed configurations.
@@ -435,7 +445,7 @@ In practice, the magnetic field profile $B(z)$ is determined experimentally by m
 From this measured field profile, the length-averaged magnetic field is calculated and used in the determination of the Verdet constant.
 For $N$ discrete field values $B(z_i)$ measured at positions $z_i$ with approximately constant spacing $\Delta z$, the integral average is approximated by
 \begin{equation}
-  B_{\mathrm{avg}} \approx \frac{1}{L} \sum_{i=1}^{N} B(z_i)\,\Delta z \,=\, \frac{\Delta z}{L} \sum_{i=1}^{N} B(z_i).
+  \bar{B} \approx \frac{1}{L} \sum_{i=1}^{N} B(z_i)\,\Delta z \,=\, \frac{\Delta z}{L} \sum_{i=1}^{N} B(z_i).
   \label{eq:Bavg_discrete}
 \end{equation}
 
@@ -444,7 +454,7 @@ The calibration measurements performed with a direct current therefore correspon
 
 For a sinusoidally modulated magnetic field, the amplitude of the length-averaged flux density is related to its effective value by
 \begin{equation}
-  B_{\mathrm{Ampl}} = \sqrt{2}\,\bar{B}.
+  \bar{B}_{\mathrm{Ampl}} = \sqrt{2}\,\bar{B}.
   \label{eq:B_amplitude}
 \end{equation}
 
@@ -484,7 +494,7 @@ Taking the reciprocal of both sides gives the so called Sellmeier equation
 This expression is linear in $1/\lambda^2$ and can therefore be written as
 \begin{equation}
   \frac{1}{n^2(\lambda) - 1} = -A\,\frac{1}{\lambda^2} + B,
-  \label{eq:linear}
+  \label{eq:sellmeier_linear}
 \end{equation}
 with
 \begin{equation}
@@ -501,6 +511,7 @@ These tabulated pairs $(\lambda,n)$ then form the input for the dispersion analy
 From the ratio of intercept and (absolute) slope, the effective resonance wavelength of the model oscillator is obtained as
 \begin{equation}
   \lambda_R = \sqrt{\frac{A}{B}} \;=\; \sqrt{\frac{-\text{slope}}{\text{intercept}}}.
+  \label{eq:lambda_r_from_fit}
 \end{equation}
 The parameter $\lambda_R$ does not correspond to a specific optical transition but characterizes the dominant electronic resonance that governs the dispersion behavior in the visible range.
 
@@ -515,7 +526,9 @@ With $m_e^*$ thus known, the slope of the linear dispersion plot can be used to 
 \end{equation}
 In this way, the refractive index dispersion and the magneto-optical response are linked consistently, allowing microscopic material parameters to be extracted from macroscopic optical measurements.
 
+% --------------------------
 % --- Experimental Setup ---
+% --------------------------
 \section{Experimental Setup}
 
 The experimental setup is designed to generate linearly polarized light of selectable wavelength, induce a controllable Faraday rotation in a glass sample placed inside a magnetic field, and measure the resulting polarization rotation with high sensitivity via intensity modulation.
@@ -532,7 +545,7 @@ A diaphragm (aperture) is used to improve beam quality and suppress stray light.
 \label{fig:setup_overview}
 \end{figure}
 
-The light source is a set of light-emitting diodes (LEDs) with different central wavelengths in the visible range.
+The light source is a set of light-emitting diodes (LEDs) with different central wavelengths in the visible range (400 nm, 470 nm, 508 nm, 628 nm).
 For each measurement, a single LED is selected, allowing the wavelength dependence of the Faraday rotation to be studied.
 The emitted light is initially divergent and is therefore collimated by the first lens to form a nearly parallel beam.
 
@@ -542,7 +555,7 @@ A diaphragm placed behind the polarizer limits the beam diameter and suppresses 
 
 The polarized light then traverses the glass sample, which is mounted inside a solenoid.
 When a current flows through the solenoid, an axial magnetic field is generated along the direction of light propagation.
-As discussed in the Physical Principles section, this magnetic field induces a Faraday rotation of the polarization plane inside the sample.
+As discussed in the Theory section, this magnetic field induces a Faraday rotation of the polarization plane inside the sample.
 The magnetic field is driven with an alternating current, resulting in a time-dependent rotation angle.
 
 After leaving the solenoid, the light passes through the second polarizer, which acts as an analyzer.
@@ -553,7 +566,9 @@ Finally, a second lens focuses the transmitted light onto a photodiode detector.
 The photodiode converts the optical intensity into an electrical voltage signal, which contains both a constant component and a small oscillating component at the modulation frequency of the magnetic field.
 These signals are recorded using a multimeter and an oscilloscope and form the basis for the determination of the Faraday rotation angle and the Verdet constant.
 
+% -----------------
 % --- Procedure ---
+% -----------------
 \section{Procedure}
 
 \subsection{Task 1 (Preparation)}
@@ -567,7 +582,7 @@ For each wavelength $\lambda_i$, the data are transformed into
   y_i = \frac{1}{n(\lambda_i)^2 - 1}.
 \end{equation}
 
-According to Eq.~\ref{eq:sellmeier}, these two quantities follow a linear relation
+According to Eq.~\ref{eq:sellmeier_linear}, these two quantities follow a linear relation
 \begin{equation}
   y = -A\,x + B.
 \end{equation}
@@ -586,7 +601,7 @@ With the axial Hall probe of the teslameter, the axial magnetic flux density $B(
 
 The field is recorded at discrete positions $z_i$ with approximately constant spacing $\Delta z$ over the region relevant for the sample.
 
-From the measured values $B(z_i)$, the length-averaged magnetic flux density $B_{\mathrm{avg}}$ is calculated using Eq.~\ref{eq:Bavg_discrete}.
+From the measured values $B(z_i)$, the length-averaged magnetic flux density $\bar{B}$ is calculated using Eq.~\ref{eq:Bavg_discrete}.
 
 \subsection{Task 3}
 
@@ -658,7 +673,7 @@ The alignment is iteratively adjusted and the procedure is repeated until $G > 4
 \subsection{Task 8}
 
 The magnetic field is modulated by driving the solenoid with an alternating current at a frequency in the range
-$40\,\mathrm{Hz} \le \Omega \le 90\,\mathrm{Hz}$.
+$40\,\mathrm{Hz} \le f \le 90\,\mathrm{Hz}$ ($\Omega = 2 \pi f$).
 
 The analyzer working point $\varphi = 45^\circ$ is set via the DC detector signal, as described in Sec.~\ref{sec:contrast_correction}.
 Experimentally, $I_{\parallel}$ and $I_{\perp}$ are measured with parallel and crossed polarizers, and the analyzer angle is adjusted until the multimeter reads the midpoint value given by Eq.~\ref{eq:IDC_workingpoint}.
@@ -697,11 +712,13 @@ The investigations described in Tasks~9 to~11 are repeated analogously for the g
 
 The corresponding Verdet constants, effective electron mass, and dispersion-electron density are determined using the same evaluation procedures as for BK7.
 
+% ------------------
 % --- Evaluation ---
+% ------------------
 \section{Evaluation}
 
 \subsection{Task 1: Determination of the Effective Resonance Wavelength}
-As stated in Equation~\ref{eq:sellmeier} and~\ref{eq:linear}, the relationship between the refractive index and the wavelength far from resonance can be simplified to:
+As stated in Equation~\ref{eq:sellmeier} and~\ref{eq:sellmeier_linear}, the relationship between the refractive index and the wavelength far from resonance can be simplified to:
 \begin{equation}
   \frac{1}{n^2(\lambda) - 1} = \frac{1}{C} \left( \frac{1}{\lambda_R^2} - \frac{1}{\lambda^2} \right) = \frac{A}{\lambda_R^2} - A \cdot \frac{1}{\lambda^2}
   \label{eq:linearization}
@@ -758,17 +775,23 @@ The SF10 glass shows a significantly higher refractive index and stronger disper
   \end{tabular}
 \end{table}
 
+% ------------------
 % --- Discussion ---
+% ------------------
 \section{Discussion}
 
 xxx
 
+% ------------------
 % --- Conclusion ---
+% ------------------
 \section{Conclusion}
 
 xxx
 
+% ----------------
 % --- Appendix ---
+% ----------------
 \newpage
 \section{Appendix}
 
@@ -779,7 +802,9 @@ Additional files:
   \item \texttt{'FAR\_LabReport.pdf'}
 \end{itemize}
 
+% ------------------
 % --- References ---
+% ------------------
 \setstretch{1.0}
 \printbibliography[heading=bibintoc]
 
@@ -787,8 +812,9 @@ Additional files:
 AI-based writing and programming tools were used in a supporting role to refine the wording of this report and to assist in formatting Python and LaTeX code.
 All research, scientific analysis, data evaluation, and interpretation were carried out independently by the authors.
 
+% ------------------
 % --- Lab Report ---
-
+% ------------------
 \newpage
 \includepdf[pages=-, scale=0.9, pagecommand={\thispagestyle{empty}}]{../resources/FAR_LabReport.pdf}
 
