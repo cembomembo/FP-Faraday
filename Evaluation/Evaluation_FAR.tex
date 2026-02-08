@@ -125,11 +125,11 @@ In this experiment, we measure the Verdet constant of optical glasses at several
 
 \vspace{1em}
 \begin{figure}[H]
-  \centering
-  \includegraphics[width=0.85\linewidth]{../resources/figures/faraday_effect.png}
+\centering
+\includegraphics[width=0.85\linewidth]{../resources/figures/faraday_effect.png}
   \caption{Schematic illustration of the Faraday effect.
-    Linearly polarized light propagates through a transparent medium in the presence of a magnetic field applied parallel to the propagation direction.
-    Inside the material, the plane of polarization rotates continuously due to the different phase velocities of left- and right-circularly polarized components.
+  Linearly polarized light propagates through a transparent medium in the presence of a magnetic field applied parallel to the propagation direction.
+  Inside the material, the plane of polarization rotates continuously due to the different phase velocities of left- and right-circularly polarized components.
   The total rotation angle is proportional to the magnetic field strength and the optical path length~\cite{wikimedia_faraday_effect}.}
   \label{fig:faraday_effect_schematic}
 \end{figure}
@@ -148,10 +148,10 @@ Linear polarization means that the tip of the electric field vector oscillates b
 
 Circular polarization means that the tip of the electric field vector rotates at constant magnitude in the transverse plane, which occurs when two orthogonal components of equal amplitude have a phase shift of $\pm 90^\circ$.
 A convenient representation is
-\begin{align}
+\begin{align*}
   \text{RCP:}\quad &E_x^{(r)}(z,t)=E_0\cos(\omega t-kz),\quad E_y^{(r)}(z,t)=E_0\sin(\omega t-kz), \\
   \text{LCP:}\quad &E_x^{(l)}(z,t)=E_0\cos(\omega t-kz),\quad E_y^{(l)}(z,t)=-E_0\sin(\omega t-kz),
-\end{align}
+\end{align*}
 where the opposite sign in $E_y$ corresponds to the opposite sense of rotation.
 
 A central fact for the Faraday effect is that a linearly polarized wave can be written as the superposition of a left- and a right-circularly polarized wave of equal amplitude.
@@ -164,50 +164,50 @@ To understand how the refractive index enters the Faraday effect, it is useful t
 We consider a monochromatic plane wave propagating in the $+z$ direction and focus on a single transverse field component, for example $E_x(z,t)$.
 
 In vacuum, a monochromatic plane wave can be written as
-\begin{equation}
+\[
   E_x(z,t) = E_0 \cos(\omega t - k_0 z),
-\end{equation}
+\]
 where $\omega$ is the angular frequency and $k_0 = 2\pi / \lambda_0$ is the vacuum wavenumber.
 The spatial term $k_0 z$ determines how quickly the phase of the wave changes as it propagates along the $z$ direction.
 
 When light enters a medium with refractive index $n$, its frequency remains unchanged, but its wavelength is reduced to $\lambda = \lambda_0 / n$.
 As a result, the phase changes more rapidly with position and the wavenumber increases to
-\begin{equation}
+\[
   k = \frac{2\pi}{\lambda} = \frac{2\pi}{\lambda_0 / n} = n k_0.
-\end{equation}
+\]
 A larger refractive index therefore means that the phase of the wave ``winds up'' faster per unit length inside the material.
 
 After propagating a distance $L$ through the medium, the accumulated spatial phase advance is
-\begin{equation}
+\[
   \phi = kL = n k_0 L = n \frac{2\pi}{\lambda_0} L.
-\end{equation}
+\]
 This phase directly measures how many oscillation cycles the wave completes over the distance $L$.
 
 This situation is illustrated in Fig.~\ref{fig:phase_accumulation}, which shows how the wavelength is shortened inside a dielectric medium and how this leads to a larger phase accumulation over the same physical distance.
 
 \vspace{1em}
 \begin{figure}[H]
-  \centering
-  \includegraphics[width=0.95\linewidth]{../resources/figures/phase_accumulation.png}
+\centering
+\includegraphics[width=0.95\linewidth]{../resources/figures/phase_accumulation.png}
   \caption{Propagation of a plane electromagnetic wave through a medium of refractive index $n$.
-    Inside the medium the wavelength is reduced to $\lambda = \lambda_0/n$, leading to a faster spatial phase accumulation compared to vacuum.
+  Inside the medium the wavelength is reduced to $\lambda = \lambda_0/n$, leading to a faster spatial phase accumulation compared to vacuum.
   Adapted from~\cite{demtroeder2013_emwellen}.}
   \label{fig:phase_accumulation}
 \end{figure}
 
 If two waves propagate through the same length $L$ but experience different refractive indices, they accumulate different phases.
 For two polarization components with refractive indices $n_1$ and $n_2$, the resulting phase difference is
-\begin{equation}
+\[
   \Delta\phi = (n_1 - n_2) k_0 L.
-\end{equation}
+\]
 In the Faraday effect, a magnetic field causes left- and right-circularly polarized light to experience slightly different refractive indices, $n_l \neq n_r$, so that a relative phase shift builds up between the two components.
 This relative phase shift has a direct geometric consequence for the polarization state.
 Since a linearly polarized wave can be written as the superposition of left- and right-circularly polarized components of equal amplitude, a relative phase shift between these components rotates the resulting linear polarization direction.
 
 For a phase difference $\Delta\phi$, the rotation angle of the polarization plane is
-\begin{equation}
+\[
   \theta = \frac{\Delta\phi}{2},
-\end{equation}
+\]
 which follows by explicitly adding the two circular fields and using trigonometric identities.
 
 Inserting the expression for $\Delta\phi$ yields
@@ -230,9 +230,9 @@ As a result, $n_l = n_r$ and no Faraday rotation occurs.
 
 Applying a magnetic field $\mathbf{B}$ along the propagation direction introduces a preferred axial direction and breaks this symmetry.
 In the classical picture, the electron motion induced by the optical electric field acquires an additional contribution from the magnetic Lorentz force
-\begin{equation}
+\[
   \mathbf{F}_B = -e\,\mathbf{v} \times \mathbf{B},
-\end{equation}
+\]
 where $\mathbf{v}$ is the electron velocity.
 This force bends the electron trajectories in a way that depends on the sense of their rotational motion relative to the magnetic field direction.
 As a consequence, electrons driven by left- and right-circularly polarized light respond slightly differently, leading to different polarization strengths and phase delays for the two circular components.
@@ -259,29 +259,29 @@ This difference in the optical response is encoded in a small refractive index d
 
 Since the refractive index of a dielectric depends on wavelength, $n = n(\lambda)$, a small magnetic-field-induced shift of the underlying electronic response can be described by stating that the two circular polarization components effectively sample the dispersion curve at slightly different wavelengths.
 We therefore write
-\begin{equation}
+\[
   n_l \approx n(\lambda + \Delta\lambda), \qquad n_r \approx n(\lambda - \Delta\lambda),
-\end{equation}
+\]
 where $\Delta\lambda$ is small and proportional to the applied magnetic field $B$.
 This parameter does not represent a change of the light wavelength itself, but rather encodes the small Zeeman-induced shift of the electronic resonance that determines the dispersive optical response.
 
 For sufficiently small $\Delta\lambda$, the refractive index can be expanded to first order,
-\begin{equation}
+\[
   n(\lambda \pm \Delta\lambda) \approx n(\lambda) \pm \Delta\lambda \frac{dn}{d\lambda}.
-\end{equation}
+\]
 Taking the difference of the two expressions yields
-\begin{equation}
+\[
   \Delta n = n_l - n_r \approx 2 \Delta\lambda \frac{dn}{d\lambda}.
-\end{equation}
+\]
 
 We now insert this result into the expression for the Faraday rotation angle derived earlier,
-\begin{equation}
+\[
   \theta = \frac{\pi}{\lambda_0} \Delta n\, L.
-\end{equation}
+\]
 This gives
-\begin{equation}
+\[
   \theta \approx \frac{\pi}{\lambda_0} \left(2 \Delta\lambda \frac{dn}{d\lambda}\right) L.
-\end{equation}
+\]
 Since $\Delta\lambda$ is proportional to the magnetic field $B$, the rotation angle is linear in both $B$ and the optical path length $L$.
 This motivates writing the Faraday rotation in the form
 \begin{equation}
@@ -309,14 +309,15 @@ After passing through the sample, the light is linearly polarized but rotated by
 The analyzer is a second polarizer placed behind the sample, whose purpose is to convert changes in polarization direction into changes in transmitted intensity.
 The transmitted intensity behind the analyzer is described by Malus' law,
 \begin{equation}
-I = I_0 \cos^2 \varphi,
+  I = I_0 \cos^2 \varphi,
+  \label{eq:malus_law}
 \end{equation}
 where $\varphi$ is the angle between the polarization direction of the light and the transmission axis of the analyzer.
 
 If the polarization is rotated by a small Faraday angle $\theta$, the effective angle becomes $\varphi + \theta$, and the transmitted intensity is
-\begin{equation}
-I(\theta) = I_0 \cos^2(\varphi + \theta).
-\end{equation}
+\[
+  I(\theta) = I_0 \cos^2(\varphi + \theta).
+\]
 The analyzer angle $\varphi$ is chosen deliberately to maximize the sensitivity of the transmitted intensity to small changes in $\theta$.
 
 The analyzer is set to $\varphi = 45^\circ$, because at this angle the slope of the $\cos^2$ function is maximal and approximately linear in the vicinity of the working point.
@@ -327,51 +328,59 @@ This behavior is illustrated schematically in Fig.~\ref{fig:malus_slope}.
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.95\linewidth]{../resources/figures/malus_slope.png}
-\caption{Schematic illustration of Malus' law $I \propto \cos^2 \varphi$.
-At $\varphi = 45^\circ$ the slope of the curve is maximal and approximately linear, which makes this angle an optimal working point for detecting small polarization rotations.}
-\label{fig:malus_slope}
+  \caption{Schematic illustration of Malus' law $I \propto \cos^2 \varphi$.
+  At $\varphi = 45^\circ$ the slope of the curve is maximal and approximately linear, which makes this angle an optimal working point for detecting small polarization rotations.}
+  \label{fig:malus_slope}
 \end{figure}
 
 For small Faraday rotation angles $\theta \ll 1$, the intensity can be expanded around the working point $\varphi = 45^\circ$.
 Using a first-order Taylor expansion of $\cos^2(\varphi + \theta)$, one obtains
-\begin{equation}
+\[
   I(\theta) \approx \frac{I_0}{2} - I_0 \theta.
-\end{equation}
+\]
 This expression shows that the transmitted intensity consists of a constant offset and a term that depends linearly on the rotation angle.
 The linear dependence is essential, because it allows the rotation angle to be determined directly from changes in intensity.
 
 During the measurement, the magnetic field is not applied statically but is modulated sinusoidally by driving the solenoid with an alternating current.
 As a result, the Faraday rotation angle oscillates in time,
-\begin{equation}
+\[
   \theta(t) = \theta_B \sin(\Omega t),
-\end{equation}
+\]
 where $\theta_B$ is the rotation amplitude and $\Omega$ the modulation frequency.
 The intensity behind the analyzer therefore becomes
-\begin{equation}
+\[
   I(t) \approx I_{DC} + I_{AC} \sin(\Omega t),
-\end{equation}
+\]
 with a constant component
-\begin{equation}
+\[
   I_{DC} = \frac{I_0}{2}
-\end{equation}
+\]
 and an oscillating component of amplitude
-\begin{equation}
+\[
   I_{AC} = I_0 \theta_B.
-\end{equation}
+\]
 
 Experimentally, the light intensity behind the analyzer is detected by a photodiode, which converts the optical signal into an electrical voltage.
-This voltage contains both a constant (time-averaged) part and a small oscillating part.
-The constant component $I_{DC}$ is measured using a multimeter in DC mode, while the oscillating component is observed with an oscilloscope.
+The measured voltage $U$ is proportional to the transmitted light intensity $I$,
+\[
+  U \propto I.
+\]
+As a result, all relations derived above for the optical intensity remain valid for the measured voltages, up to an overall proportionality factor that cancels in the relevant ratios.
+
+The detector voltage therefore contains both a constant (time-averaged) component and a small oscillating component.
+The constant component is measured using a multimeter in DC mode, while the oscillating component is observed with an oscilloscope.
 
 On the oscilloscope, the oscillation is typically read as a peak-to-peak signal.
 This quantity is denoted by $I_{SS}$, where ``SS'' refers to the peak-to-peak (Spitze-Spitze) swing of the signal.
+Although the detector output is a voltage, the notation $I_{SS}$ is retained for consistency with the intensity-based theoretical description.
 Since the peak-to-peak value is twice the oscillation amplitude, one has
-\begin{equation}
+\[
   I_{SS} = 2 I_{AC}.
-\end{equation}
+\]
 Using $I_0 = 2 I_{DC}$, the rotation amplitude can therefore be written as
 \begin{equation}
   \theta_B = \frac{I_{SS}}{4 I_{DC}}.
+  \label{eq:rotation_from_signal}
 \end{equation}
 
 \subsubsection{Contrast Correction and Setting of the Working Point \texorpdfstring{$\varphi=45^\circ$}{}}
@@ -381,8 +390,8 @@ In real optical systems, the transmitted intensity does not vanish completely ev
 This can be caused by imperfect polarizers, slight misalignments, or stress-induced changes of the polarization state inside the glass.
 To account for this, a modified form of Malus' law is used,
 \begin{equation}
-I(\varphi) = (I_{\parallel} - I_{\perp}) \cos^2 \varphi + I_{\perp},
-\label{eq:malus_modified}
+  I(\varphi) = (I_{\parallel} - I_{\perp}) \cos^2 \varphi + I_{\perp},
+  \label{eq:malus_modified}
 \end{equation}
 where $I_{\parallel}$ and $I_{\perp}$ are the intensities measured for parallel and crossed polarizers, respectively.
 
@@ -424,41 +433,54 @@ In the experiment, the magnetic field required for Faraday rotation is generated
 While the Faraday rotation angle is proportional to the magnetic field, the field produced by a finite solenoid is not perfectly homogeneous along the optical propagation direction.
 As a result, different parts of the sample experience slightly different magnetic field strengths.
 
-Since the Faraday rotation accumulates continuously along the optical path, the total rotation angle is given by the integral of the local contribution,
-\begin{equation}
-  \theta = \int_0^L V(\lambda)\, B(z)\, \mathrm{d}z,
-\end{equation}
-where $L$ is the length of the sample and $B(z)$ is the magnetic flux density along the propagation direction.
-Because the Verdet constant is uniform within the sample and the rotation depends linearly on $B$, this expression can be rewritten in terms of a length-averaged magnetic field,
-\begin{equation}
-  \theta = V(\lambda)\, \bar{B}\, L,
-\end{equation}
+On a fundamental level, the Faraday rotation is described by the local relation
+\[
+  \theta(t) = V(\lambda)\, B(t)\, L,
+\]
+where $B(t)$ denotes the magnetic flux density acting on the light at a given time.
+If the magnetic field is sinusoidally modulated, $B(t) = B_{\mathrm{Ampl}} \sin(\Omega t)$, the rotation angle oscillates accordingly and its amplitude is given by
+\[
+  \theta_B = V(\lambda)\, B_{\mathrm{Ampl}}\,L.
+\]
+
+Since the Faraday rotation accumulates continuously along the optical path, the total rotation amplitude is obtained by integrating the local contribution along the propagation direction,
+\[
+  \theta_B = \int_0^L V(\lambda)\, B_{\mathrm{Ampl}}(z)\,\mathrm{d}z.
+\]
+Because the Verdet constant is uniform within the sample and the rotation depends linearly on the magnetic field, this expression can be written in terms of a length-averaged field amplitude,
+\[
+  \theta_B = V(\lambda)\,\bar B_{\mathrm{Ampl}}\,L,
+\]
 with
-\begin{equation}
-  \bar{B} = \frac{1}{L} \int_0^L B(z)\, \mathrm{d}z.
-\end{equation}
+\[
+  \bar B_{\mathrm{Ampl}} = \frac{1}{L}\int_0^L B_{\mathrm{Ampl}}(z)\,\mathrm{d}z.
+\]
 
-This definition shows that the Faraday rotation depends only on the average magnetic field experienced by the light inside the material, not on the exact spatial distribution of the field.
-Using the averaged field therefore allows the standard Faraday relation $\theta = VBL$ to remain valid even for a non-uniform solenoid field.
-
-In practice, the magnetic field profile $B(z)$ is determined experimentally by measuring the axial field of the solenoid as a function of position using a Hall probe.
-From this measured field profile, the length-averaged magnetic field is calculated and used in the determination of the Verdet constant.
-For $N$ discrete field values $B(z_i)$ measured at positions $z_i$ with approximately constant spacing $\Delta z$, the integral average is approximated by
+In practice, the axial magnetic field of the solenoid is measured experimentally as a function of position using a Hall probe.
+The field is recorded at discrete positions $z_i$ along the solenoid axis with approximately constant spacing $\Delta z$.
+From these measurements, the length-averaged magnetic field is obtained by approximating the integral by a Riemann sum,
 \begin{equation}
-  \bar{B} \approx \frac{1}{L} \sum_{i=1}^{N} B(z_i)\,\Delta z \,=\, \frac{\Delta z}{L} \sum_{i=1}^{N} B(z_i).
+  \bar B_{\mathrm{eff}} \approx \frac{\Delta z}{L} \sum_{i=1}^{N} B(z_i),
   \label{eq:Bavg_discrete}
 \end{equation}
+where $\bar B_{\mathrm{eff}}$ denotes the effective (root-mean-square) value of the length-averaged magnetic field obtained from the Hall-probe readings.
 
-During the actual Faraday-rotation measurements, the solenoid is not driven with a static current but with an alternating current, such that the magnetic field oscillates sinusoidally in time.
-The calibration measurements performed with a direct current therefore correspond to the effective (root-mean-square) value of the magnetic field.
+During the Faraday-rotation measurements, the solenoid is driven with an alternating current, such that the magnetic field oscillates sinusoidally in time.
+Both the multimeter used to monitor the coil current and the teslameter used to measure the magnetic field therefore display effective (root-mean-square) values.
 
 For a sinusoidally modulated magnetic field, the amplitude of the length-averaged flux density is related to its effective value by
 \begin{equation}
-  \bar{B}_{\mathrm{Ampl}} = \sqrt{2}\,\bar{B}.
+  \bar B_{\mathrm{Ampl}} = \sqrt{2}\,\bar B_{\mathrm{eff}}.
   \label{eq:B_amplitude}
 \end{equation}
 
-This relation allows the DC calibration of the solenoid field to be converted into the corresponding magnetic field amplitude relevant for the modulated Faraday-rotation measurements.
+Inserting this relation into the expression for the Faraday rotation amplitude yields the experimentally relevant equation
+\begin{equation}
+  \theta_B = V(\lambda)\,\bigl(\sqrt{2}\,\bar B_{\mathrm{eff}}\bigr)\,L.
+  \label{eq:theta_final}
+\end{equation}
+
+This equation forms the basis for the determination of the wavelength-dependent Verdet constant.
 
 \subsection{Dispersion Model for \texorpdfstring{$n(\lambda)$}{} and Determination of \texorpdfstring{$\lambda_R$ and $N$}{}}
 
@@ -469,21 +491,21 @@ The observed dispersion of the refractive index therefore reflects the off-reson
 
 In this situation, the detailed electronic level structure is not resolved, and the dispersive behavior can be approximated by a single effective resonance.
 This leads to a simple one-resonance dispersion model, in which the refractive index is written as
-\begin{equation}
+\[
   n^2(\lambda) = 1 + \frac{N e^2}{\varepsilon_0 m_e^*} \frac{1}{\omega_R^2 - \omega^2},
-\end{equation}
+\]
 where $N$ is the density of optically active electrons, $m_e^*$ is an effective electron mass, $\omega = 2\pi c / \lambda$ is the optical angular frequency, and $\omega_R$ denotes the angular resonance frequency of the effective oscillator.
 This expression corresponds to the response of bound electrons modeled as driven harmonic oscillators far below resonance.
 
 To obtain a form suitable for data evaluation, the frequency dependence is rewritten in terms of the wavelength.
 Using $\omega = 2\pi c/\lambda$ and $\omega_R = 2\pi c/\lambda_R$, the denominator becomes
-\begin{equation}
+\[
   \omega_R^2 - \omega^2 = (2\pi c)^2\left(\frac{1}{\lambda_R^2} - \frac{1}{\lambda^2}\right).
-\end{equation}
+\]
 Inserting this into the dispersion relation yields
-\begin{equation}
+\[
   n^2(\lambda) - 1 = \frac{N e^2}{\varepsilon_0 m_e^* (2\pi c)^2}\,\frac{1}{\frac{1}{\lambda_R^2} - \frac{1}{\lambda^2}}.
-\end{equation}
+\]
 Taking the reciprocal of both sides gives the so called Sellmeier equation
 \begin{equation}
   \frac{1}{n^2(\lambda) - 1} = \frac{\varepsilon_0 m_e^* (2\pi c)^2}{N e^2}
@@ -538,18 +560,18 @@ A schematic overview of the optical arrangement is shown in Fig.~\ref{fig:setup_
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.95\linewidth]{../resources/figures/setup_faraday.png}
-\caption{Schematic layout of the experimental setup.
-Light from an LED source is collimated by a lens, linearly polarized by the first polarizer, and passes through the glass sample placed inside a solenoid.
-The Faraday-rotated polarization state is analyzed by a second polarizer (analyzer), and the transmitted intensity is focused onto a photodetector.
-A diaphragm (aperture) is used to improve beam quality and suppress stray light.}
-\label{fig:setup_overview}
+  \caption{Schematic layout of the experimental setup.
+  Light from an LED source is collimated by a lens, linearly polarized by the first polarizer, and passes through the glass sample placed inside a solenoid.
+  The Faraday-rotated polarization state is analyzed by a second polarizer (analyzer), and the transmitted intensity is focused onto a photodetector.
+  A diaphragm (aperture) is used to improve beam quality and suppress stray light.}
+  \label{fig:setup_overview}
 \end{figure}
 
-The light source is a set of light-emitting diodes (LEDs) with different central wavelengths in the visible range (400 nm, 470 nm, 508 nm, 628 nm).
+The light source is a set of light-emitting diodes (LEDs) with different central wavelengths in the visible range (400~nm, 470~nm, 508~nm, 628~nm).
 For each measurement, a single LED is selected, allowing the wavelength dependence of the Faraday rotation to be studied.
 The emitted light is initially divergent and is therefore collimated by the first lens to form a nearly parallel beam.
 
-After collimation, the light passes through the first polarizer, which defines a well-controlled linear polarization state.
+After collimation, the light passes through the first polarizer, which defines a linear polarization state.
 This polarizer serves as the reference for all subsequent polarization rotations.
 A diaphragm placed behind the polarizer limits the beam diameter and suppresses stray light, improving the signal quality at the detector.
 
@@ -559,12 +581,14 @@ As discussed in the Theory section, this magnetic field induces a Faraday rotati
 The magnetic field is driven with an alternating current, resulting in a time-dependent rotation angle.
 
 After leaving the solenoid, the light passes through the second polarizer, which acts as an analyzer.
-Its transmission axis is set to an angle of $\varphi = 45^\circ$ with respect to the initial polarization direction.
-In this configuration, small Faraday-induced polarization rotations are converted into proportional changes in transmitted intensity.
+Its transmission axis is set to an angle of $\varphi = 45^\circ$ with respect to the incident polarization direction, as established by the working-point criterion described in Sec.~\ref{sec:contrast_correction}.
+The absolute angular orientation of the polarizer mounts does not coincide reliably with the optical transmission axes.
+Therefore, only relative angles between polarizer and analyzer are relevant, and the crossed and parallel configurations are defined operationally via minimum and maximum detector signals.
 
 Finally, a second lens focuses the transmitted light onto a photodiode detector.
-The photodiode converts the optical intensity into an electrical voltage signal, which contains both a constant component and a small oscillating component at the modulation frequency of the magnetic field.
-These signals are recorded using a multimeter and an oscilloscope and form the basis for the determination of the Faraday rotation angle and the Verdet constant.
+The photodiode converts the transmitted optical intensity into an electrical voltage signal that is proportional to the light intensity.
+The detector output contains both a constant component and a small oscillating component at the modulation frequency of the magnetic field.
+These signals are recorded using a multimeter (DC component) and an oscilloscope (peak-to-peak oscillation) and form the basis for the determination of the Faraday rotation angle and the Verdet constant.
 
 % -----------------
 % --- Procedure ---
