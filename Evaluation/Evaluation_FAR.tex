@@ -26,7 +26,7 @@
 \usepackage{cancel}              % strikeout in math
 \usepackage{siunitx}             % proper units
 \DeclareSIUnit\angstrom{\text{Å}}
-\renewcommand{\arraystretch}{0.7}
+\renewcommand{\arraystretch}{0.9}
 
 % --- Graphics and floats ---
 \usepackage{graphicx}
@@ -125,11 +125,11 @@ In this experiment, we measure the Verdet constant of optical glasses at several
 
 \vspace{1em}
 \begin{figure}[H]
-  \centering
-  \includegraphics[width=0.85\linewidth]{../resources/figures/faraday_effect.png}
+\centering
+\includegraphics[width=0.85\linewidth]{../resources/figures/faraday_effect.png}
   \caption{Schematic illustration of the Faraday effect.
-    Linearly polarized light propagates through a transparent medium in the presence of a magnetic field applied parallel to the propagation direction.
-    Inside the material, the plane of polarization rotates continuously due to the different phase velocities of left- and right-circularly polarized components.
+  Linearly polarized light propagates through a transparent medium in the presence of a magnetic field applied parallel to the propagation direction.
+  Inside the material, the plane of polarization rotates continuously due to the different phase velocities of left- and right-circularly polarized components.
   The total rotation angle is proportional to the magnetic field strength and the optical path length~\cite{wikimedia_faraday_effect}.}
   \label{fig:faraday_effect_schematic}
 \end{figure}
@@ -148,10 +148,10 @@ Linear polarization means that the tip of the electric field vector oscillates b
 
 Circular polarization means that the tip of the electric field vector rotates at constant magnitude in the transverse plane, which occurs when two orthogonal components of equal amplitude have a phase shift of $\pm 90^\circ$.
 A convenient representation is
-\begin{align}
+\begin{align*}
   \text{RCP:}\quad &E_x^{(r)}(z,t)=E_0\cos(\omega t-kz),\quad E_y^{(r)}(z,t)=E_0\sin(\omega t-kz), \\
   \text{LCP:}\quad &E_x^{(l)}(z,t)=E_0\cos(\omega t-kz),\quad E_y^{(l)}(z,t)=-E_0\sin(\omega t-kz),
-\end{align}
+\end{align*}
 where the opposite sign in $E_y$ corresponds to the opposite sense of rotation.
 
 A central fact for the Faraday effect is that a linearly polarized wave can be written as the superposition of a left- and a right-circularly polarized wave of equal amplitude.
@@ -164,50 +164,50 @@ To understand how the refractive index enters the Faraday effect, it is useful t
 We consider a monochromatic plane wave propagating in the $+z$ direction and focus on a single transverse field component, for example $E_x(z,t)$.
 
 In vacuum, a monochromatic plane wave can be written as
-\begin{equation}
+\[
   E_x(z,t) = E_0 \cos(\omega t - k_0 z),
-\end{equation}
+\]
 where $\omega$ is the angular frequency and $k_0 = 2\pi / \lambda_0$ is the vacuum wavenumber.
 The spatial term $k_0 z$ determines how quickly the phase of the wave changes as it propagates along the $z$ direction.
 
 When light enters a medium with refractive index $n$, its frequency remains unchanged, but its wavelength is reduced to $\lambda = \lambda_0 / n$.
 As a result, the phase changes more rapidly with position and the wavenumber increases to
-\begin{equation}
+\[
   k = \frac{2\pi}{\lambda} = \frac{2\pi}{\lambda_0 / n} = n k_0.
-\end{equation}
+\]
 A larger refractive index therefore means that the phase of the wave ``winds up'' faster per unit length inside the material.
 
 After propagating a distance $L$ through the medium, the accumulated spatial phase advance is
-\begin{equation}
+\[
   \phi = kL = n k_0 L = n \frac{2\pi}{\lambda_0} L.
-\end{equation}
+\]
 This phase directly measures how many oscillation cycles the wave completes over the distance $L$.
 
 This situation is illustrated in Fig.~\ref{fig:phase_accumulation}, which shows how the wavelength is shortened inside a dielectric medium and how this leads to a larger phase accumulation over the same physical distance.
 
 \vspace{1em}
 \begin{figure}[H]
-  \centering
-  \includegraphics[width=0.95\linewidth]{../resources/figures/phase_accumulation.png}
+\centering
+\includegraphics[width=0.95\linewidth]{../resources/figures/phase_accumulation.png}
   \caption{Propagation of a plane electromagnetic wave through a medium of refractive index $n$.
-    Inside the medium the wavelength is reduced to $\lambda = \lambda_0/n$, leading to a faster spatial phase accumulation compared to vacuum.
+  Inside the medium the wavelength is reduced to $\lambda = \lambda_0/n$, leading to a faster spatial phase accumulation compared to vacuum.
   Adapted from~\cite{demtroeder2013_emwellen}.}
   \label{fig:phase_accumulation}
 \end{figure}
 
 If two waves propagate through the same length $L$ but experience different refractive indices, they accumulate different phases.
 For two polarization components with refractive indices $n_1$ and $n_2$, the resulting phase difference is
-\begin{equation}
+\[
   \Delta\phi = (n_1 - n_2) k_0 L.
-\end{equation}
+\]
 In the Faraday effect, a magnetic field causes left- and right-circularly polarized light to experience slightly different refractive indices, $n_l \neq n_r$, so that a relative phase shift builds up between the two components.
 This relative phase shift has a direct geometric consequence for the polarization state.
 Since a linearly polarized wave can be written as the superposition of left- and right-circularly polarized components of equal amplitude, a relative phase shift between these components rotates the resulting linear polarization direction.
 
 For a phase difference $\Delta\phi$, the rotation angle of the polarization plane is
-\begin{equation}
+\[
   \theta = \frac{\Delta\phi}{2},
-\end{equation}
+\]
 which follows by explicitly adding the two circular fields and using trigonometric identities.
 
 Inserting the expression for $\Delta\phi$ yields
@@ -230,9 +230,9 @@ As a result, $n_l = n_r$ and no Faraday rotation occurs.
 
 Applying a magnetic field $\mathbf{B}$ along the propagation direction introduces a preferred axial direction and breaks this symmetry.
 In the classical picture, the electron motion induced by the optical electric field acquires an additional contribution from the magnetic Lorentz force
-\begin{equation}
+\[
   \mathbf{F}_B = -e\,\mathbf{v} \times \mathbf{B},
-\end{equation}
+\]
 where $\mathbf{v}$ is the electron velocity.
 This force bends the electron trajectories in a way that depends on the sense of their rotational motion relative to the magnetic field direction.
 As a consequence, electrons driven by left- and right-circularly polarized light respond slightly differently, leading to different polarization strengths and phase delays for the two circular components.
@@ -259,29 +259,29 @@ This difference in the optical response is encoded in a small refractive index d
 
 Since the refractive index of a dielectric depends on wavelength, $n = n(\lambda)$, a small magnetic-field-induced shift of the underlying electronic response can be described by stating that the two circular polarization components effectively sample the dispersion curve at slightly different wavelengths.
 We therefore write
-\begin{equation}
+\[
   n_l \approx n(\lambda + \Delta\lambda), \qquad n_r \approx n(\lambda - \Delta\lambda),
-\end{equation}
+\]
 where $\Delta\lambda$ is small and proportional to the applied magnetic field $B$.
 This parameter does not represent a change of the light wavelength itself, but rather encodes the small Zeeman-induced shift of the electronic resonance that determines the dispersive optical response.
 
 For sufficiently small $\Delta\lambda$, the refractive index can be expanded to first order,
-\begin{equation}
+\[
   n(\lambda \pm \Delta\lambda) \approx n(\lambda) \pm \Delta\lambda \frac{dn}{d\lambda}.
-\end{equation}
+\]
 Taking the difference of the two expressions yields
-\begin{equation}
+\[
   \Delta n = n_l - n_r \approx 2 \Delta\lambda \frac{dn}{d\lambda}.
-\end{equation}
+\]
 
 We now insert this result into the expression for the Faraday rotation angle derived earlier,
-\begin{equation}
+\[
   \theta = \frac{\pi}{\lambda_0} \Delta n\, L.
-\end{equation}
+\]
 This gives
-\begin{equation}
+\[
   \theta \approx \frac{\pi}{\lambda_0} \left(2 \Delta\lambda \frac{dn}{d\lambda}\right) L.
-\end{equation}
+\]
 Since $\Delta\lambda$ is proportional to the magnetic field $B$, the rotation angle is linear in both $B$ and the optical path length $L$.
 This motivates writing the Faraday rotation in the form
 \begin{equation}
@@ -309,14 +309,15 @@ After passing through the sample, the light is linearly polarized but rotated by
 The analyzer is a second polarizer placed behind the sample, whose purpose is to convert changes in polarization direction into changes in transmitted intensity.
 The transmitted intensity behind the analyzer is described by Malus' law,
 \begin{equation}
-I = I_0 \cos^2 \varphi,
+  I = I_0 \cos^2 \varphi,
+  \label{eq:malus_law}
 \end{equation}
 where $\varphi$ is the angle between the polarization direction of the light and the transmission axis of the analyzer.
 
 If the polarization is rotated by a small Faraday angle $\theta$, the effective angle becomes $\varphi + \theta$, and the transmitted intensity is
-\begin{equation}
-I(\theta) = I_0 \cos^2(\varphi + \theta).
-\end{equation}
+\[
+  I(\theta) = I_0 \cos^2(\varphi + \theta).
+\]
 The analyzer angle $\varphi$ is chosen deliberately to maximize the sensitivity of the transmitted intensity to small changes in $\theta$.
 
 The analyzer is set to $\varphi = 45^\circ$, because at this angle the slope of the $\cos^2$ function is maximal and approximately linear in the vicinity of the working point.
@@ -327,51 +328,59 @@ This behavior is illustrated schematically in Fig.~\ref{fig:malus_slope}.
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.95\linewidth]{../resources/figures/malus_slope.png}
-\caption{Schematic illustration of Malus' law $I \propto \cos^2 \varphi$.
-At $\varphi = 45^\circ$ the slope of the curve is maximal and approximately linear, which makes this angle an optimal working point for detecting small polarization rotations.}
-\label{fig:malus_slope}
+  \caption{Schematic illustration of Malus' law $I \propto \cos^2 \varphi$.
+  At $\varphi = 45^\circ$ the slope of the curve is maximal and approximately linear, which makes this angle an optimal working point for detecting small polarization rotations.}
+  \label{fig:malus_slope}
 \end{figure}
 
 For small Faraday rotation angles $\theta \ll 1$, the intensity can be expanded around the working point $\varphi = 45^\circ$.
 Using a first-order Taylor expansion of $\cos^2(\varphi + \theta)$, one obtains
-\begin{equation}
+\[
   I(\theta) \approx \frac{I_0}{2} - I_0 \theta.
-\end{equation}
+\]
 This expression shows that the transmitted intensity consists of a constant offset and a term that depends linearly on the rotation angle.
 The linear dependence is essential, because it allows the rotation angle to be determined directly from changes in intensity.
 
 During the measurement, the magnetic field is not applied statically but is modulated sinusoidally by driving the solenoid with an alternating current.
 As a result, the Faraday rotation angle oscillates in time,
-\begin{equation}
+\[
   \theta(t) = \theta_B \sin(\Omega t),
-\end{equation}
+\]
 where $\theta_B$ is the rotation amplitude and $\Omega$ the modulation frequency.
 The intensity behind the analyzer therefore becomes
-\begin{equation}
+\[
   I(t) \approx I_{DC} + I_{AC} \sin(\Omega t),
-\end{equation}
+\]
 with a constant component
-\begin{equation}
+\[
   I_{DC} = \frac{I_0}{2}
-\end{equation}
+\]
 and an oscillating component of amplitude
-\begin{equation}
+\[
   I_{AC} = I_0 \theta_B.
-\end{equation}
+\]
 
-Experimentally, the light intensity behind the analyzer is detected by a photodiode, which converts the optical signal into an electrical voltage.
-This voltage contains both a constant (time-averaged) part and a small oscillating part.
-The constant component $I_{DC}$ is measured using a multimeter in DC mode, while the oscillating component is observed with an oscilloscope.
+Experimentally, the transmitted light intensity is detected by a photodiode, which converts the optical signal into an electrical voltage.
+The measured detector voltage $U$ is proportional to the incident optical intensity $I$,
+\[
+  U \propto I.
+\]
+From this point on, all experimentally recorded quantities are therefore expressed in terms of detector voltages rather than optical intensities.
+Since the proportionality factor between $U$ and $I$ cancels in all relevant ratios, the relations derived above remain valid without modification.
+
+The detector voltage contains both a constant (time-averaged) component and a small oscillating component.
+The constant component is measured using a multimeter in DC mode and is denoted by $U_{DC}$, while the oscillating component is observed with an oscilloscope.
 
 On the oscilloscope, the oscillation is typically read as a peak-to-peak signal.
-This quantity is denoted by $I_{SS}$, where ``SS'' refers to the peak-to-peak (Spitze-Spitze) swing of the signal.
+This quantity is denoted by $U_{SS}$, where ``SS'' refers to the peak-to-peak (Spitze-Spitze) swing of the signal.
 Since the peak-to-peak value is twice the oscillation amplitude, one has
+\[
+  U_{SS} = 2 U_{AC}.
+\]
+Using $U_0 = 2 U_{DC}$, the Faraday rotation amplitude can therefore be written as
 \begin{equation}
-  I_{SS} = 2 I_{AC}.
-\end{equation}
-Using $I_0 = 2 I_{DC}$, the rotation amplitude can therefore be written as
-\begin{equation}
-  \theta_B = \frac{I_{SS}}{4 I_{DC}}.
+  \theta_B = \frac{U_{SS}}{4 U_{DC}}.
+  \label{eq:rotation_from_signal}
 \end{equation}
 
 \subsubsection{Contrast Correction and Setting of the Working Point \texorpdfstring{$\varphi=45^\circ$}{}}
@@ -381,38 +390,38 @@ In real optical systems, the transmitted intensity does not vanish completely ev
 This can be caused by imperfect polarizers, slight misalignments, or stress-induced changes of the polarization state inside the glass.
 To account for this, a modified form of Malus' law is used,
 \begin{equation}
-I(\varphi) = (I_{\parallel} - I_{\perp}) \cos^2 \varphi + I_{\perp},
-\label{eq:malus_modified}
+  U(\varphi) = (U_{\parallel} - U_{\perp}) \cos^2 \varphi + U_{\perp},
+  \label{eq:malus_modified}
 \end{equation}
-where $I_{\parallel}$ and $I_{\perp}$ are the intensities measured for parallel and crossed polarizers, respectively.
+where $U_{\parallel}$ and $U_{\perp}$ are the detector voltages measured for parallel and crossed polarizers, respectively.
 
 From this expression, the DC component of the detector signal at the working point $\varphi = 45^\circ$ follows directly as
 \begin{equation}
-  I_{DC}(\varphi = 45^\circ) = \frac{1}{2}\left(I_{\parallel} + I_{\perp}\right).
-  \label{eq:IDC_workingpoint}
+  U_{DC}(\varphi = 45^\circ) = \frac{1}{2}\left(U_{\parallel} + U_{\perp}\right).
+  \label{eq:UDC_workingpoint}
 \end{equation}
 This relation provides a precise experimental criterion for setting the analyzer angle.
-For each wavelength, $I_{\parallel}$ and $I_{\perp}$ are measured, the corresponding midpoint value of $I_{DC}$ is calculated, and the analyzer is adjusted until the multimeter reading matches this value.
+For each wavelength, $U_{\parallel}$ and $U_{\perp}$ are measured, the corresponding midpoint value of $U_{DC}$ is calculated, and the analyzer is adjusted until the multimeter reading matches this value.
 
-Setting the working point by searching for the maximum of the modulated signal $I_{SS}(\varphi)$ is unsuitable, because the modulation amplitude exhibits a broad and flat maximum around $\varphi = 45^\circ$.
-Near this maximum, small changes of the analyzer angle lead to only very small variations of $I_{SS}$, which are comparable to noise and reading uncertainties.
+Setting the working point by searching for the maximum of the modulated signal $U_{SS}(\varphi)$ is unsuitable, because the modulation amplitude exhibits a broad and flat maximum around $\varphi = 45^\circ$.
+Near this maximum, small changes of the analyzer angle lead to only very small variations of $U_{SS}$, which are comparable to noise and reading uncertainties.
 As a result, the position of the maximum cannot be determined with sufficient precision.
 
-In contrast, the DC signal varies monotonically with $\varphi$ in the vicinity of $45^\circ$, and the midpoint condition~\eqref{eq:IDC_workingpoint} therefore allows a much more accurate and reproducible adjustment of the analyzer angle.
+In contrast, the DC signal varies monotonically with $\varphi$ in the vicinity of $45^\circ$, and the midpoint condition~\eqref{eq:UDC_workingpoint} therefore allows a much more accurate and reproducible adjustment of the analyzer angle.
 This precise setting of the working point is essential for an accurate determination of the Verdet constant using the modulation method.
 
-In practice, the crossed setting is not perfectly dark, i.e. $I_{\perp}\neq 0$.
+In practice, the crossed setting is not perfectly dark, i.e. $U_{\perp}\neq 0$.
 This finite offset also means that the intensity modulation is weaker than in the ideal case.
 To account for this, a contrast factor
 \begin{equation}
-  K = \frac{I_{\parallel} - I_{\perp}}{I_{\parallel} + I_{\perp}}
+  K = \frac{U_{\parallel} - U_{\perp}}{U_{\parallel} + U_{\perp}}
   \label{eq:contrast_factor}
 \end{equation}
 is introduced.
-It describes how strongly the analyzer can modulate the detected intensity between the parallel and crossed configurations.
+It describes how strongly the analyzer can modulate the detected signal between the parallel and crossed configurations.
 With this correction, the experimentally relevant expression for the Faraday rotation amplitude becomes
 \begin{equation}
-  \theta_B = \frac{1}{K}\,\frac{I_{SS}}{4 I_{DC}}.
+  \theta_B = \frac{1}{K}\,\frac{U_{SS}}{4 U_{DC}}.
   \label{eq:rotation_corrected}
 \end{equation}
 
@@ -424,41 +433,54 @@ In the experiment, the magnetic field required for Faraday rotation is generated
 While the Faraday rotation angle is proportional to the magnetic field, the field produced by a finite solenoid is not perfectly homogeneous along the optical propagation direction.
 As a result, different parts of the sample experience slightly different magnetic field strengths.
 
-Since the Faraday rotation accumulates continuously along the optical path, the total rotation angle is given by the integral of the local contribution,
-\begin{equation}
-  \theta = \int_0^L V(\lambda)\, B(z)\, \mathrm{d}z,
-\end{equation}
-where $L$ is the length of the sample and $B(z)$ is the magnetic flux density along the propagation direction.
-Because the Verdet constant is uniform within the sample and the rotation depends linearly on $B$, this expression can be rewritten in terms of a length-averaged magnetic field,
-\begin{equation}
-  \theta = V(\lambda)\, \bar{B}\, L,
-\end{equation}
+On a fundamental level, the Faraday rotation is described by the local relation
+\[
+  \theta(t) = V(\lambda)\, B(t)\, L,
+\]
+where $B(t)$ denotes the magnetic flux density acting on the light at a given time.
+If the magnetic field is sinusoidally modulated, $B(t) = B_{\mathrm{Ampl}} \sin(\Omega t)$, the rotation angle oscillates accordingly and its amplitude is given by
+\[
+  \theta_B = V(\lambda)\, B_{\mathrm{Ampl}}\,L.
+\]
+
+Since the Faraday rotation accumulates continuously along the optical path, the total rotation amplitude is obtained by integrating the local contribution along the propagation direction,
+\[
+  \theta_B = \int_0^L V(\lambda)\, B_{\mathrm{Ampl}}(z)\,\mathrm{d}z.
+\]
+Because the Verdet constant is uniform within the sample and the rotation depends linearly on the magnetic field, this expression can be written in terms of a length-averaged field amplitude,
+\[
+  \theta_B = V(\lambda)\,\bar B_{\mathrm{Ampl}}\,L,
+\]
 with
-\begin{equation}
-  \bar{B} = \frac{1}{L} \int_0^L B(z)\, \mathrm{d}z.
-\end{equation}
+\[
+  \bar B_{\mathrm{Ampl}} = \frac{1}{L}\int_0^L B_{\mathrm{Ampl}}(z)\,\mathrm{d}z.
+\]
 
-This definition shows that the Faraday rotation depends only on the average magnetic field experienced by the light inside the material, not on the exact spatial distribution of the field.
-Using the averaged field therefore allows the standard Faraday relation $\theta = VBL$ to remain valid even for a non-uniform solenoid field.
-
-In practice, the magnetic field profile $B(z)$ is determined experimentally by measuring the axial field of the solenoid as a function of position using a Hall probe.
-From this measured field profile, the length-averaged magnetic field is calculated and used in the determination of the Verdet constant.
-For $N$ discrete field values $B(z_i)$ measured at positions $z_i$ with approximately constant spacing $\Delta z$, the integral average is approximated by
+In practice, the axial magnetic field of the solenoid is measured experimentally as a function of position using a Hall probe.
+The field is recorded at discrete positions $z_i$ along the solenoid axis with approximately constant spacing $\Delta z$.
+From these measurements, the length-averaged magnetic field is obtained by approximating the integral by a Riemann sum,
 \begin{equation}
-  \bar{B} \approx \frac{1}{L} \sum_{i=1}^{N} B(z_i)\,\Delta z \,=\, \frac{\Delta z}{L} \sum_{i=1}^{N} B(z_i).
+  \bar B_{\mathrm{eff}} \approx \frac{\Delta z}{L} \sum_{i=1}^{N} B(z_i),
   \label{eq:Bavg_discrete}
 \end{equation}
+where $\bar B_{\mathrm{eff}}$ denotes the effective (root-mean-square) value of the length-averaged magnetic field obtained from the Hall-probe readings.
 
-During the actual Faraday-rotation measurements, the solenoid is not driven with a static current but with an alternating current, such that the magnetic field oscillates sinusoidally in time.
-The calibration measurements performed with a direct current therefore correspond to the effective (root-mean-square) value of the magnetic field.
+During the Faraday-rotation measurements, the solenoid is driven with an alternating current, such that the magnetic field oscillates sinusoidally in time.
+Both the multimeter used to monitor the coil current and the teslameter used to measure the magnetic field therefore display effective (root-mean-square) values.
 
 For a sinusoidally modulated magnetic field, the amplitude of the length-averaged flux density is related to its effective value by
 \begin{equation}
-  \bar{B}_{\mathrm{Ampl}} = \sqrt{2}\,\bar{B}.
+  \bar B_{\mathrm{Ampl}} = \sqrt{2}\,\bar B_{\mathrm{eff}}.
   \label{eq:B_amplitude}
 \end{equation}
 
-This relation allows the DC calibration of the solenoid field to be converted into the corresponding magnetic field amplitude relevant for the modulated Faraday-rotation measurements.
+Inserting this relation into the expression for the Faraday rotation amplitude yields the experimentally relevant equation
+\begin{equation}
+  \theta_B = V(\lambda)\,\bigl(\sqrt{2}\,\bar B_{\mathrm{eff}}\bigr)\,L.
+  \label{eq:theta_final}
+\end{equation}
+
+This equation forms the basis for the determination of the wavelength-dependent Verdet constant.
 
 \subsection{Dispersion Model for \texorpdfstring{$n(\lambda)$}{} and Determination of \texorpdfstring{$\lambda_R$ and $N$}{}}
 
@@ -469,21 +491,21 @@ The observed dispersion of the refractive index therefore reflects the off-reson
 
 In this situation, the detailed electronic level structure is not resolved, and the dispersive behavior can be approximated by a single effective resonance.
 This leads to a simple one-resonance dispersion model, in which the refractive index is written as
-\begin{equation}
+\[
   n^2(\lambda) = 1 + \frac{N e^2}{\varepsilon_0 m_e^*} \frac{1}{\omega_R^2 - \omega^2},
-\end{equation}
+\]
 where $N$ is the density of optically active electrons, $m_e^*$ is an effective electron mass, $\omega = 2\pi c / \lambda$ is the optical angular frequency, and $\omega_R$ denotes the angular resonance frequency of the effective oscillator.
 This expression corresponds to the response of bound electrons modeled as driven harmonic oscillators far below resonance.
 
 To obtain a form suitable for data evaluation, the frequency dependence is rewritten in terms of the wavelength.
 Using $\omega = 2\pi c/\lambda$ and $\omega_R = 2\pi c/\lambda_R$, the denominator becomes
-\begin{equation}
+\[
   \omega_R^2 - \omega^2 = (2\pi c)^2\left(\frac{1}{\lambda_R^2} - \frac{1}{\lambda^2}\right).
-\end{equation}
+\]
 Inserting this into the dispersion relation yields
-\begin{equation}
+\[
   n^2(\lambda) - 1 = \frac{N e^2}{\varepsilon_0 m_e^* (2\pi c)^2}\,\frac{1}{\frac{1}{\lambda_R^2} - \frac{1}{\lambda^2}}.
-\end{equation}
+\]
 Taking the reciprocal of both sides gives the so called Sellmeier equation
 \begin{equation}
   \frac{1}{n^2(\lambda) - 1} = \frac{\varepsilon_0 m_e^* (2\pi c)^2}{N e^2}
@@ -530,6 +552,7 @@ In this way, the refractive index dispersion and the magneto-optical response ar
 % --- Experimental Setup ---
 % --------------------------
 \section{Experimental Setup}
+\label{sec:exp_setup}
 
 The experimental setup is designed to generate linearly polarized light of selectable wavelength, induce a controllable Faraday rotation in a glass sample placed inside a magnetic field, and measure the resulting polarization rotation with high sensitivity via intensity modulation.
 A schematic overview of the optical arrangement is shown in Fig.~\ref{fig:setup_overview}.
@@ -538,186 +561,140 @@ A schematic overview of the optical arrangement is shown in Fig.~\ref{fig:setup_
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.95\linewidth]{../resources/figures/setup_faraday.png}
-\caption{Schematic layout of the experimental setup.
-Light from an LED source is collimated by a lens, linearly polarized by the first polarizer, and passes through the glass sample placed inside a solenoid.
-The Faraday-rotated polarization state is analyzed by a second polarizer (analyzer), and the transmitted intensity is focused onto a photodetector.
-A diaphragm (aperture) is used to improve beam quality and suppress stray light.}
-\label{fig:setup_overview}
+  \caption{Schematic layout of the experimental setup.
+  Light from an LED source is collimated by a lens, linearly polarized by the first polarizer, and passes through the glass sample placed inside a solenoid.
+  The Faraday-rotated polarization state is analyzed by a second polarizer (analyzer), and the transmitted intensity is focused onto a photodetector.
+  A diaphragm (aperture) is used to improve beam quality and suppress stray light.}
+  \label{fig:setup_overview}
 \end{figure}
 
-The light source is a set of light-emitting diodes (LEDs) with different central wavelengths in the visible range (400 nm, 470 nm, 508 nm, 628 nm).
+The light source is a set of light-emitting diodes (LEDs) with different central wavelengths in the visible range (400~nm, 470~nm, 508~nm, 628~nm).
 For each measurement, a single LED is selected, allowing the wavelength dependence of the Faraday rotation to be studied.
 The emitted light is initially divergent and is therefore collimated by the first lens to form a nearly parallel beam.
 
-After collimation, the light passes through the first polarizer, which defines a well-controlled linear polarization state.
+After collimation, the light passes through the first polarizer, which defines a linear polarization state.
 This polarizer serves as the reference for all subsequent polarization rotations.
 A diaphragm placed behind the polarizer limits the beam diameter and suppresses stray light, improving the signal quality at the detector.
 
 The polarized light then traverses the glass sample, which is mounted inside a solenoid.
+Two different optical glass samples are used in the experiment, a borosilicate crown glass (BK7) and a dense flint glass (SF10).
+The SF10 glass contains lead oxide and therefore has a significantly higher mass density than BK7, which provides a simple practical means of distinguishing the two samples, as they are not labeled.
 When a current flows through the solenoid, an axial magnetic field is generated along the direction of light propagation.
 As discussed in the Theory section, this magnetic field induces a Faraday rotation of the polarization plane inside the sample.
 The magnetic field is driven with an alternating current, resulting in a time-dependent rotation angle.
 
 After leaving the solenoid, the light passes through the second polarizer, which acts as an analyzer.
-Its transmission axis is set to an angle of $\varphi = 45^\circ$ with respect to the initial polarization direction.
-In this configuration, small Faraday-induced polarization rotations are converted into proportional changes in transmitted intensity.
+Its transmission axis is set to an angle of $\varphi = 45^\circ$ with respect to the incident polarization direction, as established by the working-point criterion described in Sec.~\ref{sec:contrast_correction}.
+The absolute angular orientation of the polarizer mounts does not coincide reliably with the optical transmission axes.
+Therefore, only relative angles between polarizer and analyzer are relevant, and the crossed and parallel configurations are defined operationally via minimum and maximum detector signals.
 
 Finally, a second lens focuses the transmitted light onto a photodiode detector.
-The photodiode converts the optical intensity into an electrical voltage signal, which contains both a constant component and a small oscillating component at the modulation frequency of the magnetic field.
-These signals are recorded using a multimeter and an oscilloscope and form the basis for the determination of the Faraday rotation angle and the Verdet constant.
+The photodiode converts the transmitted optical intensity into an electrical voltage signal that is proportional to the light intensity.
+The detector output contains both a constant component and a small oscillating component at the modulation frequency of the magnetic field.
+These signals are recorded using a multimeter (DC component) and an oscilloscope (peak-to-peak oscillation) and form the basis for the determination of the Faraday rotation angle and the Verdet constant.
 
 % -----------------
 % --- Procedure ---
 % -----------------
 \section{Procedure}
 
-\subsection{Task 1 (Preparation)}
+The experimental procedure is divided into three main stages: magnetic-field calibration, optical alignment and polarization optimization, and finally Faraday-rotation measurements.
 
-For the two optical glasses N-BK7 and SF10, tabulated refractive-index data $n(\lambda)$ are obtained from the database \texttt{refractiveindex.info} as specified in the lab manual~\cite{FARAnleitung}.
+Unless stated otherwise, all alignment, calibration, and optimization steps (Tasks~2--8) were performed using the BK7 glass sample.
+The SF10 glass was used only during the Faraday-rotation measurements in Task~9, where the procedure was repeated for comparison.
 
-For each wavelength $\lambda_i$, the data are transformed into
-\begin{equation}
-  x_i = \frac{1}{\lambda_i^2},
-  \qquad
-  y_i = \frac{1}{n(\lambda_i)^2 - 1}.
-\end{equation}
+Before each relevant measurement series, the detector background voltage $U_{\mathrm{bg}}$ was recorded with the beam path blocked.
+This background signal, originating mainly from ambient light entering the setup, was subtracted from all subsequently measured DC detector voltages.
 
-According to Eq.~\ref{eq:sellmeier_linear}, these two quantities follow a linear relation
-\begin{equation}
-  y = -A\,x + B.
-\end{equation}
-For each glass type, the values $y_i$ are therefore plotted versus $x_i$, and a linear fit is performed to obtain the slope $(-A)$ and the intercept $B$.
+\subsection{Magnetic-Field Calibration and Optical Alignment}
 
-From the fit parameters, the effective resonance wavelength of the one-resonance model is determined as
-\begin{equation}
-  \lambda_R = \sqrt{\frac{A}{B}} \;=\; \sqrt{\frac{-\text{slope}}{\text{intercept}}}.
-\end{equation}
+The experiment was carried out with four LEDs at central wavelengths of 400~nm, 470~nm, 508~nm, and 628~nm.
+During alignment and calibration, the red LED (628~nm) was used preferentially because it provided the highest detector signal.
 
-The parameter $A$ (or equivalently the absolute value of the fitted slope) is retained for later evaluation tasks, where it enters the determination of the dispersion-electron density $N$ via Eq.~\ref{eq:N_from_slope}.
+\paragraph{\textbf{Task 2: Axial magnetic-field profile.}}
+Using the axial Hall probe of the teslameter, the magnetic flux density $B(z)$ was measured along the solenoid axis at a fixed effective coil current of $I_{\mathrm{eff}} = 1.0$~A.
+The field was recorded at discrete positions from $z = 0$~cm to $z = 7$~cm in steps of $\Delta z = 0.5$~cm, corresponding to the region later occupied by the glass sample.
+From these values, the length-averaged magnetic field $\bar{B}_{\mathrm{eff}}$ was calculated using the discrete approximation~\eqref{eq:Bavg_discrete}.
 
-\subsection{Task 2}
+\paragraph{\textbf{Task 3: Field--current calibration.}}
+To establish a calibration curve $\bar{B}_{\mathrm{eff}}(I_{\mathrm{eff}})$ relating the effective coil current to the effective length-averaged magnetic field acting on the sample, the magnetic flux density was measured for different current settings.
+Ideally, this requires measuring the axial magnetic-field profile $B(z)$ for each current setting and calculating $\bar{B}_{\mathrm{eff}}$ using~\eqref{eq:Bavg_discrete}, analogous to Task~2.
 
-With the axial Hall probe of the teslameter, the axial magnetic flux density $B(z)$ is measured along the solenoid axis inside the coil at a fixed direct current (e.g. $I = 0.8\,\mathrm{A}$).
+To reduce measurement time, the Hall probe was instead fixed at the solenoid center ($z = 3.5$~cm) and the magnetic flux density was recorded only at this position for effective coil currents
+\[
+  I_{\mathrm{eff}} = 0,\;0.2,\;0.4,\;0.6,\;0.8,\;1.0,\;1.2,\;1.4,\;1.6~\mathrm{A}.
+\]
+Since the solenoid field profile is expected to scale approximately linearly with current, the center field is proportional to the length-averaged field.
+We therefore use the measured relation $B_{\mathrm{center}}(I_{\mathrm{eff}})$ as a practical approximation for the calibration curve $\bar{B}_{\mathrm{eff}}(I_{\mathrm{eff}})$ required for the Faraday-rotation measurements.
 
-The field is recorded at discrete positions $z_i$ with approximately constant spacing $\Delta z$ over the region relevant for the sample.
+\paragraph{\textbf{Task 4: Assembly and coarse alignment of the optical setup.}}
+The optical setup was assembled as described in Sec.~\ref{sec:exp_setup}.
+In contrast to the order suggested in the manual, the initial alignment was carried out with both the solenoid and the glass sample removed from the beam path.
+This facilitated precise beam alignment and ensured a well-collimated beam before introducing additional optical elements.
 
-From the measured values $B(z_i)$, the length-averaged magnetic flux density $\bar{B}$ is calculated using Eq.~\ref{eq:Bavg_discrete}.
+The diaphragm was adjusted such that the beam diameter remained smaller than the transverse dimensions of the glass cross section used later in the experiment, in order to avoid clipping and internal reflections at the longitudinal side faces of the glass.
+During alignment, the optical signal level was adjusted such that the maximum DC detector voltage $U_{\parallel}$ remained below $6\,\mathrm{V}$ and was preferably close to $5\,\mathrm{V}$, in order to avoid detector saturation.
+For LEDs with lower output intensity, this condition could not always be met.
 
-\subsection{Task 3}
+\paragraph{\textbf{Task 5: Verification of Malus' law without glass.}}
+With the magnetic field switched off and the glass removed, Malus’ law was verified for a fixed LED wavelength.
+The first polarizer was kept at a fixed orientation, while the analyzer was rotated from $0^\circ$ to $180^\circ$ in increments of $10^\circ$.
+Here, the analyzer mount angle $\varphi = 0^\circ$ was defined as the crossed configuration of polarizer and analyzer, corresponding to minimum transmitted signal $U_{\perp}$, while $\varphi = 90^\circ$ corresponded to the parallel configuration with maximum transmitted signal $U_{\parallel}$.
 
-The calibration curve of the magnetic flux density is determined by measuring the length-averaged magnetic field $\bar{B}$ as a function of the coil current $I$ in the range $0 < I < 2\,\mathrm{A}$.
-
-For several selected current values, the corresponding averaged magnetic flux density $\bar{B}(I)$ is obtained using the procedure described in Task~2.
-
-The resulting values are used to establish the calibration curve $B = f(I)$.
-For later measurements with an alternating current, the amplitude of the averaged magnetic flux density is obtained from the DC calibration using Eq.~\ref{eq:B_amplitude}.
-
-\subsection{Task 4}
-
-The experimental setup for the measurement of the Faraday rotation is assembled according to Fig.~\ref{fig:setup_overview}.
-
-The LED and the first lens are adjusted such that a beam that is as parallel as possible is produced.
-Using the iris diaphragm, the beam diameter is reduced to ensure that the light propagates through the glass block without intersecting the longitudinal side faces, in order to avoid internal reflections within the glass.
-
-The glass block is positioned inside the solenoid along the optical axis.
-When handling the glass block, the cotton gloves provided at the experimental station are used.
-
-\subsection{Task 5}
-
-With the glass block removed and the magnetic field switched off, Malus’ law is verified for a fixed wavelength.
-
-The first polarizer is kept at a fixed orientation, while the analyzer is rotated over an angular range from $0^\circ$ to $180^\circ$.
-For each analyzer angle $\varphi$, the transmitted intensity $I(\varphi)$ is measured and the resulting curve is recorded.
-
-From the measured intensity curve, the maximum intensity $I_{\parallel}$ and the minimum intensity $I_{\perp}$ are determined.
-Using these values, the contrast
-\begin{equation}
-  K = \frac{I_{\parallel} - I_{\perp}}{I_{\parallel} + I_{\perp}}
-\end{equation}
+For each analyzer angle $\varphi$, the DC detector voltage $U_{DC}(\varphi)$ was recorded.
+The maximum and minimum detector voltages, $U_{\parallel}$ and $U_{\perp}$, were determined by varying the analyzer angle slightly around $90^\circ$ and $0^\circ$, respectively, and identifying the corresponding extrema of the multimeter reading.
+These values were then used to calculate the contrast factor
+\[
+  K = \frac{U_{\parallel} - U_{\perp}}{U_{\parallel} + U_{\perp}}
+\]
 and the degree of polarization
-\begin{equation}
-  G = \frac{I_{\parallel}}{I_{\perp}}
-\end{equation}
-are calculated.
+\[
+  G = \frac{U_{\parallel}}{U_{\perp}}.
+\]
 
-\subsection{Task 6}
+\paragraph{\textbf{Task 6: Malus' law with glass inserted.}}
+The Malus-law measurement was repeated with the BK7 glass block inserted into the beam path and with the magnetic field still switched off.
+The analyzer was again rotated over $0^\circ$ to $180^\circ$, and the DC detector voltage $U_{DC}(\varphi)$ was recorded.
 
-The measurement of Malus’ law is repeated with the glass block inserted into the beam path and with the magnetic field switched off.
+From the measured curve, the corresponding values of $U_{\parallel}$, $U_{\perp}$, the contrast factor $K$, and the degree of polarization $G$ were determined using the same procedure as in Task~5.
+Additionally, the slope $\mathrm{d}U_{DC}/\mathrm{d}\varphi$ at $\varphi = 45^\circ$ was evaluated.
 
-The first polarizer is kept at a fixed orientation, while the analyzer is rotated over an angular range from $0^\circ$ to $180^\circ$.
-For each analyzer angle $\varphi$, the transmitted intensity $I(\varphi)$ is measured and recorded.
+\paragraph{\textbf{Task 7: Optimization of polarization quality.}}
+With the BK7 glass inserted and the magnetic field switched off, the optical alignment was iteratively optimized to achieve a degree of polarization $G > 40$.
+For each alignment step, the analyzer was set successively to the parallel and crossed configurations to measure $U_{\parallel}$ and $U_{\perp}$, from which $G = U_{\parallel}/U_{\perp}$ was calculated.
+This procedure was repeated until the required polarization quality was reached.
 
-From the resulting intensity curve, the maximum intensity $I_{\parallel}$ and the minimum intensity $I_{\perp}$ are determined.
-Using these values, the contrast
-\begin{equation}
-  K = \frac{I_{\parallel} - I_{\perp}}{I_{\parallel} + I_{\perp}}
-\end{equation}
-and the degree of polarization
-\begin{equation}
-  G = \frac{I_{\parallel}}{I_{\perp}}
-\end{equation}
-are calculated.
+\paragraph{\textbf{Task 8: Setting and verification of the working point.}}
+The solenoid was driven with an alternating current at a frequency of $f = 60\,\mathrm{Hz}$.
+The analyzer working point $\varphi = 45^\circ$ was set using the DC midpoint criterion~\eqref{eq:UDC_workingpoint}.
+For this purpose, $U_{\parallel}$ and $U_{\perp}$ were measured, their average value was calculated, and the analyzer angle was adjusted until the multimeter reading matched this midpoint.
 
-In addition, the slope of the intensity curve $\mathrm{d}I/\mathrm{d}\varphi$ is determined at the analyzer angle $\varphi = 45^\circ$.
+To verify the working point, the analyzer angle was varied slightly around $45^\circ$ and the peak-to-peak detector voltage $U_{SS}(\varphi)$ was recorded on the oscilloscope.
+The maximum of $U_{SS}$ was confirmed to occur close to $\varphi = 45^\circ$.
 
-\subsection{Task 7}
+\subsection{Faraday-Rotation Measurements}
 
-With the glass block inserted and the magnetic field switched off, the optical alignment of the setup is optimized to achieve a degree of polarization of $G > 40$.
+\paragraph{\textbf{Task 9: Measurement of Faraday rotation.}}
+For each LED wavelength, the Faraday rotation was measured at four different magnetic-field strengths corresponding to effective coil currents of approximately
+\[
+  I_{\mathrm{eff}} = 0.4,\;0.8,\;1.2,\;1.6~\mathrm{A}.
+\]
 
-For each alignment step, the analyzer is first set parallel to the fixed polarizer to measure the maximum transmitted intensity $I_{\parallel}$.
-The analyzer is then rotated by $90^\circ$ to the crossed position to measure the minimum transmitted intensity $I_{\perp}$.
+For each wavelength, the analyzer was first set to the working point $\varphi = 45^\circ$ using the DC midpoint criterion.
+For each current setting, the effective coil current $I_{\mathrm{eff}}$, the DC detector voltage $U_{DC}$, and the peak-to-peak oscilloscope voltage $U_{SS}$ were recorded.
 
-From these two readings, the degree of polarization $G = I_{\parallel}/I_{\perp}$ is calculated.
-The alignment is iteratively adjusted and the procedure is repeated until $G > 40$ is reached.
+The Faraday rotation measurements were first carried out for the BK7 glass.
+After replacing the sample with the SF10 glass, the complete measurement sequence was repeated under identical conditions.
 
-\subsection{Task 8}
-
-The magnetic field is modulated by driving the solenoid with an alternating current at a frequency in the range
-$40\,\mathrm{Hz} \le f \le 90\,\mathrm{Hz}$ ($\Omega = 2 \pi f$).
-
-The analyzer working point $\varphi = 45^\circ$ is set via the DC detector signal, as described in Sec.~\ref{sec:contrast_correction}.
-Experimentally, $I_{\parallel}$ and $I_{\perp}$ are measured with parallel and crossed polarizers, and the analyzer angle is adjusted until the multimeter reads the midpoint value given by Eq.~\ref{eq:IDC_workingpoint}.
-
-With the analyzer adjusted to the working point, the analyzer angle $\varphi$ is varied and for each angle the peak-to-peak amplitude $I_{SS}$ is recorded on the oscilloscope.
-The values $I_{SS}(\varphi)$ are plotted and the maximum at $\varphi \approx 45^\circ$ is verified.
-
-\subsection{Task 9}
-
-For each of the five LED wavelengths, the Faraday rotation is measured for four different magnetic field strengths.
-
-The analyzer is set to the working point $\varphi = 45^\circ$ using the DC criterion described in Task~8, and the magnetic field strength is varied by adjusting the frequency generator settings.
-
-For each field setting, the effective coil current $I_{\mathrm{eff}}$ as well as the corresponding detector signals $I_{DC}$ and $I_{SS}$ are recorded.
-
-The recorded values are used to determine the Faraday rotation amplitude $\theta_B$ for each wavelength and magnetic field strength using the signal-extraction relation from the Physical Principles section, including the contrast correction factor $K$.
-
-\subsection{Task 10}
-
-For each wavelength, the measured rotation angles $\theta$ are plotted as a function of the magnetic field amplitude $\bar{B}_{\mathrm{Ampl}}$ in a common graphical representation.
-
-For each wavelength, the Verdet constant $V(\lambda)$ is determined from the slope of the corresponding $\theta(\bar{B}_{\mathrm{Ampl}})$ dependence.
-
-Using the Becquerel relation, Eq.~\ref{eq:becquerel}, the effective oscillator mass $m_e^*$ of the dispersion electrons is calculated.
-For this purpose, the values of $\mathrm{d}n/\mathrm{d}\lambda$ for the glass type BK7 are taken from \texttt{refractiveindex.info}.
-
-\subsection{Task 11}
-
-From the slope $A$ of the linear dispersion plot $1/(n^2-1)$ versus $1/\lambda^2$ obtained in Task~1 and using the effective electron mass $m_e^*$ determined in Task~10, the density $N$ of dispersion electrons is calculated according to Eq.~\ref{eq:N_from_slope}.
-
-The resulting electron density $N$ is then compared to the number density of atoms (or formula units) of the respective glass, which is calculated from the given material density and chemical composition.
-
-\subsection{Task 12}
-
-The investigations described in Tasks~9 to~11 are repeated analogously for the glass type SF10.
-
-The corresponding Verdet constants, effective electron mass, and dispersion-electron density are determined using the same evaluation procedures as for BK7.
+The collected data form the basis for the determination of the Verdet constant and related material parameters, which are evaluated in the subsequent Evaluation section.
 
 % ------------------
 % --- Evaluation ---
 % ------------------
 \section{Evaluation}
 
-\subsection{Task 1: Determination of the Effective Resonance Wavelength}
+\subsection{Determination of the Effective Resonance Wavelength (Task 1)}
+
 As stated in Equation~\ref{eq:sellmeier} and~\ref{eq:sellmeier_linear}, the relationship between the refractive index and the wavelength far from resonance can be simplified to:
 \begin{equation}
   \frac{1}{n^2(\lambda) - 1} = \frac{1}{C} \left( \frac{1}{\lambda_R^2} - \frac{1}{\lambda^2} \right) = \frac{A}{\lambda_R^2} - A \cdot \frac{1}{\lambda^2}
@@ -731,7 +708,7 @@ While the data was initially considered over a broad spectral range (up to 2.5 $
 
 The analysis of the N-BK7 dispersion data in the visible range yields a highly linear relationship, as shown in Figure~\ref{fig:nbk7_plots}. The results of the linear fit and the derived physical parameters are summarized in Table~\ref{tab:task1_results}.
 
-\begin{figure}[htbp]
+\begin{figure}[H]
   \centering
   \begin{subfigure}{1\textwidth}
     \includegraphics[width=\textwidth]{../resources/exercise-1/N-BK7.png}
@@ -750,10 +727,10 @@ The analysis of the N-BK7 dispersion data in the visible range yields a highly l
 
 The SF10 glass shows a significantly higher refractive index and stronger dispersion compared to N-BK7. The linearization over the visible spectrum (Figure~\ref{fig:sf10_plots}) provides the necessary slope $A$ for the subsequent determination of the electron density $N$ in Task 11.
 
-\begin{figure}[htbp]
+\begin{figure}[H]
   \centering
   \begin{subfigure}{1\textwidth}
-    \includegraphics[width=\textwidth]{../resources/exercise-1/N-BK7.png}
+    \includegraphics[width=\textwidth]{../resources/exercise-1/N-SF10.png}
     \caption{Full spectral range.}
   \end{subfigure}
   \hfill
@@ -764,7 +741,7 @@ The SF10 glass shows a significantly higher refractive index and stronger disper
   \caption{Dispersion analysis and linearization for SF10 glass.}\label{fig:sf10_plots}
 \end{figure}
 
-\begin{table}[htbp]
+\begin{table}[H]
   \centering
   \caption{Summary of the calculated dispersion parameters for Task 1 in the visible range.}\label{tab:task1_results}
   \begin{tabular}{lcccc}
@@ -774,6 +751,145 @@ The SF10 glass shows a significantly higher refractive index and stronger disper
     SF10  & $-0.01180$ & $0.53726$ & $0.01180$ & $148.2$ \\
   \end{tabular}
 \end{table}
+
+\subsection{Magnetic-Field Calibration (Tasks 2--3)}
+
+The axial magnetic-flux density inside the solenoid was measured with the axial Hall probe of the teslameter at a fixed effective coil current of $I_{\mathrm{eff}}=1.0\,\mathrm{A}$.  
+The position $z$ was set manually by inserting the probe into the solenoid and reading the probe marker against a tape measure, which we estimate to yield a position uncertainty of $\sigma_z \approx 0.1\,\mathrm{cm}$.  
+This positioning uncertainty mainly affects the definition of the covered integration interval (i.e.\ the effective length $L$ over which the profile is averaged) and is therefore accounted for below via a conservative length uncertainty $\sigma_L$.  
+The teslameter display shows the magnetic flux density with a resolution of $0.1\,\mathrm{mT}$ (least significant digit), and we therefore use $\sigma_B \approx 0.1\,\mathrm{mT}$ as reading uncertainty.  
+
+\begin{table}[H]
+\centering
+  \caption{Axial magnetic-flux density profile $B(z)$ measured at $I_{\mathrm{eff}}=1.0\,\mathrm{A}$.}
+  \label{tab:Bz_profile_1A}
+  \begin{tabular}{|c|c||c|c|}
+  \hline
+  $z\,(\mathrm{cm})$ & $B\,(\mathrm{mT})$ & $z\,(\mathrm{cm})$ & $B\,(\mathrm{mT})$ \\
+  \hline
+  0.0 & 3.5 & 4.0 & 9.2 \\
+  0.5 & 5.2 & 4.5 & 8.9 \\
+  1.0 & 6.4 & 5.0 & 8.4 \\
+  1.5 & 7.4 & 5.5 & 7.6 \\
+  2.0 & 8.2 & 6.0 & 6.6 \\
+  2.5 & 8.8 & 6.5 & 5.3 \\
+  3.0 & 9.1 & 7.0 & 4.2 \\
+  3.5 & 9.3 &  &  \\
+  \hline
+\end{tabular}
+\end{table}
+
+From the measured profile, the effective length-averaged magnetic field was calculated using Eq.~\eqref{eq:Bavg_discrete} with $\Delta z=0.5\,\mathrm{cm}$ and $L=7.0\,\mathrm{cm}$.  
+The profile contains $N=15$ measurement points, and we use the discrete approximation
+\[
+  \bar B_{\mathrm{eff}}=\frac{\Delta z}{L}\sum_{i=1}^{N} B(z_i).
+\]
+Assuming independent teslameter readings with identical uncertainty $\sigma_B$, standard Gaussian error propagation yields for the contribution from the field readings
+\[
+  \sigma_{\bar B,B}^2=\sum_{i=1}^{N}\left(\frac{\partial \bar B_{\mathrm{eff}}}{\partial B_i}\sigma_B\right)^2
+  =
+  \sum_{i=1}^{N}\left(\frac{\Delta z}{L}\sigma_B\right)^2
+  =
+  N\left(\frac{\Delta z}{L}\sigma_B\right)^2,
+\]
+and thus
+\[
+  \sigma_{\bar B,B}=\frac{\Delta z}{L}\sqrt{N}\,\sigma_B.
+\]
+In addition, the manual positioning of the probe marker introduces an uncertainty of the covered integration length $L$, which we estimate as $\sigma_L \approx 0.1\,\mathrm{cm}$.  
+With $\bar B_{\mathrm{eff}}\propto 1/L$, the corresponding contribution is
+\[
+  \sigma_{\bar B,L}=\left|\frac{\partial \bar B_{\mathrm{eff}}}{\partial L}\right|\sigma_L=\frac{\bar B_{\mathrm{eff}}}{L}\sigma_L.
+\]
+Both contributions are added in quadrature, $\sigma_{\bar B}=\sqrt{\sigma_{\bar B,B}^2+\sigma_{\bar B,L}^2}$.  
+
+Evaluating this for the data in Table~\ref{tab:Bz_profile_1A} gives
+\begin{equation}
+  \boxed{\bar B_{\mathrm{eff}}(I_{\mathrm{eff}}=1.0\,\mathrm{A}) = (7.72 \pm 0.11)\,\mathrm{mT}} \;.
+  \label{eq:Bavg_1A_value}
+\end{equation}
+
+For the field--current calibration, the Hall probe was fixed at the solenoid center ($z=3.5\,\mathrm{cm}$), and the magnetic flux density was recorded as a function of effective coil current $I_{\mathrm{eff}}$.  
+
+\begin{table}[H]
+\centering
+  \caption{Center field $B_{\mathrm{center}}$ measured at $z=3.5\,\mathrm{cm}$ as a function of $I_{\mathrm{eff}}$.}
+  \label{tab:Bcenter_Ieff}
+  \begin{tabular}{|c|c|}
+  \hline
+  $I_{\mathrm{eff}}\,(\mathrm{A})$ & $B_{\mathrm{center}}\,(\mathrm{mT})$ \\
+  \hline
+  0.00 & -0.5 \\
+  0.20 & 1.3 \\
+  0.40 & 3.3 \\
+  0.60 & 5.3 \\
+  0.80 & 7.3 \\
+  1.00 & 9.3 \\
+  1.20 & 11.3 \\
+  1.40 & 13.3 \\
+  1.60 & 15.2 \\
+  \hline
+\end{tabular}
+\end{table}
+
+A linear regression of the center-field data yields the calibration relation
+\begin{equation}
+  \boxed{B_{\mathrm{center}}(I_{\mathrm{eff}}) = (9.90 \pm 0.04)\,\frac{\mathrm{mT}}{\mathrm{A}}\,I_{\mathrm{eff}} - (0.61 \pm 0.04)\,\mathrm{mT}} \;,
+  \label{eq:Bcenter_calibration_fit}
+\end{equation}
+where the quoted uncertainties are the standard errors of the fitted parameters obtained from the covariance matrix of the least-squares fit.  
+The small negative intercept is consistent with the measured offset at $I_{\mathrm{eff}}=0$ (Table~\ref{tab:Bcenter_Ieff}) and can be attributed to a residual probe zero offset and/or background magnetic fields.  
+
+\vspace{1em}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\linewidth]{../resources/figures/Bcenter_calibration_fit.png}
+  \caption{Calibration curve of the solenoid center field $B_{\mathrm{center}}$ as a function of effective coil current $I_{\mathrm{eff}}$, including a linear regression according to Eq.~\eqref{eq:Bcenter_calibration_fit}.  
+  This calibration is used in the subsequent evaluation to convert the recorded coil current settings into the magnetic flux density acting on the sample.}
+  \label{fig:Bcenter_calibration_fit}
+\end{figure}
+
+\subsection{Verification of Malus' Law and Polarization Quality (Tasks 5--7)}
+
+5.\ Überprüfen Sie ohne Glaskörper und ohne Magnetfeld für eine Wellenlänge das malussche Gesetz (13), indem Sie bei fester Polarisatorstellung die transmittierte Intensität in Abhängigkeit vom Analysatorwinkel $(0$ bis $180^\circ)$ messen.
+Tragen Sie die Kurve auf, bestimmen Sie den Kontrast
+\[
+K = \frac{U_{\parallel} - U_{\perp}}{U_{\perp} + U_{\parallel}}
+\]
+und den Polarisationsgrad
+\[
+G = \frac{U_{\parallel}}{I_{\perp}}.
+\]
+
+6.\ Wiederholen Sie die Messung mit Glaskörper, aber ohne Magnetfeld und bestimmen Sie Kontrast und Polarisationsgrad.
+Diskutieren Sie Ihr Ergebnis.
+Bestimmen Sie den Anstieg $\mathrm{d}U_{DC}/\mathrm{d}\varphi$ bei $\varphi = 45^\circ$.
+
+7.\ Justieren Sie Ihren Versuchsaufbau so, dass Sie mit Glaskörper aber ohne Magnetfeld einen Polarisationsgrad von $G > 40$ erreichen.
+
+\subsection{xxx (Task 8)}
+
+8.\ Modulieren Sie das Magnetfeld mit einer Frequenz im Bereich $40\,\mathrm{Hz} \le \Omega \le 90\,\mathrm{Hz}$ (we just set it to 60 Hz) und weisen Sie bei einer Wellenlänge nach, dass bei $\varphi = 45^\circ$ das maximale Modulationssignal auftritt.
+Tragen Sie dazu die Größe $U_{SS}$ in Abhängigkeit von $\varphi$ auf.
+
+\subsection{xxx (Task 9)}
+
+9.\ Modulieren Sie das Magnetfeld mit einer Frequenz im Bereich $40\,\mathrm{Hz} \le \Omega \le 90\,\mathrm{Hz}$ (we just set it to 60 Hz) und messen Sie den Drehwinkel der Polarisationsebene des Lichtes bei verschiedenen Wellenlängen jeweils für vier Magnetfeldstärken.
+
+\subsection{Verdet Constant as a Function of Wavelength (Task 10)}
+
+10.\ Tragen Sie möglichst in einer gemeinsamen grafischen Darstellung für jede Wellenlänge den Drehwinkel $\theta$ über $\bar{B}_{\mathrm{Ampl}}$ auf und ermitteln Sie aus ihren Anstiegen die verdetsche Konstante $V(\lambda)$.
+Berechnen Sie nach Gl.~(8) die effektive Oszillatormasse $m_e^*$ der Dispersionselektronen.
+Benutzen Sie dazu die Werte $\mathrm{d}n/\mathrm{d}\lambda$ für die Glassorte BK7, die Sie auf der Website $\texttt{http://refractiveindex.info/}$ finden.
+
+\subsection{xxx (Task 11)}
+
+11.\ Ermitteln Sie aus dem Anstieg Ihrer Geraden, in der Auftragung $1/(n^2 - 1)$ über $1/\lambda^2$, unter Verwendung Ihres $m_e^*$-Wertes die Zahl $N$ der Dispersionselektronen pro $\mathrm{cm}^{-3}$ und vergleichen Sie diese mit der Zahl der Atome pro $\mathrm{cm}^{-3}$.
+
+\subsection{xxx (Task 12)}
+
+12.\ Führen Sie die in den Aufgaben 9 bis 11 vorgegebenen Untersuchungen
+für die Glassorte SF10 durch.
 
 % ------------------
 % --- Discussion ---
