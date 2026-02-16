@@ -691,6 +691,7 @@ The collected data form the basis for the determination of the Verdet constant a
 \section{Results}
 \subsection{Part 1: Preparation and Calibration}
 \subsubsection{Determination of the Effective Resonance Wavelength}
+\textbf{Note:} The terms $I$ and $U$ are used interchangebly along the document to refer to the same quantity, the intensity measured in Volts, so that $[I]=[\text{Intensity}]=[U]=V$.
 
 As stated in Equation~\ref{eq:sellmeier} and~\ref{eq:sellmeier_linear}, the relationship between the refractive index and the wavelength far from resonance can be simplified to:
 \begin{equation}
@@ -981,9 +982,9 @@ The maximum modulation signal was detected with an amplitude of $U_{SS} = 40.06 
 \begin{table}[h]
   \centering
   \begin{tabular}{S[table-format=2.0] S[table-format=2.1]}
-    \hline
+    \toprule
     {$\phi$ [$^\circ$]} & {$U_{SS}$ [mV]} \\
-    \hline
+    \midrule
     30 & 33.0 \\
     35 & 36.0 \\
     38 & 38.4 \\
@@ -999,15 +1000,15 @@ The maximum modulation signal was detected with an amplitude of $U_{SS} = 40.06 
     52 & 39.2 \\
     55 & 37.8 \\
     60 & 35.2 \\
-    \hline
+    \bottomrule
   \end{tabular}
   \caption{Measured modulation signal amplitudes $U_{SS}$ varying with analyzer angle $\phi$. The measurement uncertainty is estimated as $\pm 0.1$\,mV.}\label{tab:modulation_data}
 \end{table}
 
 \subsection{Part 3:}
-\subsubsection{Determination of Faraday Rotation Angles}
+\subsection{Determination of Faraday Rotation Angles}\label{sec:task9_angles}
 
-To calculate the Faraday rotation angle $\theta$ for each measurement, the ratio of the AC modulation signal $U_{SS}$ to the DC background signal $U_{DC}$ was utilized. The analyzer was set to the working point of $\phi = 45^\circ$ relative to the extinction position. At this angle, the transmitted intensity $I$ is approximately half the maximum intensity ($I \approx I_0/2$). Consequently, the full intensity can be expressed as $I_0 \approx 2 \cdot U_{DC}$.
+To calculate the Faraday rotation angle for each measurement, the ratio of the AC modulation signal $U_{SS}$ to the DC background signal $U_{DC}$ was used. The analyzer was set to the working point of $\phi = 45^\circ$ relative to the extinction position. At this angle, the transmitted intensity $I$ is approximately half the maximum intensity ($I \approx I_0/2$). Consequently, the full intensity can be expressed as $I_0 \approx 2 \cdot U_{DC}$.
 
 The sensitivity $S$ of the setup corresponds to the slope of the transmission curve. As derived from Malus' Law, this slope is maximal at the $45^\circ$ working point and equal to the full intensity $I_0$:
 \begin{equation}
@@ -1020,13 +1021,14 @@ The magnetic field induces a small rotation $\theta$, resulting in a signal ampl
 Rearranging for the rotation angle yields the final calculation formula:
 \begin{equation}
   \theta = \frac{U_{SS}}{4 \cdot U_{DC}}
+  \label{eq:theta_calculation}
 \end{equation}
-This equation was used to convert the recorded electrical signals into the physical rotation angle $\theta$ (in radians) for all wavelengths and magnetic field strengths.
+This equation was used to convert the recorded electrical signals into the physical rotation angle $\theta$ (in radians) for all wavelengths and magnetic field strengths. The raw experimental data, including the effective coil currents $I_{\mathrm{eff}}$ and the corresponding detector voltages $U_{DC}$ and $U_{SS}$, are recorded in Table~\ref{tab:rotation_angle}.
 
 \begin{table}[htbp]
   \centering
   \renewcommand{\arraystretch}{1.2}
-  \setlength{\tabcolsep}{5pt} % Adjusts column spacing
+  \setlength{\tabcolsep}{5pt}
   \begin{tabular}{l c c c c c}
     \toprule
     \multirow{2}{*}{\textbf{Wavelength}} & \multirow{2}{*}{\textbf{$I_{\mathrm{eff}}$ (A)}} & \multicolumn{2}{c}{\textbf{N-BK7}} & \multicolumn{2}{c}{\textbf{SF10}} \\
@@ -1056,6 +1058,8 @@ This equation was used to convert the recorded electrical signals into the physi
   \end{tabular}
   \caption{Experimental measurement data for the Faraday Effect. The coil current $I_{\mathrm{eff}}$ induces a magnetic field, while $U_{\mathrm{DC}}$ and $U_{\mathrm{SS}}$ represent the DC background intensity and the AC modulation signal, respectively.}\label{tab:rotation_angle}
 \end{table}
+
+By applying Eq.~\eqref{eq:theta_calculation} to the measured voltages and converting the coil current to the effective magnetic field $\bar{B}_{\mathrm{eff}}$ (using the calibration from Part 2), the physical rotation angles were determined. Table~\ref{tab:max_theta_results} summarizes the maximum rotation angles $\theta_{\mathrm{max}}$ obtained at the highest applied magnetic field for both materials and all four wavelengths.
 
 \begin{table}[htbp]
   \centering
@@ -1087,11 +1091,6 @@ Benutzen Sie dazu die Werte $\mathrm{d}n/\mathrm{d}\lambda$ für die Glassorte B
 
 11.\ Ermitteln Sie aus dem Anstieg Ihrer Geraden, in der Auftragung $1/(n^2 - 1)$ über $1/\lambda^2$, unter Verwendung Ihres $m_e^*$-Wertes die Zahl $N$ der Dispersionselektronen pro $\mathrm{cm}^{-3}$ und vergleichen Sie diese mit der Zahl der Atome pro $\mathrm{cm}^{-3}$.
 
-\subsection{xxx (Task 12)}
-
-12.\ Führen Sie die in den Aufgaben 9 bis 11 vorgegebenen Untersuchungen
-für die Glassorte SF10 durch.
-
 % ------------------
 % --- Discussion ---
 % ------------------
@@ -1105,6 +1104,8 @@ xxx
 \section{Conclusion}
 
 xxx
+Task 9:
+The results in Table~\ref{tab:max_theta_results} show a clear trend: the rotation angle increases significantly as the wavelength decreases (normal dispersion). Furthermore, the rotation in the lead-containing glass (SF10) is consistently larger than in the crown glass (N-BK7) by a factor of approximately 4 to 5, indicating a much higher Verdet constant for SF10.
 
 % ----------------
 % --- Appendix ---
