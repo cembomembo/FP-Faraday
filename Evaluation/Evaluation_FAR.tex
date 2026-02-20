@@ -888,6 +888,76 @@ Here the theoretical curve has been adjusted a bit in height and amplitude to fi
   \label{fig:verificationmaluslawglass}
 \end{figure}
 
+\begin{tabular}{c c c}
+  \toprule
+  {$\phi$ [$^\circ$]} & {$I_{\text{Glass}}$ [mV]} & {$I_{\text{Air}}$ [mV]} \\
+  $\sigma_{\phi} = \pm 0.5$ & $\sigma_{I} = \pm 0.02$ & $\sigma_{I} = \pm 0.02$ \\
+  \midrule
+  90  & 5.16  & 5.16 \\
+  80  & 5.00  & 5.01 \\
+  70  & 4.55  & 4.57 \\
+  60  & 3.87  & 3.89 \\
+  50  & 3.02  & 3.04 \\
+  40  & 2.15  & 2.15 \\
+  30  & 1.333 & 1.315 \\
+  20  & 0.667 & 0.628 \\
+  10  & 0.243 & 0.259 \\
+  0   & 0.113 & 0.20 \\
+  -10 & 0.274 & 0.171 \\
+  -20 & 0.710 & 0.593 \\
+  -30 & 1.400 & 1.256 \\
+  -40 & 2.21  & 2.08 \\
+  -50 & 3.06  & 2.99 \\
+  -60 & 3.91  & 3.81 \\
+  -70 & 4.58  & 4.53 \\
+  -80 & 5.01  & 5.00 \\
+  -90 & 5.17  & 5.18 \\
+  \bottomrule
+  \end{tabular}
+  \caption{Measured intensities for the verification of Malus' Law, with and without the glass sample.}\label{tab:malus_measurements}
+\end{table}
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{l c c}
+    \toprule
+    \textbf{Parameter} & \textbf{Air} & \textbf{Glass Sample} \\
+    \midrule
+    $I_{\parallel}$ [mV] & 5.145 $\pm$ 0.021 & 5.154 $\pm$ 0.021 \\
+    $I_{\perp}$ [mV]     & 0.048 $\pm$ 0.008 & 0.099 $\pm$ 0.008 \\
+    Contrast $K$         & 0.982 $\pm$ 0.003 & 0.962 $\pm$ 0.003 \\
+    Degree of Pol. $G$   & 107.9 $\pm$ 18.4 & 52.0 $\pm$ 4.3\\
+    \bottomrule
+  \end{tabular}
+  \caption{Comparison of polarization parameters with and without the glass sample. Uncertainties are derived from the covariance of the fit.}\label{tab:polarization_results}
+\end{table}
+
+% Sensitivity / Slope Calculation
+% Sensitivity / Slope Calculation
+To determine the optimal working point for the Faraday effect measurements, the sensitivity of the setup was analyzed. The sensitivity is defined as the slope of the transmission curve. Differentiating Eq.~\ref{eq:malus_model} with respect to $\phi$:
+\begin{equation}
+  S(\phi) = \left| \frac{dI}{d\phi} \right| = \left| I_0 \sin(2(\phi-\phi_0)) \right|
+\end{equation}
+The maximum sensitivity occurs at a relative angle of $45^\circ$. The uncertainty of the slope $\sigma_S$ is derived using Gaussian error propagation. The error is calculated as:
+\begin{equation}
+  \sigma_S = \sqrt{ \left( \frac{\partial S}{\partial I_0} \right)^2 \sigma_{I_0}^2 + \left( \frac{\partial S}{\partial \phi_0} \right)^2 \sigma_{\phi_0}^2 }
+\end{equation}
+Using the fit parameters and their respective uncertainties from the measurement with the glass sample, the slope at the working point is determined to be:
+\begin{equation}
+  S_{45^\circ} = 0.0882 \pm 0.0002 \, \text{mV}/^\circ
+\end{equation}
+This slope represents the conversion factor between the rotation angle $\theta$ (induced by the Faraday effect) and the measured change in intensity. A extinction angle of $\phi_{0}=90.3\pm0.1^\circ$ was calculated for this specific setup.
+
+% --- Task 7---
+\subsubsection{Verification of Setup Quality}
+Task 7 requires an optical adjustment such that $G > 40$. As shown in Table~\ref{tab:polarization_results}, the setup with the glass sample achieved a degree of polarization of $G = 52.0 \pm 4.3$, which confirms that the condition $G > 40$ was satisfied and the optical axis was correctly aligned.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.8\textwidth]{../resources/plots/part2/malus_law_with_glass.png}
+  \caption{Verification of Malus' Law with the glass sample. The tangent (orange dashed line) indicates the maximum sensitivity at the working point $\phi = 45^\circ$.}\label{fig:malus_glass}
+\end{figure}
+
 From this following results can be determined:
 
 $U_{\parallel} = 5.17 \pm 0.09 \: V$
@@ -922,9 +992,135 @@ In figure \ref{fig:maxmodulationsignal} the modulation signals voltage $U_{SS}$ 
 %8.\ Modulieren Sie das Magnetfeld mit einer Frequenz im Bereich $40\,\mathrm{Hz} \le \Omega \le 90\,\mathrm{Hz}$ (we just set it to 60 Hz) und weisen Sie bei einer Wellenlänge nach, dass bei $\varphi = 45^\circ$ das maximale Modulationssignal auftritt.
 %Tragen Sie dazu die Größe $U_{SS}$ in Abhängigkeit von $\varphi$ auf.
 
+<<<<<<< HEAD
 \subsection{xxx (Task 9)}
 
 9.\ Modulieren Sie das Magnetfeld mit einer Frequenz im Bereich $40\,\mathrm{Hz} \le \Omega \le 90\,\mathrm{Hz}$ (we just set it to 60 Hz) und messen Sie den Drehwinkel der Polarisationsebene des Lichtes bei verschiedenen Wellenlängen jeweils für vier Magnetfeldstärken.
+=======
+\begin{table}[h]
+  \centering
+  \begin{tabular}{c c}
+    \toprule
+    {$\phi$ [$^\circ$]} & {$U_{SS}$ [mV]} \\
+    $\sigma_{\phi} = \pm 0.5$ & $\sigma_{U_{SS}} = \pm 0.1$ \\
+    \midrule
+    30 & 33.0 \\
+    35 & 36.0 \\
+    38 & 38.4 \\
+    40 & 39.0 \\
+    42 & 40.0 \\
+    43 & 40.0 \\
+    44 & 40.2 \\
+    45 & 40.4 \\
+    46 & 40.4 \\
+    47 & 40.4 \\
+    48 & 40.2 \\
+    50 & 39.8 \\
+    52 & 39.2 \\
+    55 & 37.8 \\
+    60 & 35.2 \\
+    \bottomrule
+  \end{tabular}
+  \caption{Measurement of the modulation signal amplitudes $U_{SS}$ at analyzer angles $\phi$.}\label{tab:modulation_data}
+\end{table}
+
+\subsection{Part 3:}
+\subsection{Determination of Faraday Rotation Angles}\label{sec:task9_angles}
+
+To calculate the Faraday rotation angle for each measurement, the ratio of the AC modulation signal $U_{SS}$ to the DC background signal $U_{DC}$ was used. The analyzer was set to the working point of $\phi = 45^\circ$ relative to the extinction position. At this angle, the transmitted intensity $I$ is approximately half the maximum intensity ($I \approx I_0/2$). Consequently, the full intensity can be expressed as $I_0 \approx 2 \cdot U_{DC}$.
+
+The sensitivity $S$ of the setup corresponds to the slope of the transmission curve. As derived from Malus' Law, this slope is maximal at the $45^\circ$ working point and equal to the full intensity $I_0$:
+\begin{equation}
+  S = \left| \frac{dI}{d\phi} \right|_{45^\circ} \approx I_0 \approx 2 \cdot U_{DC}
+\end{equation}
+The magnetic field induces a small rotation $\theta$, resulting in a signal amplitude change. Since $U_{SS}$ represents the \textit{peak-to-peak} voltage of this modulation (which is twice the signal amplitude), the relationship is:
+\begin{equation}
+  U_{SS} \approx 2 \cdot (S \cdot \theta) = 2 \cdot (2 U_{DC} \cdot \theta) = 4 \cdot U_{DC} \cdot \theta
+\end{equation}
+Rearranging for the rotation angle yields the final calculation formula:
+\begin{equation}
+  \theta = \frac{U_{SS}}{4 \cdot U_{DC}}
+  \label{eq:theta_calculation}
+\end{equation}
+This equation was used to convert the recorded electrical signals into the physical rotation angle $\theta$ (in radians) for all wavelengths and magnetic field strengths. The raw experimental data, including the effective coil currents $I_{\mathrm{eff}}$ and the corresponding detector voltages $U_{DC}$ and $U_{SS}$, are recorded in Table~\ref{tab:rotation_angle}. The coil current $I_{\mathrm{eff}}$ induces a magnetic field, while $U_{\mathrm{DC}}$ and $U_{\mathrm{SS}}$ represent the DC background intensity and the AC modulation signal, respectively.
+
+\begin{table}[htbp]
+  \centering
+  \renewcommand{\arraystretch}{1.2}
+  \setlength{\tabcolsep}{5pt}
+  \begin{tabular}{l c c c c c}
+    \toprule
+    \multirow{2}{*}{\textbf{Wavelength}} & \textbf{$I_{\mathrm{eff}}$} & \multicolumn{2}{c}{\textbf{N-BK7}} & \multicolumn{2}{c}{\textbf{SF10}} \\
+    \cmidrule(lr){3-4} \cmidrule(lr){5-6}
+    & [A] & $U_{\mathrm{DC}}$ [V] & $U_{\mathrm{SS}}$ [mV] & $U_{\mathrm{DC}}$ [V] & $U_{\mathrm{SS}}$ [mV] \\
+    & $\sigma_{I_{\mathrm{eff}}}=\pm$ 0.01 & $\sigma_{U_{\mathrm{DC}}}=\pm$ 0.01 & $\sigma_{U_{\mathrm{SS}}}=\pm$ 0.1 & $\sigma_{U_{\mathrm{DC}}}=\pm$ 0.01 & $\sigma_{U_{\mathrm{SS}}}=\pm$ 0.1\\
+    \midrule
+    \multirow{4}{*}{\textbf{400 nm}}
+    & 0.40 & 2.94  & 42.0  & 2.05 & 127.0 \\
+    & 0.80 & 2.95  & 82.4  & 2.05 & 248.0 \\
+    & 1.20 & 2.96  & 125.0 & 2.05 & 372.0 \\
+    & 1.60 & 2.97  & 162.0 & 2.05 & 492.0 \\
+    \midrule
+    \multirow{4}{*}{\textbf{470 nm}}
+    & 0.40 & 2.75  & 31.0  & 2.64 & 104.0 \\
+    & 0.80 & 2.76  & 61.0  & 2.64 & 207.0 \\
+    & 1.20 & 2.76  & 92.4  & 2.64 & 307.0 \\
+    & 1.60 & 2.76  & 121.0 & 2.64 & 410.0 \\
+    \midrule
+    \multirow{4}{*}{\textbf{508 nm}}
+    & 0.40 & 0.797 & 6.64  & 2.54 & 78.0  \\
+    & 0.80 & 0.797 & 7.90  & 2.53 & 155.0 \\
+    & 1.20 & 0.795 & 9.50  & 2.54 & 232.0 \\
+    & 1.60 & 0.798 & 27.0  & 2.53 & 306.0 \\
+    \midrule
+    \multirow{4}{*}{\textbf{628 nm}}
+    & 0.40 & 2.58  & 17.0  & 2.59 & 51.6  \\
+    & 0.80 & 2.58  & 29.3  & 2.59 & 101.0 \\
+    & 1.20 & 2.58  & 46.8  & 2.59 & 152.0 \\
+    & 1.60 & 2.57  & 62.6  & 2.54 & 203.0 \\
+    \bottomrule
+  \end{tabular}
+  \caption{Experimental measurement data for the Faraday Effect using different mediums and light sources. Exceptions to the standard errors are the maximum deviation for $I_{\mathrm{eff}}$ at 1.60\,A (628\,nm), which is $\pm 0.02$\,A, and the reading uncertainty for $U_{\mathrm{DC}}$ in the 508\,nm N-BK7 dataset, which is $\pm 0.001$\,V.}\label{tab:rotation_angle}
+\end{table}
+
+By applying Eq.~\eqref{eq:theta_calculation} to the measured voltages and converting the coil current to the effective magnetic field $\bar{B}_{\mathrm{eff}}$ (using the calibration from Part 2), the physical rotation angles were determined. Table~\ref{tab:max_theta_results} summarizes the maximum rotation angles $\theta_{\mathrm{max}}$ obtained at the highest applied magnetic field for both materials and all four wavelengths.
+
+\begin{table}[htbp]
+  \centering
+  \renewcommand{\arraystretch}{1.2}
+  \begin{tabular}{l c c c}
+    \toprule
+    \textbf{Material} & \textbf{Wavelength [nm]} & \textbf{$\bar{B}_{\mathrm{eff, \max}}$ [mT]} & \textbf{$\theta_{\mathrm{\max}}$ [$^\circ$]} \\
+    \midrule
+    \textbf{N-BK7}
+    & 400 & $12.41 \pm 0.19$ & $0.781 \pm 0.003$ \\
+    & 470 & $12.36 \pm 0.19$ & $0.628 \pm 0.002$ \\
+    & 508 & $12.36 \pm 0.19$ & $0.485 \pm 0.002$ \\
+    & 628 & $12.17 \pm 0.19$ & $0.349 \pm 0.001$ \\
+    \midrule
+    \textbf{SF10}
+    & 400 & $12.36 \pm 0.19$ & $3.438 \pm 0.017$ \\
+    & 470 & $12.38 \pm 0.19$ & $2.225 \pm 0.008$ \\
+    & 508 & $12.35 \pm 0.19$ & $1.732 \pm 0.007$ \\
+    & 628 & $12.38 \pm 0.19$ & $1.145 \pm 0.005$ \\
+    \bottomrule
+  \end{tabular}
+  \caption{Maximum magnetic flux density $\bar{B}_{\mathrm{eff, \max}}$ and the resulting maximum rotation angle $\theta_{\mathrm{\max}}$ calculated for each wavelength and material combination.}\label{tab:max_theta_results}
+\end{table}
+>>>>>>> ecf7d61 (Added Errors task 9)
+
+Uncertainties for the magnetic field $B$ and rotation angle $\theta$ were calculated using Gaussian error propagation. For $B = I_{\mathrm{eff}} \cdot C_{\mathrm{coil}}$ (with $C_{\mathrm{coil}} = 7.72 \pm 0.11\,\mathrm{mT/A}$), the uncertainty $\sigma_B$ is:
+\begin{equation}
+  \sigma_B = B \cdot \sqrt{{\left(\frac{\sigma_{I}}{I_{\mathrm{eff}}}\right)}^2 + {\left(\frac{\sigma_C}{C_{\mathrm{coil}}}\right)}^2}
+  \label{eq:error_B}
+\end{equation}
+where $\sigma_I$ is the coil current reading uncertainty.
+
+Similarly, for the rotation angle $\theta = U_{SS} / (4 \cdot U_{DC})$, the uncertainty $\sigma_\theta$ is derived from the voltage reading uncertainties (the exact factor of $4$ does not contribute):
+\begin{equation}
+  \sigma_\theta = \theta \cdot \sqrt{\left(\frac{\sigma_{U_{SS}}}{U_{SS}}\right)^2 + \left(\frac{\sigma_{U_{DC}}}{U_{DC}}\right)^2}
+  \label{eq:error_theta}
+\end{equation}
 
 \subsection{xxx (Task 10)}
 
