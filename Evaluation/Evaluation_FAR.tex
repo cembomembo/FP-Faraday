@@ -879,10 +879,10 @@ The measurement was repeated with the flint glass rod inserted into the coil. Th
 \begin{table}[h]
   \centering
   \begin{tabular}{c c c}
-    \hline
+    \toprule
     {$\phi$ [$^\circ$]} & {$I_{\text{Glass}}$ [mV]} & {$I_{\text{Air}}$ [mV]} \\
     $\sigma_{\phi} = \pm 0.5$ & $\sigma_{I} = \pm 0.02$ & $\sigma_{I} = \pm 0.02$ \\
-    \hline
+    \midrule
     90  & 5.16  & 5.16 \\
     80  & 5.00  & 5.01 \\
     70  & 4.55  & 4.57 \\
@@ -902,7 +902,7 @@ The measurement was repeated with the flint glass rod inserted into the coil. Th
     -70 & 4.58  & 4.53 \\
     -80 & 5.01  & 5.00 \\
     -90 & 5.17  & 5.18 \\
-    \hline
+    \bottomrule
   \end{tabular}
   \caption{Measured intensities for the verification of Malus' Law, with and without the glass sample.}\label{tab:malus_measurements}
 \end{table}
@@ -910,14 +910,14 @@ The measurement was repeated with the flint glass rod inserted into the coil. Th
 \begin{table}[htbp]
   \centering
   \begin{tabular}{l c c}
-    \hline
+    \toprule
     \textbf{Parameter} & \textbf{Air} & \textbf{Glass Sample} \\
-    \hline
+    \midrule
     $I_{\parallel}$ [mV] & 5.145 $\pm$ 0.021 & 5.154 $\pm$ 0.021 \\
     $I_{\perp}$ [mV]     & 0.048 $\pm$ 0.008 & 0.099 $\pm$ 0.008 \\
     Contrast $K$         & 0.982 $\pm$ 0.003 & 0.962 $\pm$ 0.003 \\
     Degree of Pol. $G$   & 107.9 $\pm$ 18.4 & 52.0 $\pm$ 4.3\\
-    \hline
+    \bottomrule
   \end{tabular}
   \caption{Comparison of polarization parameters with and without the glass sample. Uncertainties are derived from the covariance of the fit.}\label{tab:polarization_results}
 \end{table}
@@ -981,9 +981,10 @@ The maximum modulation signal was detected with an amplitude of $U_{SS} = 40.06 
 
 \begin{table}[h]
   \centering
-  \begin{tabular}{S[table-format=2.0] S[table-format=2.1]}
+  \begin{tabular}{c c}
     \toprule
     {$\phi$ [$^\circ$]} & {$U_{SS}$ [mV]} \\
+    $\sigma_{\phi} = \pm 0.5$ & $\sigma_{U_{SS}} = \pm 0.1$ \\
     \midrule
     30 & 33.0 \\
     35 & 36.0 \\
@@ -1002,7 +1003,7 @@ The maximum modulation signal was detected with an amplitude of $U_{SS} = 40.06 
     60 & 35.2 \\
     \bottomrule
   \end{tabular}
-  \caption{Measured modulation signal amplitudes $U_{SS}$ varying with analyzer angle $\phi$. The measurement uncertainty is estimated as $\pm 0.1$\,mV.}\label{tab:modulation_data}
+  \caption{Measurement of the modulation signal amplitudes $U_{SS}$ at analyzer angles $\phi$.}\label{tab:modulation_data}
 \end{table}
 
 \subsection{Part 3:}
@@ -1023,7 +1024,7 @@ Rearranging for the rotation angle yields the final calculation formula:
   \theta = \frac{U_{SS}}{4 \cdot U_{DC}}
   \label{eq:theta_calculation}
 \end{equation}
-This equation was used to convert the recorded electrical signals into the physical rotation angle $\theta$ (in radians) for all wavelengths and magnetic field strengths. The raw experimental data, including the effective coil currents $I_{\mathrm{eff}}$ and the corresponding detector voltages $U_{DC}$ and $U_{SS}$, are recorded in Table~\ref{tab:rotation_angle}.
+This equation was used to convert the recorded electrical signals into the physical rotation angle $\theta$ (in radians) for all wavelengths and magnetic field strengths. The raw experimental data, including the effective coil currents $I_{\mathrm{eff}}$ and the corresponding detector voltages $U_{DC}$ and $U_{SS}$, are recorded in Table~\ref{tab:rotation_angle}. The coil current $I_{\mathrm{eff}}$ induces a magnetic field, while $U_{\mathrm{DC}}$ and $U_{\mathrm{SS}}$ represent the DC background intensity and the AC modulation signal, respectively.
 
 \begin{table}[htbp]
   \centering
@@ -1031,55 +1032,76 @@ This equation was used to convert the recorded electrical signals into the physi
   \setlength{\tabcolsep}{5pt}
   \begin{tabular}{l c c c c c}
     \toprule
-    \multirow{2}{*}{\textbf{Wavelength}} & \multirow{2}{*}{\textbf{$I_{\mathrm{eff}}$ (A)}} & \multicolumn{2}{c}{\textbf{N-BK7}} & \multicolumn{2}{c}{\textbf{SF10}} \\
+    \multirow{2}{*}{\textbf{Wavelength}} & \textbf{$I_{\mathrm{eff}}$} & \multicolumn{2}{c}{\textbf{N-BK7}} & \multicolumn{2}{c}{\textbf{SF10}} \\
     \cmidrule(lr){3-4} \cmidrule(lr){5-6}
-    & & \textbf{$U_{\mathrm{DC}}$ (V)} & \textbf{$U_{\mathrm{SS}}$ (mV)} & \textbf{$U_{\mathrm{DC}}$ (V)} & \textbf{$U_{\mathrm{SS}}$ (mV)} \\
+    & [A] & $U_{\mathrm{DC}}$ [V] & $U_{\mathrm{SS}}$ [mV] & $U_{\mathrm{DC}}$ [V] & $U_{\mathrm{SS}}$ [mV] \\
+    & $\sigma_{I_{\mathrm{eff}}}=\pm$ 0.01 & $\sigma_{U_{\mathrm{DC}}}=\pm$ 0.01 & $\sigma_{U_{\mathrm{SS}}}=\pm$ 0.1 & $\sigma_{U_{\mathrm{DC}}}=\pm$ 0.01 & $\sigma_{U_{\mathrm{SS}}}=\pm$ 0.1\\
     \midrule
-    \textbf{400 nm} & 0.405           & 2.94  & 42.0  & 2.05 & 127.0 \\
-    & 0.800           & 2.95  & 82.4  & 2.05 & 248.0 \\
-    & 1.201 / 1.202   & 2.96  & 125.0 & 2.05 & 372.0 \\
-    & 1.607 / 1.601   & 2.97  & 162.0 & 2.05 & 492.0 \\
+    \multirow{4}{*}{\textbf{400 nm}}
+    & 0.40 & 2.94  & 42.0  & 2.05 & 127.0 \\
+    & 0.80 & 2.95  & 82.4  & 2.05 & 248.0 \\
+    & 1.20 & 2.96  & 125.0 & 2.05 & 372.0 \\
+    & 1.60 & 2.97  & 162.0 & 2.05 & 492.0 \\
     \midrule
-    \textbf{470 nm} & 0.406 / 0.401   & 2.75  & 31.0  & 2.64 & 104.0 \\
-    & 0.803 / 0.801   & 2.76  & 61.0  & 2.64 & 207.0 \\
-    & 1.202 / 1.204   & 2.76  & 92.4  & 2.64 & 307.0 \\
-    & 1.601 / 1.603   & 2.76  & 121.0 & 2.64 & 410.0 \\
+    \multirow{4}{*}{\textbf{470 nm}}
+    & 0.40 & 2.75  & 31.0  & 2.64 & 104.0 \\
+    & 0.80 & 2.76  & 61.0  & 2.64 & 207.0 \\
+    & 1.20 & 2.76  & 92.4  & 2.64 & 307.0 \\
+    & 1.60 & 2.76  & 121.0 & 2.64 & 410.0 \\
     \midrule
-    \textbf{508 nm} & 0.401           & 0.797 & 6.64  & 2.54 & 78.0  \\
-    & 0.804           & 0.797 & 7.9   & 2.53 & 155.0 \\
-    & 1.204 / 1.203   & 0.795 & 9.5   & 2.54 & 232.0 \\
-    & 1.601 / 1.600   & 0.798 & 27.0  & 2.53 & 306.0 \\
+    \multirow{4}{*}{\textbf{508 nm}}
+    & 0.40 & 0.797 & 6.64  & 2.54 & 78.0  \\
+    & 0.80 & 0.797 & 7.90  & 2.53 & 155.0 \\
+    & 1.20 & 0.795 & 9.50  & 2.54 & 232.0 \\
+    & 1.60 & 0.798 & 27.0  & 2.53 & 306.0 \\
     \midrule
-    \textbf{628 nm} & 0.402           & 2.58  & 17.0  & 2.59 & 51.6  \\
-    & 0.802 / 0.800   & 2.58  & 29.3  & 2.59 & 101.0 \\
-    & 1.202 / 1.205   & 2.58  & 46.8  & 2.59 & 152.0 \\
-    & 1.576 / 1.604   & 2.57  & 62.6  & 2.54 & 203.0 \\
+    \multirow{4}{*}{\textbf{628 nm}}
+    & 0.40 & 2.58  & 17.0  & 2.59 & 51.6  \\
+    & 0.80 & 2.58  & 29.3  & 2.59 & 101.0 \\
+    & 1.20 & 2.58  & 46.8  & 2.59 & 152.0 \\
+    & 1.60 & 2.57  & 62.6  & 2.54 & 203.0 \\
     \bottomrule
   \end{tabular}
-  \caption{Experimental measurement data for the Faraday Effect. The coil current $I_{\mathrm{eff}}$ induces a magnetic field, while $U_{\mathrm{DC}}$ and $U_{\mathrm{SS}}$ represent the DC background intensity and the AC modulation signal, respectively.}\label{tab:rotation_angle}
+  \caption{Experimental measurement data for the Faraday Effect using different mediums and light sources. Exceptions to the standard errors are the maximum deviation for $I_{\mathrm{eff}}$ at 1.60\,A (628\,nm), which is $\pm 0.02$\,A, and the reading uncertainty for $U_{\mathrm{DC}}$ in the 508\,nm N-BK7 dataset, which is $\pm 0.001$\,V.}\label{tab:rotation_angle}
 \end{table}
 
 By applying Eq.~\eqref{eq:theta_calculation} to the measured voltages and converting the coil current to the effective magnetic field $\bar{B}_{\mathrm{eff}}$ (using the calibration from Part 2), the physical rotation angles were determined. Table~\ref{tab:max_theta_results} summarizes the maximum rotation angles $\theta_{\mathrm{max}}$ obtained at the highest applied magnetic field for both materials and all four wavelengths.
 
 \begin{table}[htbp]
   \centering
-  \begin{tabular}{l c S[table-format=2.2] S[table-format=1.4]}
+  \renewcommand{\arraystretch}{1.2}
+  \begin{tabular}{l c c c}
     \toprule
-    \textbf{Material} & \textbf{Wavelength [nm]} & {$\bar{B}_{\mathrm{eff, max}}$ [mT]} & {$\theta_{\mathrm{max}}$ [$^\circ$]} \\
+    \textbf{Material} & \textbf{Wavelength [nm]} & \textbf{$\bar{B}_{\mathrm{eff, \max}}$ [mT]} & \textbf{$\theta_{\mathrm{\max}}$ [$^\circ$]} \\
     \midrule
-    \textbf{N-BK7} & 400 & 12.41 & 0.7813 \\
-    & 470 & 12.36 & 0.6280 \\
-    & 508 & 12.36 & 0.4846 \\
-    & 628 & 12.17 & 0.3489 \\
+    \textbf{N-BK7}
+    & 400 & $12.41 \pm 0.19$ & $0.781 \pm 0.003$ \\
+    & 470 & $12.36 \pm 0.19$ & $0.628 \pm 0.002$ \\
+    & 508 & $12.36 \pm 0.19$ & $0.485 \pm 0.002$ \\
+    & 628 & $12.17 \pm 0.19$ & $0.349 \pm 0.001$ \\
     \midrule
-    \textbf{SF10} & 400 & 12.36 & 3.4377 \\
-    & 470 & 12.38 & 2.2246 \\
-    & 508 & 12.35 & 1.7325 \\
-    & 628 & 12.38 & 1.1448 \\
+    \textbf{SF10}
+    & 400 & $12.36 \pm 0.19$ & $3.438 \pm 0.017$ \\
+    & 470 & $12.38 \pm 0.19$ & $2.225 \pm 0.008$ \\
+    & 508 & $12.35 \pm 0.19$ & $1.732 \pm 0.007$ \\
+    & 628 & $12.38 \pm 0.19$ & $1.145 \pm 0.005$ \\
     \bottomrule
   \end{tabular}
   \caption{Maximum magnetic flux density $\bar{B}_{\mathrm{eff, \max}}$ and the resulting maximum rotation angle $\theta_{\mathrm{\max}}$ calculated for each wavelength and material combination.}\label{tab:max_theta_results}
 \end{table}
+
+Uncertainties for the magnetic field $B$ and rotation angle $\theta$ were calculated using Gaussian error propagation. For $B = I_{\mathrm{eff}} \cdot C_{\mathrm{coil}}$ (with $C_{\mathrm{coil}} = 7.72 \pm 0.11\,\mathrm{mT/A}$), the uncertainty $\sigma_B$ is:
+\begin{equation}
+  \sigma_B = B \cdot \sqrt{{\left(\frac{\sigma_{I}}{I_{\mathrm{eff}}}\right)}^2 + {\left(\frac{\sigma_C}{C_{\mathrm{coil}}}\right)}^2}
+  \label{eq:error_B}
+\end{equation}
+where $\sigma_I$ is the coil current reading uncertainty.
+
+Similarly, for the rotation angle $\theta = U_{SS} / (4 \cdot U_{DC})$, the uncertainty $\sigma_\theta$ is derived from the voltage reading uncertainties (the exact factor of $4$ does not contribute):
+\begin{equation}
+  \sigma_\theta = \theta \cdot \sqrt{\left(\frac{\sigma_{U_{SS}}}{U_{SS}}\right)^2 + \left(\frac{\sigma_{U_{DC}}}{U_{DC}}\right)^2}
+  \label{eq:error_theta}
+\end{equation}
 
 \subsection{xxx (Task 10)}
 
