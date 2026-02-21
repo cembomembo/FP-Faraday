@@ -775,33 +775,26 @@ The teslameter display shows the magnetic flux density with a resolution of $0.1
   \caption{Axial magnetic-flux density profile $B(z)$ measured at $I_{\mathrm{eff}}=1.0\,\mathrm{A}$.}\label{tab:Bz_profile_1A}
 \end{table}
 
-From the measured profile, the effective length-averaged magnetic field was calculated using Eq.~\eqref{eq:Bavg_discrete} with $\Delta z=0.5\,\mathrm{cm}$ and $L=7.0\,\mathrm{cm}$.
-The profile contains $N=15$ measurement points, and we use the discrete approximation
-\[
-  \bar B_{\mathrm{eff}}=\frac{\Delta z}{L}\sum_{i=1}^{N} B(z_i).
-\]
-Assuming independent teslameter readings with identical uncertainty $\sigma_B$, standard Gaussian error propagation yields for the contribution from the field readings
-\[
-  \sigma_{\bar B,B}^2=\sum_{i=1}^{N}\left(\frac{\partial \bar B_{\mathrm{eff}}}{\partial B_i}\sigma_B\right)^2
-  =
-  \sum_{i=1}^{N}\left(\frac{\Delta z}{L}\sigma_B\right)^2
-  =
-  N\left(\frac{\Delta z}{L}\sigma_B\right)^2,
-\]
-and thus
-\[
-  \sigma_{\bar B,B}=\frac{\Delta z}{L}\sqrt{N}\,\sigma_B.
-\]
-In addition, the manual positioning of the probe marker introduces an uncertainty of the covered integration length $L$, which we estimate as $\sigma_L \approx 0.1\,\mathrm{cm}$.
-With $\bar B_{\mathrm{eff}}\propto 1/L$, the corresponding contribution is
-\[
-  \sigma_{\bar B,L}=\left|\frac{\partial \bar B_{\mathrm{eff}}}{\partial L}\right|\sigma_L=\frac{\bar B_{\mathrm{eff}}}{L}\sigma_L.
-\]
+From the measured profile, the effective length-averaged magnetic field was calculated using the trapezoidal rule with $\Delta z=0.5\,\mathrm{cm}$ and $L=7.0\,\mathrm{cm}$. For the $N=15$ measurement points, the discrete approximation of the integral is:
+\begin{equation}
+  \bar B_{\mathrm{eff}} = \frac{\Delta z}{L} \left( \frac{B(z_1)}{2} + \sum_{i=2}^{N-1} B(z_i) + \frac{B(z_N)}{2} \right)
+\end{equation}
+
+Assuming independent teslameter readings with identical uncertainty $\sigma_B$, standard Gaussian error propagation for the $N$ terms yields the contribution from the field readings:
+\begin{equation}
+  \sigma_{\bar B,B} = \frac{\Delta z}{L} \sigma_B \sqrt{ \left(\frac{1}{2}\right)^2 + (N-2) + \left(\frac{1}{2}\right)^2 } = \frac{\Delta z}{L} \sigma_B \sqrt{N - 1.5}
+\end{equation}
+
+In addition, the manual positioning of the probe marker introduces an uncertainty in the covered integration length $L$, which we estimate as $\sigma_L \approx 0.1\,\mathrm{cm}$. With $\bar B_{\mathrm{eff}}\propto 1/L$, the corresponding contribution is:
+\begin{equation}
+  \sigma_{\bar B,L}=\left|\frac{\partial \bar B_{\mathrm{eff}}}{\partial L}\right|\sigma_L=\frac{\bar B_{\mathrm{eff}}}{L}\sigma_L
+\end{equation}
+
 Both contributions are added in quadrature, $\sigma_{\bar B}=\sqrt{\sigma_{\bar B,B}^2+\sigma_{\bar B,L}^2}$.
 
-Evaluating this for the data in Table~\ref{tab:Bz_profile_1A} gives
+Evaluating this for the data in Table~\ref{tab:Bz_profile_1A} gives:
 \begin{equation}
-  \boxed{\bar B_{\mathrm{eff}}(I_{\mathrm{eff}}=1.0\,\mathrm{A}) = (7.72 \pm 0.11)\,\mathrm{mT}} \;.
+  \boxed{\bar B_{\mathrm{eff}}(I_{\mathrm{eff}}=1.0\,\mathrm{A}) = (7.45 \pm 0.11)\,\mathrm{mT}} \;.
   \label{eq:Bavg_1A_value}
 \end{equation}
 
@@ -1021,7 +1014,7 @@ The physical rotation angle $\theta$ (in radians) is then determined using the f
   \label{eq:theta_calculation}
 \end{equation}
 
-This equation was applied across all wavelengths and magnetic field strengths. The raw experimental data are recorded in Table~\ref{tab:rotation_angle}. By converting the applied coil current to the effective length-averaged magnetic field $\bar{B}_{\mathrm{eff}}$ (using the calibration from Part 2), the rotation angles as a function of the magnetic field were obtained. Table~\ref{tab:max_theta_results} summarizes the maximum rotation angles $\theta_{\mathrm{max}}$ measured at the highest applied magnetic field for both materials and all four wavelengths.
+This equation was applied across all wavelengths and magnetic field strengths. The raw experimental data are recorded in Table~\ref{tab:rotation_angle} and Table~\ref{tab:contrast_data}. By converting the applied coil current to the effective length-averaged magnetic field $\bar{B}_{\mathrm{eff}}$ (using the calibration from Part 2), the rotation angles as a function of the magnetic field were obtained. Table~\ref{tab:max_theta_results} summarizes the maximum rotation angles $\theta_{\mathrm{max}}$ measured at the highest applied magnetic field for both materials and all four wavelengths.
 
 \begin{table}[htbp]
   \centering
@@ -1065,6 +1058,26 @@ This equation was applied across all wavelengths and magnetic field strengths. T
 \begin{table}[htbp]
   \centering
   \renewcommand{\arraystretch}{1.2}
+  \setlength{\tabcolsep}{6pt}
+  \begin{tabular}{l c c c c c c}
+    \toprule
+    \multirow{2}{*}{\textbf{Wavelength}} & \multicolumn{3}{c}{\textbf{N-BK7}} & \multicolumn{3}{c}{\textbf{SF10}} \\
+    \cmidrule(lr){2-4} \cmidrule(lr){5-7}
+    & $U_{||}$ [V] & $U_{\perp}$ [V] & $K$ & $U_{||}$ [V] & $U_{\perp}$ [V] & $K$ \\
+    & $\sigma_{U_{||}}=\pm$ 0.01 & $\sigma_{U_{\perp}}=\pm$ 0.01 & & $\sigma_{U_{||}}=\pm$ 0.01 & $\sigma_{U_{\perp}}=\pm$ 0.01 & \\
+    \midrule
+    \textbf{400 nm} & 5.102 & 0.787 & 0.733 & 4.012 & 0.060 & 0.971 \\
+    \textbf{470 nm} & 5.082 & 0.355 & 0.869 & 5.252 & 0.222 & 0.919 \\
+    \textbf{508 nm} & 4.514 & 0.062 & 0.973 & 4.062 & 0.005 & 0.998 \\
+    \textbf{628 nm} & 5.011 & 0.148 & 0.943 & 5.162 & 0.006 & 0.998 \\
+    \bottomrule
+  \end{tabular}
+  \caption{Maximum ($U_{||}$) and minimum ($U_{\perp}$) detector voltages and the resulting calculated contrast factors $K$ for each wavelength and glass sample. Background voltages of $U_{\mathrm{bg}} \approx 0.008$\,V (and $0.009$\,V for N-BK7 at 628\,nm) were subtracted from the raw measurements prior to determining $K$.}\label{tab:contrast_data}
+\end{table}
+
+\begin{table}[htbp]
+  \centering
+  \renewcommand{\arraystretch}{1.2}
   \begin{tabular}{l c c c}
     \toprule
     \textbf{Material} & \textbf{Wavelength [nm]} & \textbf{$\bar{B}_{\mathrm{eff, \max}}$ [mT]} & \textbf{$\theta_{\mathrm{\max}}$ [$^\circ$]} \\
@@ -1085,12 +1098,12 @@ This equation was applied across all wavelengths and magnetic field strengths. T
   \caption{Maximum magnetic flux density $\bar{B}_{\mathrm{eff, \max}}$ and the resulting maximum rotation angle $\theta_{\mathrm{\max}}$ calculated for each wavelength and material combination.}\label{tab:max_theta_results}
 \end{table}
 
-Uncertainties for the magnetic field $B$ and rotation angle $\theta$ were calculated using Gaussian error propagation. For $B = I_{\mathrm{eff}} \cdot C_{\mathrm{coil}}$ (with $C_{\mathrm{coil}} = 7.72 \pm 0.11\,\mathrm{mT/A}$), the uncertainty $\sigma_B$ is:
+Uncertainties for the magnetic field $B$ and rotation angle $\theta$ were calculated using Gaussian error propagation. Based on the linear calibration curve $\bar B(I_{\mathrm{eff}}) = a \cdot I_{\mathrm{eff}} + b$ (with slope $a = 7.92 \pm 0.03\,\mathrm{mT/A}$ and intercept $b = -0.49 \pm 0.03\,\mathrm{mT}$), the uncertainty $\sigma_B$ is given by:
 \begin{equation}
-  \sigma_B = B \cdot \sqrt{{\left(\frac{\sigma_{I}}{I_{\mathrm{eff}}}\right)}^2 + {\left(\frac{\sigma_C}{C_{\mathrm{coil}}}\right)}^2}
+  \sigma_B = \sqrt{a^2 \sigma_I^2 + I_{\mathrm{eff}}^2 \sigma_a^2 + \sigma_b^2}
   \label{eq:error_B}
 \end{equation}
-where $\sigma_I$ is the coil current reading uncertainty.
+where $\sigma_I$ is the reading uncertainty of the effective coil current, and $\sigma_a$ and $\sigma_b$ are the standard errors of the fitted slope and intercept, respectively.
 
 Similarly, for the rotation angle $\theta = \frac{1}{K} \frac{U_{SS}}{4 \cdot U_{DC}}$, the uncertainty $\sigma_\theta$ is derived from the voltage reading uncertainties and the uncertainty of the contrast factor $K$. Since the exact factor of $4$ drops out during the derivation of the relative error, Gaussian error propagation yields:
 \begin{equation}
