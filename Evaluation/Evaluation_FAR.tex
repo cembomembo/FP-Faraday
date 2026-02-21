@@ -1155,9 +1155,27 @@ The refractive index derivatives $dn/d\lambda$ for both N-BK7 and SF10 were calc
   \caption{Extracted slopes from the linear fits of the Faraday rotation angles, the calculated Verdet constants $V(\lambda)$, refractive index derivatives, and the resulting effective oscillator mass ratios for N-BK7 and SF10 glasses.}\label{tab:verdet_and_mass}
 \end{table}
 
-\subsection{xxx (Task 11)}
+\subsubsection{Density of Dispersion Electrons}
 
-11.\ Ermitteln Sie aus dem Anstieg Ihrer Geraden, in der Auftragung $1/(n^2 - 1)$ über $1/\lambda^2$, unter Verwendung Ihres $m_e^*$-Wertes die Zahl $N$ der Dispersionselektronen pro $\mathrm{cm}^{-3}$ und vergleichen Sie diese mit der Zahl der Atome pro $\mathrm{cm}^{-3}$.
+Using the effective oscillator mass $m_e^*$ determined from the Faraday rotation and the slope parameter $A$ from the linear dispersion model, the density of optically active dispersion electrons $N$ can be calculated. Rearranging the Sellmeier slope parameter yields:
+\begin{equation}
+  N = \frac{\epsilon_0 m_e^* (2\pi c)^2}{e^2 A}
+\end{equation}
+where $\epsilon_0$ is the vacuum permittivity, $c$ is the speed of light, and $e$ is the elementary charge.
+
+Using the previously calculated adjusted average effective mass $m_e^*$ for N-BK7 and the overall average $m_e^*$ for SF10, the dispersion electron densities were determined. The required slope parameters $A$ were taken from the earlier dispersion analysis as $0.00753\,\mu\mathrm{m}^2$ for N-BK7 and $0.01180\,\mu\mathrm{m}^2$ for SF10. The resulting calculated electron densities are:
+\begin{itemize}
+  \item \textbf{N-BK7:} $N \approx 1.70 \times 10^{23}\,\mathrm{cm}^{-3}$
+  \item \textbf{SF10:} $N \approx 1.18 \times 10^{23}\,\mathrm{cm}^{-3}$
+\end{itemize}
+
+To contextualize this result for N-BK7, the calculated density of dispersion electrons was compared to the approximate atomic density of the glass matrix. Assuming a standard borosilicate crown glass composition dominated by $\mathrm{SiO}_2$ (density $\rho \approx 2.51\,\mathrm{g/cm}^3$, molar mass $M \approx 60.08\,\mathrm{g/mol}$, and 3 atoms per molecule), the theoretical atom density is approximately $7.55 \times 10^{22}\,\mathrm{cm}^{-3}$.
+
+Comparing the optically active electron density to the atom density yields a ratio of:
+\begin{equation}
+  \frac{N_{\mathrm{dispersion}}}{N_{\mathrm{atoms}}} \approx 2.25
+\end{equation}
+This indicates that, on average, approximately 2.25 electrons per atom in the N-BK7 glass matrix actively participate in the optical dispersion process in the visible spectrum.
 
 % ------------------
 % --- Discussion ---
@@ -1165,7 +1183,7 @@ The refractive index derivatives $dn/d\lambda$ for both N-BK7 and SF10 were calc
 \section{Discussion}
 
 xxx
-Please discuss that the 508nm data for the NBK7 was shit so our results there are quite bad
+Please discuss that the 508nm data for the NBK7 was shit because the signal to noise ratio was so high, otherwise they matched the expected values in all other measurements.
 % ------------------
 % --- Conclusion ---
 % ------------------
