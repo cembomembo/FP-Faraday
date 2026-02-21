@@ -844,19 +844,83 @@ The small negative intercept is consistent with the measured offset at $I_{\math
 
 \subsection{Verification of Malus' Law and Polarization Quality (Tasks 5--7)}
 
-5.\ Überprüfen Sie ohne Glaskörper und ohne Magnetfeld für eine Wellenlänge das malussche Gesetz (13), indem Sie bei fester Polarisatorstellung die transmittierte Intensität in Abhängigkeit vom Analysatorwinkel $(0$ bis $180^\circ)$ messen.
-Tragen Sie die Kurve auf, bestimmen Sie den Kontrast $K = (U_{\parallel} - U_{\perp}) / (U_{\parallel} + U_{\perp})$ und den Polarisationsgrad $G = U_{\parallel} / U_{\perp}$.
+To verify wether Malus' Law is applicable, the measured Voltage that is proportional to the lights intesity is plotted against the rotation angle $\varphi$ of the analyzer \ref{fig:verificationmaluslaw}. The theoretical curve is also shown as a reference. While most measurements align well with the theoretical expectation, the measurements at 0° and 10° are a little higher than expected. To account for this for the determination of the contrast and the degree of polarization and their errors, another curve has been fitted manually here denoted as 'Fit limit'. This is done because the error of the multimeter of $0.01$ V seems to be to small to account for the diverging points and thus the error for the contrast $K$ and degree of polarization $G$ are unrealitically small.
+The error for 
 
-6.\ Wiederholen Sie die Messung mit Glaskörper, aber ohne Magnetfeld und bestimmen Sie Kontrast und Polarisationsgrad.
-Diskutieren Sie Ihr Ergebnis.
-Bestimmen Sie den Anstieg $\mathrm{d}U_{DC}/\mathrm{d}\varphi$ bei $\varphi = 45^\circ$.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.95\linewidth]{./evaluation_figures/verification_malus_law.png}
+  \caption{Verification of Malus' Law, without glass and without magnetic field}
+  \label{fig:verificationmaluslaw}
+\end{figure}
 
-7.\ Justieren Sie Ihren Versuchsaufbau so, dass Sie mit Glaskörper aber ohne Magnetfeld einen Polarisationsgrad von $G > 40$ erreichen.
+With this the following values could be determined for $U_{\parallel} = 5.17 \pm 0.07$ and $U_{\perp} = 0.16 \pm 0.10$.
 
-\subsection{xxx (Task 8)}
+From there the contrast $K$ and the degree of polarization $G$ can be deduced.
 
-8.\ Modulieren Sie das Magnetfeld mit einer Frequenz im Bereich $40\,\mathrm{Hz} \le \Omega \le 90\,\mathrm{Hz}$ (we just set it to 60 Hz) und weisen Sie bei einer Wellenlänge nach, dass bei $\varphi = 45^\circ$ das maximale Modulationssignal auftritt.
-Tragen Sie dazu die Größe $U_{SS}$ in Abhängigkeit von $\varphi$ auf.
+\[
+K = (U_{\parallel} - U_{\perp}) / (U_{\parallel} + U_{\perp}) = 0.94 \pm 0.02
+\]
+and:
+\[
+G = U_{\parallel} / U_{\perp} = 32.5 \pm 20.45
+\]
+
+Where the errors where calculated with Gaussian error propagation. 
+
+\[
+\Delta K = \frac{2}{(U_{\parallel} + U_{\perp})^2}\cdot \sqrt{(U_{\parallel}\cdot \Delta U_{\parallel})^2 + (U_{\perp} \cdot \Delta U_{\perp})^2}
+\]
+and:
+\[
+\Delta G = G \cdot \sqrt{(\frac{\Delta U_{\parallel}}{U_{\parallel}})^2 + (\frac{\Delta U_{\perp}}{U_{\perp}})^2}
+\]
+
+%5.\ Überprüfen Sie ohne Glaskörper und ohne Magnetfeld für eine Wellenlänge das malussche Gesetz (13), indem Sie bei fester Polarisatorstellung die transmittierte Intensität in Abhängigkeit vom Analysatorwinkel $(0$ bis $180^\circ)$ messen.
+%Tragen Sie die Kurve auf, bestimmen Sie den Kontrast $K = (U_{\parallel} - U_{\perp}) / (U_{\parallel} + U_{\perp})$ und den Polarisationsgrad $G = U_{\parallel} / U_{\perp}$.
+
+The same measurement has then been repeated with glass in the optical path. The plotted results can be seen in figure \ref{fig:verificationmaluslawglass}.
+Here the theoretical curve has been adjusted a bit in height and amplitude to fit the measurements. The green line is again used to calculate the errors as in the measurment before without the glass.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.95\linewidth]{./evaluation_figures/verification_malus_law_with_glass.png}
+  \caption{Verification of Malus' Law, with glass and without magnetic field, also showing the maximum slope at $\varphi$ = 45°}
+  \label{fig:verificationmaluslawglass}
+\end{figure}
+
+From this following results can be determined:
+
+$U_{\parallel} = 5.17 \pm 0.09 \: V$
+$U_{\perp} = 0.11 \pm 0.04 \: V$
+$K = 0.96 \pm 0.03$
+$G = 45.75 \pm 16.21$
+
+And for the slope:
+\[
+\frac{dU}{d\varphi}\ = 0.088 \pm 0.002 \: V/^\circ
+\]
+
+Here a degree of polarization $G > 40$ was accomplished as requested in Task 7. The error $\Delta G$ is so big because of the high relative error of $U_{\perp}$.
+
+%6.\ Wiederholen Sie die Messung mit Glaskörper, aber ohne Magnetfeld und bestimmen Sie Kontrast und Polarisationsgrad.
+%Diskutieren Sie Ihr Ergebnis.
+%Bestimmen Sie den Anstieg $\mathrm{d}U_{DC}/\mathrm{d}\varphi$ bei $\varphi = 45^\circ$.
+
+%7.\ Justieren Sie Ihren Versuchsaufbau so, dass Sie mit Glaskörper aber ohne Magnetfeld einen Polarisationsgrad von $G > 40$ erreichen.
+
+\subsection{Verification of the Workingpoint (Task 8)}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.7\linewidth]{./evaluation_figures/max_modulation_signal.png}
+  \caption{$U_{SS}(\varphi)$, showing that the maximum of the modulation signal is close to $\varphi = 45^\circ$}
+  \label{fig:maxmodulationsignal}
+\end{figure}
+\begin{text}
+In figure \ref{fig:maxmodulationsignal} the modulation signals voltage $U_{SS}$ is plotted against the angle $\varphi$. The expected maximum is at $\varphi = 45 ^\circ$, from the created plot it appears to be more at $46 ^\circ$. Yet the both measurements have the same value, confirming that $\varphi = 45 ^\circ$ is a good workingpoint. 
+\end{text}
+
+%8.\ Modulieren Sie das Magnetfeld mit einer Frequenz im Bereich $40\,\mathrm{Hz} \le \Omega \le 90\,\mathrm{Hz}$ (we just set it to 60 Hz) und weisen Sie bei einer Wellenlänge nach, dass bei $\varphi = 45^\circ$ das maximale Modulationssignal auftritt.
+%Tragen Sie dazu die Größe $U_{SS}$ in Abhängigkeit von $\varphi$ auf.
 
 \subsection{xxx (Task 9)}
 
