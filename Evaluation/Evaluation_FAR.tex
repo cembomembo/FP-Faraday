@@ -754,16 +754,14 @@ The SF10 glass shows a significantly higher refractive index and stronger disper
 The axial magnetic-flux density inside the solenoid was measured with the axial Hall probe of the teslameter at a fixed effective coil current of $I_{\mathrm{eff}}=1.0\,\mathrm{A}$.
 The position $z$ was set manually by inserting the probe into the solenoid and reading the probe marker against a tape measure, which we estimate to yield a position uncertainty of $\sigma_z \approx 0.1\,\mathrm{cm}$.
 This positioning uncertainty mainly affects the definition of the covered integration interval (i.e.\ the effective length $L$ over which the profile is averaged) and is therefore accounted for below via a conservative length uncertainty $\sigma_L$.
-The teslameter display shows the magnetic flux density with a resolution of $0.1\,\mathrm{mT}$ (least significant digit), and we therefore use $\sigma_B \approx 0.1\,\mathrm{mT}$ as reading uncertainty.
+The teslameter display shows the magnetic flux density with a resolution of $0.1\,\mathrm{mT}$ (least significant digit), and we therefore use $\sigma_B \approx \pm0.1\,\mathrm{mT}$ as reading uncertainty.
 
 \begin{table}[H]
   \centering
-  \caption{Axial magnetic-flux density profile $B(z)$ measured at $I_{\mathrm{eff}}=1.0\,\mathrm{A}$.}
-  \label{tab:Bz_profile_1A}
-  \begin{tabular}{|c|c||c|c|}
-    \hline
+  \begin{tabular}{|c|c|c|c|}
+    \toprule
     $z\,(\mathrm{cm})$ & $B\,(\mathrm{mT})$ & $z\,(\mathrm{cm})$ & $B\,(\mathrm{mT})$ \\
-    \hline
+    \midrule
     0.0 & 3.5 & 4.0 & 9.2 \\
     0.5 & 5.2 & 4.5 & 8.9 \\
     1.0 & 6.4 & 5.0 & 8.4 \\
@@ -772,8 +770,9 @@ The teslameter display shows the magnetic flux density with a resolution of $0.1
     2.5 & 8.8 & 6.5 & 5.3 \\
     3.0 & 9.1 & 7.0 & 4.2 \\
     3.5 & 9.3 &  &  \\
-    \hline
+    \bottomrule
   \end{tabular}
+  \caption{Axial magnetic-flux density profile $B(z)$ measured at $I_{\mathrm{eff}}=1.0\,\mathrm{A}$.}\label{tab:Bz_profile_1A}
 \end{table}
 
 From the measured profile, the effective length-averaged magnetic field was calculated using Eq.~\eqref{eq:Bavg_discrete} with $\Delta z=0.5\,\mathrm{cm}$ and $L=7.0\,\mathrm{cm}$.
@@ -806,16 +805,14 @@ Evaluating this for the data in Table~\ref{tab:Bz_profile_1A} gives
   \label{eq:Bavg_1A_value}
 \end{equation}
 
-For the field--current calibration, the Hall probe was fixed at the solenoid center ($z=3.5\,\mathrm{cm}$), and the magnetic flux density was recorded as a function of effective coil current $I_{\mathrm{eff}}$.
+For the field-current calibration, the Hall probe was fixed at the solenoid center ($z=3.5\,\mathrm{cm}$), and the maximal magnetic flux was recorded as a function of effective coil current $I_{\mathrm{eff}}$. Then, the averaged magnetic flux density was calculated as $\bar B = 0.8B_{\max}$.
 
 \begin{table}[H]
   \centering
-  \caption{Center field $B_{\mathrm{center}}$ measured at $z=3.5\,\mathrm{cm}$ as a function of $I_{\mathrm{eff}}$.}
-  \label{tab:Bcenter_Ieff}
   \begin{tabular}{|c|c|}
-    \hline
+    \toprule
     $I_{\mathrm{eff}}\,(\mathrm{A})$ & $B_{\mathrm{center}}\,(\mathrm{mT})$ \\
-    \hline
+    \midrule
     0.00 & -0.5 \\
     0.20 & 1.3 \\
     0.40 & 3.3 \\
@@ -825,25 +822,30 @@ For the field--current calibration, the Hall probe was fixed at the solenoid cen
     1.20 & 11.3 \\
     1.40 & 13.3 \\
     1.60 & 15.2 \\
-    \hline
+    \bottomrule
   \end{tabular}
+  \caption{Measured $B_{\max}$ values at $z=3.5\,\mathrm{cm}$ as a function of $I_{\mathrm{eff}}$.}\label{tab:Bcenter_Ieff}
 \end{table}
 
-A linear regression of the center-field data yields the calibration relation
+\vspace{1em}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.95\linewidth]{../resources/plots/part1/B_z.png}
+  \caption{Magnetic flux density $B$ measured along the coil symmetry axis at a fixed current $I_{\mathrm{eff}}=1.0$A.}\label{fig:B_z}
+\end{figure}
+
+A linear regression of the averaged magnetic flux data yields the calibration relation
 \begin{equation}
-  \boxed{B_{\mathrm{center}}(I_{\mathrm{eff}}) = (9.90 \pm 0.04)\,\frac{\mathrm{mT}}{\mathrm{A}}\,I_{\mathrm{eff}} - (0.61 \pm 0.04)\,\mathrm{mT}} \;,
+  \boxed{\bar B(I_{\mathrm{eff}}) = (7.92 \pm 0.03)\,\frac{\mathrm{mT}}{\mathrm{A}}\,I_{\mathrm{eff}} - (0.49 \pm 0.03)\,\mathrm{mT}} \;,
   \label{eq:Bcenter_calibration_fit}
 \end{equation}
 where the quoted uncertainties are the standard errors of the fitted parameters obtained from the covariance matrix of the least-squares fit.
 The small negative intercept is consistent with the measured offset at $I_{\mathrm{eff}}=0$ (Table~\ref{tab:Bcenter_Ieff}) and can be attributed to a residual probe zero offset and/or background magnetic fields.
 
-\vspace{1em}
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.95\linewidth]{../resources/plots/part1/Bcenter_calibration_fit.png}
-  \caption{Calibration curve of the solenoid center field $B_{\mathrm{center}}$ as a function of effective coil current $I_{\mathrm{eff}}$, including a linear regression according to Eq.~\eqref{eq:Bcenter_calibration_fit}.
-  This calibration is used in the subsequent evaluation to convert the recorded coil current settings into the magnetic flux density acting on the sample.}
-  \label{fig:Bcenter_calibration_fit}
+  \caption{Calibration curve of the averaged solenoid center field $\bar B$ as a function of effective coil current $I_{\mathrm{eff}}$, including a linear regression fit.}\label{fig:Bcenter_calibration_fit}
 \end{figure}
 
 \subsection{Part 2: Malus' Law and Magnetic field modulation}
@@ -1009,22 +1011,22 @@ The maximum modulation signal was detected with an amplitude of $U_{SS} = 40.06 
 \subsection{Part 3:}
 \subsection{Determination of Faraday Rotation Angles}\label{sec:task9_angles}
 
-To calculate the Faraday rotation angle for each measurement, the ratio of the AC modulation signal $U_{SS}$ to the DC background signal $U_{DC}$ was used. The analyzer was set to the working point of $\phi = 45^\circ$ relative to the extinction position. At this angle, the transmitted intensity $I$ is approximately half the maximum intensity ($I \approx I_0/2$). Consequently, the full intensity can be expressed as $I_0 \approx 2 \cdot U_{DC}$.
+To calculate the Faraday rotation angle for each measurement, the ratio of the AC modulation signal $U_{SS}$ to the peak-to-peak intensity difference $(I_{||} - I_{\perp})$ was used. The analyzer was set to the working point of $\phi = 45^\circ$ relative to the extinction position. At this angle, the sensitivity $S$ of the setup corresponds to the maximum slope of the transmission curve.
 
-The sensitivity $S$ of the setup corresponds to the slope of the transmission curve. As derived from Malus' Law, this slope is maximal at the $45^\circ$ working point and equal to the full intensity $I_0$:
+As derived from Malus' Law, including the measured residual intensity $I_{\perp}$ and maximum intensity $I_{||}$, the intensity is $I(\phi) = I_{\perp} + (I_{||} - I_{\perp}) \cos^2(\phi)$. The sensitivity $S$ at the $45^\circ$ working point is:
 \begin{equation}
-  S = \left| \frac{dI}{d\phi} \right|_{45^\circ} \approx I_0 \approx 2 \cdot U_{DC}
+  S = \left| \frac{dI}{d\phi} \right|_{45^\circ} = I_{||} - I_{\perp}
 \end{equation}
 The magnetic field induces a small rotation $\theta$, resulting in a signal amplitude change. Since $U_{SS}$ represents the \textit{peak-to-peak} voltage of this modulation (which is twice the signal amplitude), the relationship is:
 \begin{equation}
-  U_{SS} \approx 2 \cdot (S \cdot \theta) = 2 \cdot (2 U_{DC} \cdot \theta) = 4 \cdot U_{DC} \cdot \theta
+  U_{SS} \approx 2 \cdot (S \cdot \theta) = 2 \cdot (I_{||} - I_{\perp}) \cdot \theta
 \end{equation}
 Rearranging for the rotation angle yields the final calculation formula:
 \begin{equation}
-  \theta = \frac{U_{SS}}{4 \cdot U_{DC}}
+  \theta = \frac{U_{SS}}{2 \cdot (I_{||} - I_{\perp})}
   \label{eq:theta_calculation}
 \end{equation}
-This equation was used to convert the recorded electrical signals into the physical rotation angle $\theta$ (in radians) for all wavelengths and magnetic field strengths. The raw experimental data, including the effective coil currents $I_{\mathrm{eff}}$ and the corresponding detector voltages $U_{DC}$ and $U_{SS}$, are recorded in Table~\ref{tab:rotation_angle}. The coil current $I_{\mathrm{eff}}$ induces a magnetic field, while $U_{\mathrm{DC}}$ and $U_{\mathrm{SS}}$ represent the DC background intensity and the AC modulation signal, respectively.
+This equation was used to convert the recorded electrical signals into the physical rotation angle $\theta$ (in radians) for all wavelengths and magnetic field strengths. The raw experimental data, including the effective coil currents $I_{\mathrm{eff}}$, the corresponding detector voltages $U_{DC}$ and $U_{SS}$, and the calibration intensities $I_{||}$ and $I_{\perp}$, are recorded in Table~\ref{tab:rotation_angle}.
 
 \begin{table}[htbp]
   \centering
