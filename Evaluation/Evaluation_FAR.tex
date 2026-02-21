@@ -973,14 +973,6 @@ This statistical error accounts for the residual scatter of the measured data po
 
 The experimental data are recorded in Table~\ref{tab:modulation_data}, and the fit is shown in Figure~\ref{fig:modulation_signal}.
 
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.8\textwidth]{../resources/plots/part2/field_modulation.png}
-  \caption{Amplitude of the modulation signal $U_{SS}$ as a function of the analyzer angle $\phi$. The maximum signal indicates the point of highest sensitivity.}\label{fig:modulation_signal}
-\end{figure}
-
-The maximum modulation signal was detected with an amplitude of $U_{SS} = 40.06 \pm 0.59$\,mV at an angle of $\phi_{peak} = 46.59^\circ \pm 0.08^\circ$, with an $U_{\text{offset}}\approx0\pm0.6$mV. Since the SNR was quite high, the background $U_{\text{offset}}$ in the fit resulted in a numerical value of zero.
-
 \begin{table}[h]
   \centering
   \begin{tabular}{c c}
@@ -1008,25 +1000,28 @@ The maximum modulation signal was detected with an amplitude of $U_{SS} = 40.06 
   \caption{Measurement of the modulation signal amplitudes $U_{SS}$ at analyzer angles $\phi$.}\label{tab:modulation_data}
 \end{table}
 
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.8\textwidth]{../resources/plots/part2/field_modulation.png}
+  \caption{Amplitude of the modulation signal $U_{SS}$ as a function of the analyzer angle $\phi$. The maximum signal indicates the point of highest sensitivity.}\label{fig:modulation_signal}
+\end{figure}
+
+The maximum modulation signal was detected with an amplitude of $U_{SS} = 40.06 \pm 0.59$\,mV at an angle of $\phi_{peak} = 46.59^\circ \pm 0.08^\circ$, with an $U_{\text{offset}}\approx0\pm0.6$mV. Since the SNR was quite high, the background $U_{\text{offset}}$ in the fit resulted in a numerical value of zero.
+
 \subsection{Part 3:}
-\subsection{Determination of Faraday Rotation Angles}\label{sec:task9_angles}
+\subsubsection{Determination of Faraday Rotation Angles}\label{sec:task9_angles}
 
-To calculate the Faraday rotation angle for each measurement, the ratio of the AC modulation signal $U_{SS}$ to the peak-to-peak intensity difference $(I_{||} - I_{\perp})$ was used. The analyzer was set to the working point of $\phi = 45^\circ$ relative to the extinction position. At this angle, the sensitivity $S$ of the setup corresponds to the maximum slope of the transmission curve.
+To calculate the Faraday rotation angle for each measurement, the modulation method was used at the working point of $\phi = 45^\circ$. For each wavelength, the maximum ($U_{||}$) and minimum ($U_{\perp}$) detector voltages were measured to determine the contrast factor $K = \frac{U_{||} - U_{\perp}}{U_{||} + U_{\perp}}$. During the measurements with the modulated magnetic field, the constant DC offset voltage $U_{DC}$ and the peak-to-peak AC modulation voltage $U_{SS}$ were recorded alongside the effective coil current $I_{\mathrm{eff}}$.
 
-As derived from Malus' Law, including the measured residual intensity $I_{\perp}$ and maximum intensity $I_{||}$, the intensity is $I(\phi) = I_{\perp} + (I_{||} - I_{\perp}) \cos^2(\phi)$. The sensitivity $S$ at the $45^\circ$ working point is:
+Before each measurement series, the detector background voltage $U_{bg}=0.008$V was measured with the beam path blocked. This background signal was subtracted from all static DC voltage measurements to remove the contribution of ambient light.
+
+The physical rotation angle $\theta$ (in radians) is then determined using the final relation:
 \begin{equation}
-  S = \left| \frac{dI}{d\phi} \right|_{45^\circ} = I_{||} - I_{\perp}
-\end{equation}
-The magnetic field induces a small rotation $\theta$, resulting in a signal amplitude change. Since $U_{SS}$ represents the \textit{peak-to-peak} voltage of this modulation (which is twice the signal amplitude), the relationship is:
-\begin{equation}
-  U_{SS} \approx 2 \cdot (S \cdot \theta) = 2 \cdot (I_{||} - I_{\perp}) \cdot \theta
-\end{equation}
-Rearranging for the rotation angle yields the final calculation formula:
-\begin{equation}
-  \theta = \frac{U_{SS}}{2 \cdot (I_{||} - I_{\perp})}
+  \theta = \frac{1}{K} \frac{U_{SS}}{4 U_{DC}}
   \label{eq:theta_calculation}
 \end{equation}
-This equation was used to convert the recorded electrical signals into the physical rotation angle $\theta$ (in radians) for all wavelengths and magnetic field strengths. The raw experimental data, including the effective coil currents $I_{\mathrm{eff}}$, the corresponding detector voltages $U_{DC}$ and $U_{SS}$, and the calibration intensities $I_{||}$ and $I_{\perp}$, are recorded in Table~\ref{tab:rotation_angle}.
+
+This equation was applied across all wavelengths and magnetic field strengths. The raw experimental data are recorded in Table~\ref{tab:rotation_angle}. By converting the applied coil current to the effective length-averaged magnetic field $\bar{B}_{\mathrm{eff}}$ (using the calibration from Part 2), the rotation angles as a function of the magnetic field were obtained. Table~\ref{tab:max_theta_results} summarizes the maximum rotation angles $\theta_{\mathrm{max}}$ measured at the highest applied magnetic field for both materials and all four wavelengths.
 
 \begin{table}[htbp]
   \centering
@@ -1040,34 +1035,32 @@ This equation was used to convert the recorded electrical signals into the physi
     & $\sigma_{I_{\mathrm{eff}}}=\pm$ 0.01 & $\sigma_{U_{\mathrm{DC}}}=\pm$ 0.01 & $\sigma_{U_{\mathrm{SS}}}=\pm$ 0.1 & $\sigma_{U_{\mathrm{DC}}}=\pm$ 0.01 & $\sigma_{U_{\mathrm{SS}}}=\pm$ 0.1\\
     \midrule
     \multirow{4}{*}{\textbf{400 nm}}
-    & 0.40 & 2.94  & 42.0  & 2.05 & 127.0 \\
-    & 0.80 & 2.95  & 82.4  & 2.05 & 248.0 \\
-    & 1.20 & 2.96  & 125.0 & 2.05 & 372.0 \\
-    & 1.60 & 2.97  & 162.0 & 2.05 & 492.0 \\
+    & 0.40 & 2.93  & 42.0  & 2.04 & 127.0 \\
+    & 0.80 & 2.94  & 82.4  & 2.04 & 248.0 \\
+    & 1.20 & 2.95  & 125.0 & 2.04 & 372.0 \\
+    & 1.60 & 2.96  & 162.0 & 2.04 & 492.0 \\
     \midrule
     \multirow{4}{*}{\textbf{470 nm}}
-    & 0.40 & 2.75  & 31.0  & 2.64 & 104.0 \\
-    & 0.80 & 2.76  & 61.0  & 2.64 & 207.0 \\
-    & 1.20 & 2.76  & 92.4  & 2.64 & 307.0 \\
-    & 1.60 & 2.76  & 121.0 & 2.64 & 410.0 \\
+    & 0.40 & 2.74  & 31.0  & 2.63 & 104.0 \\
+    & 0.80 & 2.75  & 61.0  & 2.63 & 207.0 \\
+    & 1.20 & 2.75  & 92.4  & 2.63 & 307.0 \\
+    & 1.60 & 2.75  & 121.0 & 2.63 & 410.0 \\
     \midrule
     \multirow{4}{*}{\textbf{508 nm}}
-    & 0.40 & 0.797 & 6.64  & 2.54 & 78.0  \\
-    & 0.80 & 0.797 & 7.90  & 2.53 & 155.0 \\
-    & 1.20 & 0.795 & 9.50  & 2.54 & 232.0 \\
-    & 1.60 & 0.798 & 27.0  & 2.53 & 306.0 \\
+    & 0.40 & 0.789 & 6.64  & 2.53 & 78.0  \\
+    & 0.80 & 0.789 & 7.90  & 2.52 & 155.0 \\
+    & 1.20 & 0.787 & 9.50  & 2.53 & 232.0 \\
+    & 1.60 & 0.790 & 27.0  & 2.52 & 306.0 \\
     \midrule
     \multirow{4}{*}{\textbf{628 nm}}
-    & 0.40 & 2.58  & 17.0  & 2.59 & 51.6  \\
-    & 0.80 & 2.58  & 29.3  & 2.59 & 101.0 \\
-    & 1.20 & 2.58  & 46.8  & 2.59 & 152.0 \\
-    & 1.60 & 2.57  & 62.6  & 2.54 & 203.0 \\
+    & 0.40 & 2.57  & 17.0  & 2.58 & 51.6  \\
+    & 0.80 & 2.57  & 29.3  & 2.58 & 101.0 \\
+    & 1.20 & 2.57  & 46.8  & 2.58 & 152.0 \\
+    & 1.60 & 2.56  & 62.6  & 2.53 & 203.0 \\
     \bottomrule
   \end{tabular}
   \caption{Experimental measurement data for the Faraday Effect using different mediums and light sources. Exceptions to the standard errors are the maximum deviation for $I_{\mathrm{eff}}$ at 1.60\,A (628\,nm), which is $\pm 0.02$\,A, and the reading uncertainty for $U_{\mathrm{DC}}$ in the 508\,nm N-BK7 dataset, which is $\pm 0.001$\,V.}\label{tab:rotation_angle}
 \end{table}
-
-By applying Eq.~\eqref{eq:theta_calculation} to the measured voltages and converting the coil current to the effective magnetic field $\bar{B}_{\mathrm{eff}}$ (using the calibration from Part 2), the physical rotation angles were determined. Table~\ref{tab:max_theta_results} summarizes the maximum rotation angles $\theta_{\mathrm{max}}$ obtained at the highest applied magnetic field for both materials and all four wavelengths.
 
 \begin{table}[htbp]
   \centering
@@ -1099,9 +1092,9 @@ Uncertainties for the magnetic field $B$ and rotation angle $\theta$ were calcul
 \end{equation}
 where $\sigma_I$ is the coil current reading uncertainty.
 
-Similarly, for the rotation angle $\theta = U_{SS} / (4 \cdot U_{DC})$, the uncertainty $\sigma_\theta$ is derived from the voltage reading uncertainties (the exact factor of $4$ does not contribute):
+Similarly, for the rotation angle $\theta = \frac{1}{K} \frac{U_{SS}}{4 \cdot U_{DC}}$, the uncertainty $\sigma_\theta$ is derived from the voltage reading uncertainties and the uncertainty of the contrast factor $K$. Since the exact factor of $4$ drops out during the derivation of the relative error, Gaussian error propagation yields:
 \begin{equation}
-  \sigma_\theta = \theta \cdot \sqrt{\left(\frac{\sigma_{U_{SS}}}{U_{SS}}\right)^2 + \left(\frac{\sigma_{U_{DC}}}{U_{DC}}\right)^2}
+  \sigma_\theta = \theta \cdot \sqrt{{\left(\frac{\sigma_{U_{SS}}}{U_{SS}}\right)}^2 + {\left(\frac{\sigma_{U_{DC}}}{U_{DC}}\right)}^2 + {\left(\frac{\sigma_K}{K}\right)}^2}
   \label{eq:error_theta}
 \end{equation}
 
