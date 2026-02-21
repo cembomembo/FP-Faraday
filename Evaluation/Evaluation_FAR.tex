@@ -862,15 +862,6 @@ Using these values, the Contrast $K$ and the Degree of Polarization $G$ were cal
 \end{equation}
 The results for the setup without glass are summarized in Table~\ref{tab:polarization_results}. The errors for $K$ and $G$ are derived from the covariance matrix of the fit using standard error propagation rules.
 
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.9\textwidth]{../resources/plots/part2/malus_law_without_glass.png}
-  \caption{Verification of Malus' Law without the glass sample. The red curve indicates the fit according to Eq.~\ref{eq:malus_model}.}\label{fig:malus_air}
-\end{figure}
-
-\subsubsection{Verification of Malus' Law (With Glass)}
-The measurement was repeated with the flint glass rod inserted into the coil. The resulting intensity curve is shown in Figure~\ref{fig:malus_glass}. The presence of the glass medium introduces optical interfaces which may lead to scattering, reflections, or stress-induced birefringence.
-
 \begin{table}[h]
   \centering
   \begin{tabular}{c c c}
@@ -917,7 +908,30 @@ The measurement was repeated with the flint glass rod inserted into the coil. Th
   \caption{Comparison of polarization parameters with and without the glass sample. Uncertainties are derived from the covariance of the fit.}\label{tab:polarization_results}
 \end{table}
 
-% Sensitivity / Slope Calculation
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.9\textwidth]{../resources/plots/part2/malus_law_without_glass.png}
+  \caption{Verification of Malus' Law without the glass sample. The red curve indicates the fit according to Eq.~\ref{eq:malus_model}.}\label{fig:malus_air}
+\end{figure}
+
+\subsubsection{Verification of Malus' Law (With Glass)}
+The measurement was repeated with the flint glass rod inserted into the coil. The resulting intensity curve is shown in Figure~\ref{fig:malus_glass}. The presence of the glass medium introduces optical interfaces which may lead to scattering, reflections, or stress-induced birefringence.
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{l c c}
+    \toprule
+    \textbf{Parameter} & \textbf{Air} & \textbf{Glass Sample} \\
+    \midrule
+    $I_{\parallel}$ [mV] & 5.145 $\pm$ 0.021 & 5.154 $\pm$ 0.021 \\
+    $I_{\perp}$ [mV]     & 0.048 $\pm$ 0.008 & 0.099 $\pm$ 0.008 \\
+    Contrast $K$         & 0.982 $\pm$ 0.003 & 0.962 $\pm$ 0.003 \\
+    Degree of Pol. $G$   & 107.9 $\pm$ 18.4 & 52.0 $\pm$ 4.3\\
+    \bottomrule
+  \end{tabular}
+  \caption{Comparison of polarization parameters with and without the glass sample. Uncertainties are derived from the covariance of the fit.}\label{tab:polarization_results}
+\end{table}
+
 % Sensitivity / Slope Calculation
 To determine the optimal working point for the Faraday effect measurements, the sensitivity of the setup was analyzed. The sensitivity is defined as the slope of the transmission curve. Differentiating Eq.~\ref{eq:malus_model} with respect to $\phi$:
 \begin{equation}
@@ -1001,7 +1015,7 @@ The experimental data are recorded in Table~\ref{tab:modulation_data}, and the f
 
 The maximum modulation signal was detected with an amplitude of $U_{SS} = 40.06 \pm 0.59$\,mV at an angle of $\phi_{peak} = 46.59^\circ \pm 0.08^\circ$, with an $U_{\text{offset}}\approx0\pm0.6$mV. Since the SNR was quite high, the background $U_{\text{offset}}$ in the fit resulted in a numerical value of zero.
 
-\subsection{Part 3:}
+\subsection{Part 3: Verdet constant and Electron Density}
 \subsubsection{Determination of Faraday Rotation Angles}\label{sec:task9_angles}
 
 To calculate the Faraday rotation angle for each measurement, the modulation method was used at the working point of $\phi = 45^\circ$. For each wavelength, the maximum ($U_{||}$) and minimum ($U_{\perp}$) detector voltages were measured to determine the contrast factor $K = \frac{U_{||} - U_{\perp}}{U_{||} + U_{\perp}}$. During the measurements with the modulated magnetic field, the constant DC offset voltage $U_{DC}$ and the peak-to-peak AC modulation voltage $U_{SS}$ were recorded alongside the effective coil current $I_{\mathrm{eff}}$.
@@ -1014,7 +1028,11 @@ The physical rotation angle $\theta$ (in radians) is then determined using the f
   \label{eq:theta_calculation}
 \end{equation}
 
-This equation was applied across all wavelengths and magnetic field strengths. The raw experimental data are recorded in Table~\ref{tab:rotation_angle} and Table~\ref{tab:contrast_data}. By converting the applied coil current to the effective length-averaged magnetic field $\bar{B}_{\mathrm{eff}}$ (using the calibration from Part 2), the rotation angles as a function of the magnetic field were obtained. Table~\ref{tab:max_theta_results} summarizes the maximum rotation angles $\theta_{\mathrm{max}}$ measured at the highest applied magnetic field for both materials and all four wavelengths.
+This equation was applied across all wavelengths and magnetic field strengths. The raw experimental data are recorded in Table~\ref{tab:rotation_angle} and Table~\ref{tab:contrast_data}. By converting the applied coil current to the effective length-averaged magnetic field $\bar{B}_{\mathrm{eff}}$ (using the calibration from Part 2), the rotation angles as a function of the magnetic field were obtained and plotted against the magnetic flux amplitude in Figure~\ref{fig:angle_vs_B}.
+
+\begin{equation}
+  \bar{B}_{\mathrm{Ampl}} = \sqrt{2}\bar{B}_{\mathrm{eff}}
+\end{equation}
 
 \begin{table}[htbp]
   \centering
@@ -1075,29 +1093,6 @@ This equation was applied across all wavelengths and magnetic field strengths. T
   \caption{Maximum ($U_{||}$) and minimum ($U_{\perp}$) detector voltages and the resulting calculated contrast factors $K$ for each wavelength and glass sample. Background voltages of $U_{\mathrm{bg}} \approx 0.008$\,V (and $0.009$\,V for N-BK7 at 628\,nm) were subtracted from the raw measurements prior to determining $K$.}\label{tab:contrast_data}
 \end{table}
 
-\begin{table}[htbp]
-  \centering
-  \renewcommand{\arraystretch}{1.2}
-  \begin{tabular}{l c c c}
-    \toprule
-    \textbf{Material} & \textbf{Wavelength [nm]} & \textbf{$\bar{B}_{\mathrm{eff, \max}}$ [mT]} & \textbf{$\theta_{\mathrm{\max}}$ [$^\circ$]} \\
-    \midrule
-    \textbf{N-BK7}
-    & 400 & $12.41 \pm 0.19$ & $0.781 \pm 0.003$ \\
-    & 470 & $12.36 \pm 0.19$ & $0.628 \pm 0.002$ \\
-    & 508 & $12.36 \pm 0.19$ & $0.485 \pm 0.002$ \\
-    & 628 & $12.17 \pm 0.19$ & $0.349 \pm 0.001$ \\
-    \midrule
-    \textbf{SF10}
-    & 400 & $12.36 \pm 0.19$ & $3.438 \pm 0.017$ \\
-    & 470 & $12.38 \pm 0.19$ & $2.225 \pm 0.008$ \\
-    & 508 & $12.35 \pm 0.19$ & $1.732 \pm 0.007$ \\
-    & 628 & $12.38 \pm 0.19$ & $1.145 \pm 0.005$ \\
-    \bottomrule
-  \end{tabular}
-  \caption{Maximum magnetic flux density $\bar{B}_{\mathrm{eff, \max}}$ and the resulting maximum rotation angle $\theta_{\mathrm{\max}}$ calculated for each wavelength and material combination.}\label{tab:max_theta_results}
-\end{table}
-
 Uncertainties for the magnetic field $B$ and rotation angle $\theta$ were calculated using Gaussian error propagation. Based on the linear calibration curve $\bar B(I_{\mathrm{eff}}) = a \cdot I_{\mathrm{eff}} + b$ (with slope $a = 7.92 \pm 0.03\,\mathrm{mT/A}$ and intercept $b = -0.49 \pm 0.03\,\mathrm{mT}$), the uncertainty $\sigma_B$ is given by:
 \begin{equation}
   \sigma_B = \sqrt{a^2 \sigma_I^2 + I_{\mathrm{eff}}^2 \sigma_a^2 + \sigma_b^2}
@@ -1111,11 +1106,54 @@ Similarly, for the rotation angle $\theta = \frac{1}{K} \frac{U_{SS}}{4 \cdot U_
   \label{eq:error_theta}
 \end{equation}
 
-\subsection{xxx (Task 10)}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.9\textwidth]{../resources/plots/part3/angle_B.png}
+  \caption{Faraday rotation angle $\theta$ as a function of the average magnetic field amplitude $\bar B_{\mathrm{Ampl}}$ for N-BK7 and SF10 glass samples. Measurements were taken at four LED wavelengths: 400, 470, 508, and 628 nm. The dashed lines represent weighted linear fits, the slopes of which are used to determine the Verdet constants $V(\lambda)$ based on the sample length L.}\label{fig:angle_vs_B}
+\end{figure}
 
-10.\ Tragen Sie möglichst in einer gemeinsamen grafischen Darstellung für jede Wellenlänge den Drehwinkel $\theta$ über $\bar{B}_{\mathrm{Ampl}}$ auf und ermitteln Sie aus ihren Anstiegen die verdetsche Konstante $V(\lambda)$.
-Berechnen Sie nach Gl.~\eqref{eq:becquerel} die effektive Oszillatormasse $m_e^*$ der Dispersionselektronen.
-Benutzen Sie dazu die Werte $\mathrm{d}n/\mathrm{d}\lambda$ für die Glassorte BK7, die Sie auf der Website $\texttt{http://refractiveindex.info/}$ finden.
+\subsubsection{Verdet Constant and Effective Oscillator Mass}
+
+As shown in Figure~\ref{fig:angle_vs_B}, the measured Faraday rotation angle $\theta$ shows a linear dependence on the magnetic field amplitude $\bar{B}_{\mathrm{Ampl}}$ for all wavelengths. To extract the Verdet constants, a weighted linear regression ($\theta = m \cdot \bar{B}_{\mathrm{Ampl}}$) was applied to the data for each wavelength and material.
+
+The slopes $m$ of these linear fits correspond to the rotation per unit of magnetic field. The Verdet constant $V(\lambda)$ was then determined by dividing these slopes (converted from the working units of deg/mT to standard SI units of rad/T) by the length of the glass sample, $L = 7.0\,\mathrm{cm}$:
+\begin{equation}
+  V(\lambda) = \frac{m}{L}
+\end{equation}
+
+This Verdet constant is directly related to the dispersion of the refractive index through the Becquerel relation:
+\begin{equation}
+  V(\lambda) = -\frac{1}{2}\frac{e}{m_{e}^{*}c}\lambda\frac{dn}{d\lambda}
+\end{equation}
+where $e$ is the elementary charge, $c$ is the speed of light, and $m_{e}^*$ represents the effective mass of the oscillating dispersion electrons. To evaluate how the lattice environment affects the electrons' response, we rearrange this expression to solve for the ratio of the effective mass to the bare electron mass $m_e$:
+\begin{equation}
+  \frac{m_{e}^*}{m_{e}} = -\frac{e}{2 m_{e} c V(\lambda)} \lambda \frac{dn}{d\lambda}
+\end{equation}
+
+The refractive index derivatives $dn/d\lambda$ for both N-BK7 and SF10 were calculated numerically for the experimental wavelengths using the standard Sellmeier equations and corresponding material coefficients. The extracted slopes, calculated Verdet constants, dispersion derivatives, and the resulting mass ratios are all unified in Table~\ref{tab:verdet_and_mass}.
+
+\begin{table}[htbp]
+  \centering
+  \renewcommand{\arraystretch}{1.2}
+  \begin{tabular}{l c c c c c}
+    \toprule
+    \textbf{Material} & \textbf{Wavelength [nm]} & \textbf{Slope $m$ [rad/T]} & \textbf{$V(\lambda)$ [rad/(T$\cdot$m)]} & \textbf{$dn/d\lambda$ [m$^{-1}$]} & \textbf{$m_{e}^*/m_{e}$} \\
+    \midrule
+    \multirow{4}{*}{\textbf{N-BK7}}
+    & 400 & $1.044 \pm 0.006$ & $14.91 \pm 0.09$ & $-1.33 \times 10^5$ & $1.048$ \\
+    & 470 & $0.708 \pm 0.004$ & $10.11 \pm 0.06$ & $-8.02 \times 10^4$ & $1.093$ \\
+    & 508 & $0.361 \pm 0.004$ & $5.16 \pm 0.06$ & $-6.34 \times 10^4$ & $1.832$ \\
+    & 628 & $0.347 \pm 0.002$ & $4.96 \pm 0.04$ & $-3.49 \times 10^4$ & $1.298$ \\
+    \midrule
+    \multirow{4}{*}{\textbf{SF10}}
+    & 400 & $3.448 \pm 0.025$ & $49.25 \pm 0.36$ & $-5.47 \times 10^5$ & $1.304$ \\
+    & 470 & $2.347 \pm 0.013$ & $33.53 \pm 0.19$ & $-2.83 \times 10^5$ & $1.162$ \\
+    & 508 & $1.694 \pm 0.011$ & $24.20 \pm 0.16$ & $-2.12 \times 10^5$ & $1.305$ \\
+    & 628 & $1.101 \pm 0.006$ & $15.72 \pm 0.09$ & $-1.03 \times 10^5$ & $1.209$ \\
+    \bottomrule
+  \end{tabular}
+  \caption{Extracted slopes from the linear fits of the Faraday rotation angles, the calculated Verdet constants $V(\lambda)$, refractive index derivatives, and the resulting effective oscillator mass ratios for N-BK7 and SF10 glasses.}\label{tab:verdet_and_mass}
+\end{table}
 
 \subsection{xxx (Task 11)}
 
@@ -1127,7 +1165,7 @@ Benutzen Sie dazu die Werte $\mathrm{d}n/\mathrm{d}\lambda$ für die Glassorte B
 \section{Discussion}
 
 xxx
-
+Please discuss that the 508nm data for the NBK7 was shit so our results there are quite bad
 % ------------------
 % --- Conclusion ---
 % ------------------
@@ -1136,6 +1174,9 @@ xxx
 xxx
 Task 9:
 The results in Table~\ref{tab:max_theta_results} show a clear trend: the rotation angle increases significantly as the wavelength decreases (normal dispersion). Furthermore, the rotation in the lead-containing glass (SF10) is consistently larger than in the crown glass (N-BK7) by a factor of approximately 4 to 5, indicating a much higher Verdet constant for SF10.
+
+task 10:
+The results demonstrate a clear wavelength dependence: the Verdet constant decreases strongly with increasing wavelength, which is characteristic of normal dispersion far from the material's resonance frequencies. Furthermore, the lead-containing SF10 glass exhibits a Verdet constant that is approximately three to four times larger than that of the N-BK7 crown glass across the entire measured spectrum, indicating a much stronger magneto-optical response.
 
 % ----------------
 % --- Appendix ---
