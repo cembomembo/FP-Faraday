@@ -702,10 +702,11 @@ By plotting $y = \frac{1}{n^2 - 1}$ against $x = \frac{1}{\lambda^2}$, a linear 
 
 While the data was initially considered over a broad spectral range (up to 2.5 $\mu$m), the final fit was restricted to the visible and near-visible range ($0.4\,\mu\text{m} \le \lambda \le 0.8\,\mu\text{m}$). This ensures that the parameters $A$ and $\lambda_R$ are optimized for the spectral region where the Faraday rotation is actually measured, avoiding distortions from infrared lattice vibrations.
 
+\newpage
 \paragraph{Results for BK7}
 The analysis of the BK7 dispersion data in the visible range yields a highly linear relationship, as shown in Figure~\ref{fig:nbk7_plots}. The results of the linear fit and the derived physical parameters are summarized in Table~\ref{tab:task1_results}.
 
-\begin{figure}[htbp]
+\begin{figure}[H]
   \centering
   \begin{subfigure}{0.9\textwidth}
     \includegraphics[width=\textwidth]{../resources/plots/part1/N-BK7.png}
@@ -719,12 +720,12 @@ The analysis of the BK7 dispersion data in the visible range yields a highly lin
   \caption{Dispersion analysis and linearization for N-BK7 glass.}
   \label{fig:nbk7_plots}
 \end{figure}
-
+\newpage
 \paragraph{Results for SF10}
 
 The SF10 glass shows a significantly higher refractive index and stronger dispersion compared to N-BK7. The linearization over the visible spectrum (Figure~\ref{fig:sf10_plots}) provides the necessary slope $A$ for the subsequent determination of the electron density $N$ in Task 11.
 
-\begin{figure}[htbp]
+\begin{figure}[H]
   \centering
   \begin{subfigure}{0.9\textwidth}
     \includegraphics[width=\textwidth]{../resources/plots/part1/N-SF10.png}
@@ -891,21 +892,6 @@ The results for the setup without glass are summarized in Table~\ref{tab:polariz
     \bottomrule
   \end{tabular}
   \caption{Measured intensities for the verification of Malus' Law, with and without the glass sample.}\label{tab:malus_measurements}
-\end{table}
-
-\begin{table}[htbp]
-  \centering
-  \begin{tabular}{l c c}
-    \toprule
-    \textbf{Parameter} & \textbf{Air} & \textbf{Glass Sample} \\
-    \midrule
-    $I_{\parallel}$ [mV] & 5.145 $\pm$ 0.021 & 5.154 $\pm$ 0.021 \\
-    $I_{\perp}$ [mV]     & 0.048 $\pm$ 0.008 & 0.099 $\pm$ 0.008 \\
-    Contrast $K$         & 0.982 $\pm$ 0.003 & 0.962 $\pm$ 0.003 \\
-    Degree of Pol. $G$   & 107.9 $\pm$ 18.4 & 52.0 $\pm$ 4.3\\
-    \bottomrule
-  \end{tabular}
-  \caption{Comparison of polarization parameters with and without the glass sample. Uncertainties are derived from the covariance of the fit.}\label{tab:polarization_results}
 \end{table}
 
 \begin{figure}[htbp]
@@ -1182,18 +1168,31 @@ This indicates that, on average, approximately 2.25 electrons per atom in the N-
 % ------------------
 \section{Discussion}
 
-xxx
-Please discuss that the 508nm data for the NBK7 was shit because the signal to noise ratio was so high, otherwise they matched the expected values in all other measurements.
+While most measurements were without major complications and resulted in data with values that are to be expected, the measurement for 508 nm with the N-BK7 glass \ref{fig:angle_vs_B} shows major deviations from the expected linear correlation between the strength of the magnatic field and the angle of rotation. That is because during this measurement the peak-to-peak voltage $U_SS$ on the oscilloscope was fluctuating and it was not possible to create a stable wave, resulting in a high signal to noise ratio. This was likely due to a misconfiguration of the oscilloscope, which was then solved for later measurements.\\
+Another remark to make is that while the fit to the maximum amplitude of the modulation signal indicates the highest sensitivity to be at an angle of $\varphi \approx 46.6 ^\circ$, the actual measurement of the amplitude at $\varphi = 45 ^\circ$ has the same value, thus confirming the appropriotness of the used working point. 
+
 % ------------------
 % --- Conclusion ---
 % ------------------
 \section{Conclusion}
 
-xxx
-Task 9:
-The results in Table~\ref{tab:max_theta_results} show a clear trend: the rotation angle increases significantly as the wavelength decreases (normal dispersion). Furthermore, the rotation in the lead-containing glass (SF10) is consistently larger than in the crown glass (N-BK7) by a factor of approximately 4 to 5, indicating a much higher Verdet constant for SF10.
+In this experiment, we investigated the Faraday effect—the rotation of the plane of polarization of linearly polarized light in the presence of an axial magnetic field—using two optical glasses, N-BK7 and SF10. Our goal was to measure the wavelength-dependent Verdet constant and relate it to the dispersion properties of the materials.
 
-task 10:
+\textbf{Dispersion Analysis:}
+The refractive index dispersion of both glasses was analyzed. For N-BK7, the effective resonance wavelength was determined to be $\lambda_R = 97.6\,\text{nm}$, while for SF10, it was $\lambda_R = 148.2\,\text{nm}$. These values reflect the dominant electronic resonance governing the optical response in the visible range.
+
+\textbf{Magnetic Field Calibration:}
+The axial magnetic field profile of the solenoid was measured, and the length-averaged magnetic field was calibrated as a function of coil current. The calibration curve $\bar{B}(I_{\text{eff}}) = (7.92 \pm 0.03)\,\text{mT/A} \cdot I_{\text{eff}} - (0.49 \pm 0.03)\,\text{mT}$ enabled precise control of the magnetic field during the Faraday rotation measurements.
+
+\textbf{Polarization Optimization:}
+Malus’ law was verified for both air and the glass samples, confirming the quality of the optical setup. The degree of polarization G exceeded 40 for most measurements, ensuring reliable detection of small Faraday rotation angles. The working point of the analyzer was set to $\varphi = 45^\circ$ to maximize sensitivity, as validated by the modulation signal analysis.
+
+\textbf{Faraday Rotation Measurements:}
+The Faraday rotation angle $\theta$ was measured for four wavelengths (400 nm, 470 nm, 508 nm, and 628 nm) and at multiple magnetic field strengths. The results showed a linear dependence of $\theta$ on the magnetic field amplitude, as expected from theory. The Verdet constants $V(\lambda)$ were extracted from the slopes of these linear relationships, revealing a strong wavelength dependence and significantly higher values for SF10 compared to N-BK7.
+
+\textbf{Verdet Constant:}
+The results in Table~\ref{tab:verdet_and_mass} show a clear trend: the rotation angle increases significantly as the wavelength decreases (normal dispersion). Furthermore, the rotation in the lead-containing glass (SF10) is consistently larger than in the crown glass (N-BK7) by a factor of approximately 4 to 5, indicating a much higher Verdet constant for SF10.
+
 The results demonstrate a clear wavelength dependence: the Verdet constant decreases strongly with increasing wavelength, which is characteristic of normal dispersion far from the material's resonance frequencies. Furthermore, the lead-containing SF10 glass exhibits a Verdet constant that is approximately three to four times larger than that of the N-BK7 crown glass across the entire measured spectrum, indicating a much stronger magneto-optical response.
 
 % ----------------
