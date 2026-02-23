@@ -18,8 +18,6 @@
 \titlespacing*{\section}{0pt}{5.0ex plus 1ex minus .2ex}{1.0ex plus .2ex}
 \titlespacing*{\subsection}{0pt}{3.0ex plus .5ex minus .2ex}{0.8ex plus .2ex}
 \titlespacing*{\subsubsection}{0pt}{2.0ex plus .5ex minus .2ex}{0.8ex plus .2ex}
-\titleformat{\paragraph}[hang]{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
-\titlespacing*{\paragraph}{0pt}{2.0ex plus .5ex minus .2ex}{0.8ex plus .2ex}
 
 % --- Math and symbols ---
 \usepackage{amsmath, amssymb}    % standard math
@@ -129,11 +127,11 @@ In this experiment, we measure the Verdet constant of optical glasses at several
 
 \vspace{1em}
 \begin{figure}[H]
-  \centering
-  \includegraphics[width=0.85\linewidth]{../resources/figures/faraday_effect.png}
+\centering
+\includegraphics[width=0.85\linewidth]{../resources/figures/faraday_effect.png}
   \caption{Schematic illustration of the Faraday effect.
-    Linearly polarized light propagates through a transparent medium in the presence of a magnetic field applied parallel to the propagation direction.
-    Inside the material, the plane of polarization rotates continuously due to the different phase velocities of left- and right-circularly polarized components.
+  Linearly polarized light propagates through a transparent medium in the presence of a magnetic field applied parallel to the propagation direction.
+  Inside the material, the plane of polarization rotates continuously due to the different phase velocities of left- and right-circularly polarized components.
   The total rotation angle is proportional to the magnetic field strength and the optical path length~\cite{wikimedia_faraday_effect}.}
   \label{fig:faraday_effect_schematic}
 \end{figure}
@@ -191,10 +189,10 @@ This situation is illustrated in Fig.~\ref{fig:phase_accumulation}, which shows 
 
 \vspace{1em}
 \begin{figure}[H]
-  \centering
-  \includegraphics[width=0.95\linewidth]{../resources/figures/phase_accumulation.png}
+\centering
+\includegraphics[width=0.95\linewidth]{../resources/figures/phase_accumulation.png}
   \caption{Propagation of a plane electromagnetic wave through a medium of refractive index $n$.
-    Inside the medium the wavelength is reduced to $\lambda = \lambda_0/n$, leading to a faster spatial phase accumulation compared to vacuum.
+  Inside the medium the wavelength is reduced to $\lambda = \lambda_0/n$, leading to a faster spatial phase accumulation compared to vacuum.
   Adapted from~\cite{demtroeder2013_emwellen}.}
   \label{fig:phase_accumulation}
 \end{figure}
@@ -330,8 +328,8 @@ This behavior is illustrated schematically in Fig.~\ref{fig:malus_slope}.
 
 \vspace{1em}
 \begin{figure}[H]
-  \centering
-  \includegraphics[width=0.95\linewidth]{../resources/figures/malus_slope.png}
+\centering
+\includegraphics[width=0.95\linewidth]{../resources/figures/malus_slope.png}
   \caption{Schematic illustration of Malus' law $I \propto \cos^2 \varphi$.
   At $\varphi = 45^\circ$ the slope of the curve is maximal and approximately linear, which makes this angle an optimal working point for detecting small polarization rotations.}
   \label{fig:malus_slope}
@@ -563,11 +561,11 @@ A schematic overview of the optical arrangement is shown in Fig.~\ref{fig:setup_
 
 \vspace{1em}
 \begin{figure}[H]
-  \centering
-  \includegraphics[width=0.8\linewidth]{../resources/figures/setup_faraday.png}
+\centering
+\includegraphics[width=0.8\linewidth]{../resources/figures/setup_faraday.png}
   \caption{Schematic layout of the experimental setup.
-    Light from an LED source is collimated by a lens, linearly polarized by the first polarizer, and passes through the glass sample placed inside a solenoid.
-    The Faraday-rotated polarization state is analyzed by a second polarizer (analyzer), and the transmitted intensity is focused onto a photodetector.
+  Light from an LED source is collimated by a lens, linearly polarized by the first polarizer, and passes through the glass sample placed inside a solenoid.
+  The Faraday-rotated polarization state is analyzed by a second polarizer (analyzer), and the transmitted intensity is focused onto a photodetector.
   A diaphragm (aperture) is used to improve beam quality and suppress stray light.}
   \label{fig:setup_overview}
 \end{figure}
@@ -684,6 +682,9 @@ The Faraday rotation measurements were first carried out for the BK7 glass.
 After replacing the sample with the SF10 glass, the complete measurement sequence was repeated under identical conditions.
 
 The collected data form the basis for the determination of the Verdet constant and related material parameters, which are evaluated in the subsequent Evaluation section.
+
+\titleformat{\paragraph}[hang]{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}{0pt}{2.0ex plus .5ex minus .2ex}{0.8ex plus .2ex}
 
 % ------------------
 % --- Evaluation ---
@@ -1169,7 +1170,7 @@ This indicates that, on average, approximately 2.25 electrons per atom in the N-
 \section{Discussion}
 
 While most measurements were without major complications and resulted in data with values that are to be expected, the measurement for 508 nm with the N-BK7 glass \ref{fig:angle_vs_B} shows major deviations from the expected linear correlation between the strength of the magnatic field and the angle of rotation. That is because during this measurement the peak-to-peak voltage $U_SS$ on the oscilloscope was fluctuating and it was not possible to create a stable wave, resulting in a high signal to noise ratio. This was likely due to a misconfiguration of the oscilloscope, which was then solved for later measurements.\\
-Another remark to make is that while the fit to the maximum amplitude of the modulation signal indicates the highest sensitivity to be at an angle of $\varphi \approx 46.6 ^\circ$, the actual measurement of the amplitude at $\varphi = 45 ^\circ$ has the same value, thus confirming the appropriotness of the used working point. 
+Another remark to make is that while the fit to the maximum amplitude of the modulation signal indicates the highest sensitivity to be at an angle of $\varphi \approx 46.6 ^\circ$, the actual measurement of the amplitude at $\varphi = 45 ^\circ$ has the same value, thus confirming the appropriotness of the used working point.
 
 % ------------------
 % --- Conclusion ---
