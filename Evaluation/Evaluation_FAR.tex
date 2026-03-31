@@ -115,8 +115,8 @@
 
 \section{Introduction}
 
-The Faraday effect is a magneto-optical phenomenon in which the plane of polarization of linearly polarized light rotates while passing through a transparent medium in an axial magnetic field.
-For small rotations, the angle $\theta$ scales with the magnetic flux density $B$ and the path length $L$ in the material, $\theta = VBL$, where $V$ is the material- and wavelength-dependent Verdet constant.
+The Faraday effect is a magneto-optical phenomenon in which the plane of polarization of linearly polarized light rotates while passing through a transparent medium in an axial magnetic field, as illustrated schematically in Fig.~\ref{fig:faraday_effect_schematic}.
+For a given wavelength and material, the rotation angle $\theta$ is proportional to the magnetic flux density $B$ and the path length $L$ in the medium, \mbox{$\theta = VBL$}, where $V$ is the material- and wavelength-dependent Verdet constant.
 Discovered by Michael Faraday in 1845, the effect is widely regarded as one of the first experimental hints that light and electromagnetism are deeply connected.
 
 What makes Faraday rotation especially useful is that it is non-reciprocal, meaning the sense of rotation does not simply cancel when light travels back through the same element.
@@ -220,6 +220,7 @@ Inserting the expression for $\Delta\phi$ yields
 which relates the observed Faraday rotation directly to the refractive index difference of the two circular polarization modes.
 
 \subsection{Microscopic Origin of \texorpdfstring{$n_l \neq n_r$}{} in an Axial Magnetic Field}
+\label{sec:microscopic_origin}
 
 The refractive index of a transparent medium originates from the interaction between the electric field of the light wave and the bound electrons in the material.
 When an electromagnetic wave propagates through a dielectric, its oscillating electric field drives small oscillatory motions of the electrons around their equilibrium positions.
@@ -242,7 +243,7 @@ On the macroscopic level, this manifests itself as a small difference between th
 
 The same effect can also be understood from a minimal quantum-mechanical viewpoint.
 A helpful way to think about this is that the refractive index of a dielectric is ultimately determined by how easily its bound electrons can be excited by an optical electric field.
-In typical optical glasses, the strongest electronic excitations correspond to transitions at much higher frequencies, usually in the ultraviolet.
+In transparent optical glasses, the dominant electronic resonances relevant for the visible-range dispersion lie in the ultraviolet.
 Visible light is therefore far away from these resonances and is transmitted with little absorption.
 Nevertheless, even far from resonance the electrons are still driven weakly by the optical field, and this weak response determines the refractive index observed in the visible range.
 
@@ -264,8 +265,8 @@ We therefore write
 \[
   n_l \approx n(\lambda + \Delta\lambda), \qquad n_r \approx n(\lambda - \Delta\lambda),
 \]
-where $\Delta\lambda$ is small and proportional to the applied magnetic field $B$.
-This parameter does not represent a change of the light wavelength itself, but rather encodes the small Zeeman-induced shift of the electronic resonance that determines the dispersive optical response.
+where $\Delta\lambda$ denotes the small Zeeman-induced shift of the underlying electronic resonance and is proportional to the applied magnetic field $B$.
+It does not represent a change of the wavelength of the propagating light itself, but rather a shift of the resonance that determines the dispersive optical response.
 
 For sufficiently small $\Delta\lambda$, the refractive index can be expanded to first order,
 \[
@@ -321,15 +322,14 @@ If the polarization is rotated by a small Faraday angle $\theta$, the effective 
   I(\theta) = I_0 \cos^2(\varphi + \theta).
 \]
 The analyzer angle $\varphi$ is chosen deliberately to maximize the sensitivity of the transmitted intensity to small changes in $\theta$.
-
-The analyzer is set to $\varphi = 45^\circ$, because at this angle the slope of the $\cos^2$ function is maximal and approximately linear in the vicinity of the working point.
+For this purpose, the analyzer is set to $\varphi = 45^\circ$, because at this angle the slope of the $\cos^2$ function is maximal and approximately linear in the vicinity of the working point.
 This means that small polarization rotations lead to the largest possible relative change in intensity.
 This behavior is illustrated schematically in Fig.~\ref{fig:malus_slope}.
 
 \vspace{1em}
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.95\linewidth]{../resources/figures/malus_slope.png}
+\includegraphics[width=1.0\linewidth]{../resources/figures/malus_slope.png}
   \caption{Schematic illustration of Malus' law $I \propto \cos^2 \varphi$.
   At $\varphi = 45^\circ$ the slope of the curve is maximal and approximately linear, which makes this angle an optimal working point for detecting small polarization rotations.}
   \label{fig:malus_slope}
@@ -389,7 +389,7 @@ Using $U_0 = 2 U_{DC}$, the Faraday rotation amplitude can therefore be written 
 \label{sec:contrast_correction}
 
 In real optical systems, the transmitted intensity does not vanish completely even when the polarizers are crossed.
-This can be caused by imperfect polarizers, slight misalignments, or stress-induced changes of the polarization state inside the glass.
+This can be caused by imperfect polarizers, slight misalignments, stray light, or partial depolarization of the transmitted beam inside the sample.
 To account for this, a modified form of Malus' law is used,
 \begin{equation}
   U(\varphi) = (U_{\parallel} - U_{\perp}) \cos^2 \varphi + U_{\perp},
@@ -420,7 +420,7 @@ To account for this, a contrast factor
   \label{eq:contrast_factor}
 \end{equation}
 is introduced.
-It describes how strongly the analyzer can modulate the detected signal between the parallel and crossed configurations.
+It quantifies the effective contrast of the optical system between the parallel and crossed configurations.
 With this correction, the experimentally relevant expression for the Faraday rotation amplitude becomes
 \begin{equation}
   \theta_B = \frac{1}{K}\,\frac{U_{SS}}{4 U_{DC}}.
@@ -486,9 +486,10 @@ This equation forms the basis for the determination of the wavelength-dependent 
 
 \subsection{Dispersion Model for \texorpdfstring{$n(\lambda)$}{} and Determination of \texorpdfstring{$\lambda_R$ and $N$}{}}
 
-In order to relate the measured Faraday rotation to microscopic material parameters, a quantitative description of the wavelength dependence of the refractive index is required.
-In transparent optical glasses, light in the visible range does not excite real electronic transitions.
-Instead, the optical field drives bound electrons at frequencies far below their natural resonance frequencies, which are typically located in the ultraviolet.
+As discussed in Sec.~\ref{sec:microscopic_origin}, the Faraday effect is governed by the dispersive optical response of bound electrons and is therefore linked to the wavelength dependence of the refractive index.
+To extract microscopic material parameters from the measured Faraday rotation, we now introduce an explicit model for the wavelength dependence of $n(\lambda)$ in transparent optical glasses.
+In such materials, light in the visible range does not excite real electronic transitions.
+Instead, the optical field drives bound electrons at frequencies far below the relevant electronic resonance frequencies, which lie in the ultraviolet.
 The observed dispersion of the refractive index therefore reflects the off-resonant response of these electrons rather than absorption processes.
 
 In this situation, the detailed electronic level structure is not resolved, and the dispersive behavior can be approximated by a single effective resonance.
