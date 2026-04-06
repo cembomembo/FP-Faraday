@@ -132,7 +132,8 @@ In this experiment, we measure the Verdet constant of optical glasses at several
   \caption{Schematic illustration of the Faraday effect.
   Linearly polarized light propagates through a transparent medium in the presence of a magnetic field applied parallel to the propagation direction.
   Inside the material, the plane of polarization rotates continuously due to the different phase velocities of left- and right-circularly polarized components.
-  The total rotation angle is proportional to the magnetic field strength and the optical path length~\cite{wikimedia_faraday_effect}.}
+  The total rotation angle is proportional to the magnetic field strength and the optical path length.
+  Adapted from~\cite{wikimedia_faraday_effect}.}
   \label{fig:faraday_effect_schematic}
 \end{figure}
 
@@ -294,7 +295,7 @@ This motivates writing the Faraday rotation in the form
 which defines the wavelength-dependent Verdet constant $V(\lambda)$.
 
 A more detailed microscopic treatment of the electron dynamics, in which bound electrons are modeled as driven oscillators in the presence of a magnetic field, leads to an explicit expression for $V(\lambda)$.
-In this approach, the Zeeman splitting of circular electron motion results in the so-called Becquerel relation,
+In this approach, the Zeeman splitting of circular electron motion results in the so-called Becquerel relation~\cite{FARAnleitung},
 \begin{equation}
   V(\lambda) = -\frac{1}{2}\frac{e}{m_e^* c}\,\lambda\,\frac{dn}{d\lambda},
   \label{eq:becquerel}
@@ -310,7 +311,7 @@ This allows the rotation to be extracted from electrical detector signals with h
 
 After passing through the sample, the light is linearly polarized but rotated by the Faraday angle $\theta$.
 The analyzer is a second polarizer placed behind the sample, whose purpose is to convert changes in polarization direction into changes in transmitted intensity.
-The transmitted intensity behind the analyzer is described by Malus' law,
+The transmitted intensity behind the analyzer is described by Malus' law~\cite{FARAnleitung},
 \begin{equation}
   I = I_0 \cos^2 \varphi,
   \label{eq:malus_law}
@@ -390,7 +391,7 @@ Using $U_0 = 2 U_{DC}$, the Faraday rotation amplitude can therefore be written 
 
 In real optical systems, the transmitted intensity does not vanish completely even when the polarizers are crossed.
 This can be caused by imperfect polarizers, slight misalignments, stray light, or partial depolarization of the transmitted beam inside the sample.
-To account for this, a modified form of Malus' law is used,
+To account for this, a modified form of Malus' law is used~\cite{FARAnleitung},
 \begin{equation}
   U(\varphi) = (U_{\parallel} - U_{\perp}) \cos^2 \varphi + U_{\perp},
   \label{eq:malus_modified}
@@ -419,14 +420,13 @@ To account for this, a contrast factor
   K = \frac{U_{\parallel} - U_{\perp}}{U_{\parallel} + U_{\perp}}
   \label{eq:contrast_factor}
 \end{equation}
-is introduced.
+is introduced~\cite{FARAnleitung}.
 It quantifies the effective contrast of the optical system between the parallel and crossed configurations.
 With this correction, the experimentally relevant expression for the Faraday rotation amplitude becomes
 \begin{equation}
   \theta_B = \frac{1}{K}\,\frac{U_{SS}}{4 U_{DC}}.
   \label{eq:rotation_corrected}
 \end{equation}
-
 This corrected relation is then used to extract $\theta_B$ from the simultaneously recorded DC (multimeter) and AC (oscilloscope) detector signals.
 
 \subsection{Magnetic Field Calibration and Length-Averaged Field}
@@ -435,7 +435,7 @@ In the experiment, the magnetic field required for Faraday rotation is generated
 While the rotation angle is proportional to the magnetic field, the field produced by a finite solenoid is not perfectly homogeneous along the solenoid axis.
 As a result, different parts of the sample experience slightly different magnetic field strengths.
 
-On a fundamental level, the Faraday rotation is described by the local relation
+For a homogeneous magnetic field, the Faraday rotation is described by
 \[
   \theta(t) = V(\lambda)\, B(t)\, L,
 \]
@@ -493,7 +493,7 @@ Instead, the optical field drives bound electrons at frequencies far below the r
 The observed dispersion of the refractive index therefore reflects the off-resonant response of these electrons rather than absorption processes.
 
 In this situation, the detailed electronic level structure is not resolved, and the dispersive behavior can be approximated by a single effective resonance.
-This leads to a simple one-resonance dispersion model, in which the refractive index is written as
+Restricting the description to the field-free background dispersion then leads to a simple one-resonance model for the refractive index~\cite{FARAnleitung},
 \[
   n^2(\lambda) = 1 + \frac{N e^2}{\varepsilon_0 m_e^*} \frac{1}{\omega_R^2 - \omega^2},
 \]
@@ -509,13 +509,12 @@ Inserting this into the dispersion relation yields
 \[
   n^2(\lambda) - 1 = \frac{N e^2}{\varepsilon_0 m_e^* (2\pi c)^2}\,\frac{1}{\frac{1}{\lambda_R^2} - \frac{1}{\lambda^2}}.
 \]
-Taking the reciprocal of both sides gives the so called Sellmeier equation
+Taking the reciprocal of both sides gives the so called Sellmeier equation~\cite{FARAnleitung}
 \begin{equation}
   \frac{1}{n^2(\lambda) - 1} = \frac{\varepsilon_0 m_e^* (2\pi c)^2}{N e^2}
   \left(\frac{1}{\lambda_R^2} - \frac{1}{\lambda^2}\right).
   \label{eq:sellmeier}
 \end{equation}
-
 This expression is linear in $1/\lambda^2$ and can therefore be written as
 \begin{equation}
   \frac{1}{n^2(\lambda) - 1} = -A\,\frac{1}{\lambda^2} + B,
@@ -530,7 +529,7 @@ with
 According to this model, a plot of $1/(n^2-1)$ versus $1/\lambda^2$ yields a straight line with slope $-A$ and intercept $B$.
 
 The refractive index values $n(\lambda)$ entering this model are taken from literature data for the respective glass types used in the experiment.
-For each wavelength $\lambda$ of the employed LEDs, the corresponding refractive index $n(\lambda)$ is obtained from an external database as specified in the preparation task~\cite{FARAnleitung}.
+For each wavelength $\lambda$ of the employed LEDs, the corresponding refractive index $n(\lambda)$ is obtained from the RefractiveIndex.INFO database~\cite{refractiveindexinfo}.
 These tabulated pairs $(\lambda,n)$ then form the input for the dispersion analysis carried out in the evaluation.
 
 From the ratio of intercept and (absolute) slope, the effective resonance wavelength of the model oscillator is obtained as
@@ -563,11 +562,12 @@ A schematic overview of the optical arrangement is shown in Fig.~\ref{fig:setup_
 \vspace{1em}
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.8\linewidth]{../resources/figures/setup_faraday.png}
+\includegraphics[width=0.95\linewidth]{../resources/figures/setup_faraday.png}
   \caption{Schematic layout of the experimental setup.
   Light from an LED source is collimated by a lens, linearly polarized by the first polarizer, and passes through the glass sample placed inside a solenoid.
   The Faraday-rotated polarization state is analyzed by a second polarizer (analyzer), and the transmitted intensity is focused onto a photodetector.
-  A diaphragm (aperture) is used to improve beam quality and suppress stray light.}
+  A diaphragm (aperture) is used to improve beam quality and suppress stray light.
+  Adapted from~\cite{FARAnleitung}.}
   \label{fig:setup_overview}
 \end{figure}
 
@@ -754,11 +754,16 @@ The SF10 glass shows a significantly higher refractive index and stronger disper
 
 \subsubsection{Magnetic-Field Calibration}
 
+\paragraph{\textbf{Axial field profile and length-averaged field.}}
+
 The axial magnetic-flux density inside the solenoid was measured with the axial Hall probe of the teslameter at a fixed effective coil current of $I_{\mathrm{eff}}=1.0\,\mathrm{A}$.
 The position $z$ was set manually by inserting the probe into the solenoid and reading the probe marker against a tape measure, which we estimate to yield a position uncertainty of $\sigma_z \approx 0.1\,\mathrm{cm}$.
-This positioning uncertainty mainly affects the definition of the covered integration interval (i.e.\ the effective length $L$ over which the profile is averaged) and is therefore accounted for below via a conservative length uncertainty $\sigma_L$.
+Because the field profile varies along the solenoid axis, this positioning uncertainty affects not only the covered integration interval $L$, but also the assignment of the measured field values to the corresponding positions.
+A fully rigorous treatment would therefore require additional information about the local shape of $B(z)$ and is beyond the scope of the present evaluation.
+In the following, we therefore use a simpler and conservative estimate in which the positional uncertainty is represented by an effective length uncertainty $\sigma_L$, and the resulting uncertainty of $\bar B_{\mathrm{eff}}$ should be understood as an approximate estimate rather than an exact statistical propagation.
 The teslameter display shows the magnetic flux density with a resolution of $0.1\,\mathrm{mT}$ (least significant digit), and we therefore use $\sigma_B \approx \pm0.1\,\mathrm{mT}$ as reading uncertainty.
 
+\vspace{1em}
 \begin{table}[H]
   \centering
   \begin{tabular}{|c|c|c|c|}
@@ -775,10 +780,20 @@ The teslameter display shows the magnetic flux density with a resolution of $0.1
     3.5 & 9.3 &  &  \\
     \bottomrule
   \end{tabular}
-  \caption{Axial magnetic-flux density profile $B(z)$ measured at $I_{\mathrm{eff}}=1.0\,\mathrm{A}$.}\label{tab:Bz_profile_1A}
+  \caption{Axial magnetic-flux density profile $B(z)$ measured at $I_{\mathrm{eff}}=1.0\,\mathrm{A}$.}
+  \label{tab:Bz_profile_1A}
 \end{table}
 
-From the measured profile, the effective length-averaged magnetic field was calculated using the trapezoidal rule with $\Delta z=0.5\,\mathrm{cm}$ and $L=7.0\,\mathrm{cm}$. For the $N=15$ measurement points, the discrete approximation of the integral is:
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.95\linewidth]{../resources/figures/B_z.png}
+  \caption{Magnetic flux density $B$ measured along the coil symmetry axis at a fixed current $I_{\mathrm{eff}}=1.0\,\mathrm{A}$. The dashed curve is a smooth interpolation added only to visualize the shape of the field profile.}\label{fig:B_z}
+\end{figure}
+
+From the measured profile, shown in Fig.~\ref{fig:B_z}, the effective length-averaged magnetic field was calculated using the trapezoidal rule with $\Delta z=0.5\,\mathrm{cm}$ and $L=7.0\,\mathrm{cm}$.
+The field profile is approximately symmetric about the solenoid center and exhibits a relatively flat maximum near the middle, while the slope becomes steeper toward the edges.
+This also illustrates why a positional uncertainty in $z$ does not translate into the same field uncertainty everywhere along the profile.
+For the $N=15$ measurement points, the discrete approximation of the integral is:
 \begin{equation}
   \bar B_{\mathrm{eff}} = \frac{\Delta z}{L} \left( \frac{B(z_1)}{2} + \sum_{i=2}^{N-1} B(z_i) + \frac{B(z_N)}{2} \right)
 \end{equation}
@@ -788,12 +803,14 @@ Assuming independent teslameter readings with identical uncertainty $\sigma_B$, 
   \sigma_{\bar B,B} = \frac{\Delta z}{L} \sigma_B \sqrt{ \left(\frac{1}{2}\right)^2 + (N-2) + \left(\frac{1}{2}\right)^2 } = \frac{\Delta z}{L} \sigma_B \sqrt{N - 1.5}
 \end{equation}
 
-In addition, the manual positioning of the probe marker introduces an uncertainty in the covered integration length $L$, which we estimate as $\sigma_L \approx 0.1\,\mathrm{cm}$. With $\bar B_{\mathrm{eff}}\propto 1/L$, the corresponding contribution is:
+In addition, the manual positioning of the probe marker introduces an uncertainty in the covered integration length $L$, which we estimate as $\sigma_L \approx 0.1\,\mathrm{cm}$.
+With $\bar B_{\mathrm{eff}}\propto 1/L$, the corresponding contribution is:
 \begin{equation}
   \sigma_{\bar B,L}=\left|\frac{\partial \bar B_{\mathrm{eff}}}{\partial L}\right|\sigma_L=\frac{\bar B_{\mathrm{eff}}}{L}\sigma_L
 \end{equation}
 
 Both contributions are added in quadrature, $\sigma_{\bar B}=\sqrt{\sigma_{\bar B,B}^2+\sigma_{\bar B,L}^2}$.
+As discussed above, this treatment of the positional uncertainty is only approximate, since a shift in $z$ also changes the sampled field values through the slope of the profile $B(z)$.
 
 Evaluating this for the data in Table~\ref{tab:Bz_profile_1A} gives:
 \begin{equation}
@@ -801,8 +818,25 @@ Evaluating this for the data in Table~\ref{tab:Bz_profile_1A} gives:
   \label{eq:Bavg_1A_value}
 \end{equation}
 
-For the field-current calibration, the Hall probe was fixed at the solenoid center ($z=3.5\,\mathrm{cm}$), and the maximal magnetic flux was recorded as a function of effective coil current $I_{\mathrm{eff}}$. Then, the averaged magnetic flux density was calculated as $\bar B = 0.8B_{\max}$.
+\paragraph{\textbf{Field-current calibration.}}
 
+To determine the effective length-averaged magnetic field for arbitrary current settings, a calibration curve $\bar B(I_{\mathrm{eff}})$ was required.
+Measuring the full axial profile $B(z)$ for every current setting would have been unnecessarily time-consuming.
+We therefore fixed the Hall probe at the solenoid center ($z=3.5\,\mathrm{cm}$) and recorded the center field $B_{\mathrm{center}}$ as a function of the effective coil current $I_{\mathrm{eff}}$.
+
+At $I_{\mathrm{eff}}=1.0\,\mathrm{A}$, the measured center field was $B_{\mathrm{center}}=9.3\,\mathrm{mT}$, while the corresponding length-averaged field obtained from the full profile was $\bar B_{\mathrm{eff}}=7.45\,\mathrm{mT}$.
+This gives the empirical ratio
+\[
+  \frac{\bar B_{\mathrm{eff}}}{B_{\mathrm{center}}} = \frac{7.45}{9.3} \approx 0.80.
+\]
+Assuming that the shape of the axial field profile remains approximately unchanged when the current is varied, we therefore use
+\[
+  \bar B_{\mathrm{eff}} \approx 0.80\,B_{\mathrm{center}}
+\]
+to convert the center-field measurements into estimates of the effective length-averaged magnetic field.
+In the numerical evaluation, the more precise ratio $7.45/9.3$ was used.
+
+\vspace{1em}
 \begin{table}[H]
   \centering
   \begin{tabular}{|c|c|}
@@ -820,29 +854,26 @@ For the field-current calibration, the Hall probe was fixed at the solenoid cent
     1.60 & 15.2 \\
     \bottomrule
   \end{tabular}
-  \caption{Measured $B_{\max}$ values at $z=3.5\,\mathrm{cm}$ as a function of $I_{\mathrm{eff}}$.}\label{tab:Bcenter_Ieff}
+  \caption{Measured center-field values $B_{\mathrm{center}}$ at $z=3.5\,\mathrm{cm}$ as a function of $I_{\mathrm{eff}}$.}
+  \label{tab:Bcenter_Ieff}
 \end{table}
 
-\vspace{1em}
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.95\linewidth]{../resources/plots/part1/B_z.png}
-  \caption{Magnetic flux density $B$ measured along the coil symmetry axis at a fixed current $I_{\mathrm{eff}}=1.0$A.}\label{fig:B_z}
+  \includegraphics[width=0.95\linewidth]{../resources/figures/Bcenter_calibration_fit.png}
+  \caption{Estimated length-averaged effective magnetic field $\bar B_{\mathrm{eff}}$ as a function of effective coil current $I_{\mathrm{eff}}$, obtained from the measured center-field values using $\bar B_{\mathrm{eff}} \approx 0.80\,B_{\mathrm{center}}$, together with a linear regression fit.}
+  \label{fig:Bcenter_calibration_fit}
 \end{figure}
 
-A linear regression of the averaged magnetic flux data yields the calibration relation
+As shown in Fig.~\ref{fig:Bcenter_calibration_fit}, a linear regression of these estimated length-averaged field values yields the calibration relation
 \begin{equation}
-  \boxed{\bar B(I_{\mathrm{eff}}) = (7.92 \pm 0.03)\,\frac{\mathrm{mT}}{\mathrm{A}}\,I_{\mathrm{eff}} - (0.49 \pm 0.03)\,\mathrm{mT}} \;,
+  \boxed{\bar B_{\mathrm{eff}}(I_{\mathrm{eff}}) = (7.93 \pm 0.03)\,\frac{\mathrm{mT}}{\mathrm{A}}\,I_{\mathrm{eff}} - (0.49 \pm 0.03)\,\mathrm{mT}} \;,
   \label{eq:Bcenter_calibration_fit}
 \end{equation}
 where the quoted uncertainties are the standard errors of the fitted parameters obtained from the covariance matrix of the least-squares fit.
-The small negative intercept is consistent with the measured offset at $I_{\mathrm{eff}}=0$ (Table~\ref{tab:Bcenter_Ieff}) and can be attributed to a residual probe zero offset and/or background magnetic fields.
-
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.95\linewidth]{../resources/plots/part1/Bcenter_calibration_fit.png}
-  \caption{Calibration curve of the averaged solenoid center field $\bar B$ as a function of effective coil current $I_{\mathrm{eff}}$, including a linear regression fit.}\label{fig:Bcenter_calibration_fit}
-\end{figure}
+The small negative intercept is consistent with the measured offset at $I_{\mathrm{eff}}=0$ (Table~\ref{tab:Bcenter_Ieff}).
+Since only one zero-current point and only positive currents were recorded, the exact origin of this offset cannot be identified unambiguously.
+Possible causes are a residual Hall-probe zero offset, ambient background magnetic fields, or a small residual current in the solenoid circuit.
 
 \subsection{Part 2: Malus' Law and Magnetic field modulation}
 \subsubsection{Verification of Malus' Law (Air)}
