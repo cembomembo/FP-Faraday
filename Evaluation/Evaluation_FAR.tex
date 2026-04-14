@@ -717,9 +717,9 @@ The analysis of the BK7 dispersion data in the visible range yields a highly lin
   \hfill
   \begin{subfigure}{0.9\textwidth}
     \includegraphics[width=\textwidth]{../resources/plots/part1/N-BK7_plot.png}
-    \caption{Visible range.}
+    \caption{Visible range (only section of the above).}
   \end{subfigure}
-  \caption{Dispersion analysis and linearization for N-BK7 glass.}
+  \caption{Dispersion analysis and linearization for N-BK7 glass with data from http://refractiveindex.info/}
   \label{fig:nbk7_plots}
 \end{figure}
 \newpage
@@ -729,16 +729,16 @@ The SF10 glass shows a significantly higher refractive index and stronger disper
 
 \begin{figure}[H]
   \centering
-  \begin{subfigure}{0.9\textwidth}
-    \includegraphics[width=\textwidth]{../resources/plots/part1/N-SF10.png}
-    \caption{Full spectral range.}
-  \end{subfigure}
-  \hfill
+%  \begin{subfigure}{0.9\textwidth}
+%    \includegraphics[width=\textwidth]{../resources/plots/part1/N-SF10.png}
+%    \caption{Full spectral range.}
+%  \end{subfigure}
+%  \hfill
   \begin{subfigure}{0.9\textwidth}
     \includegraphics[width=\textwidth]{../resources/plots/part1/N-SF10_plot.png}
-    \caption{Visible range.}
+    %\caption{Visible range.}
   \end{subfigure}
-  \caption{Dispersion analysis and linearization for SF10 glass.}\label{fig:sf10_plots}
+  \caption{Dispersion analysis and linearization for SF10 glass with data from http://refractiveindex.info/ for visible range.}\label{fig:sf10_plots}
 \end{figure}
 
 \begin{table}[H]
@@ -964,7 +964,7 @@ Using the fit parameters and their respective uncertainties from the measurement
 \begin{equation}
   S_{45^\circ} = 0.0882 \pm 0.0002 \, \text{mV}/^\circ
 \end{equation}
-This slope represents the conversion factor between the rotation angle $\theta$ (induced by the Faraday effect) and the measured change in intensity. A extinction angle of $\phi_{0}=90.3\pm0.1^\circ$ was calculated for this specific setup.
+This slope represents the conversion factor between the rotation angle $\theta$ (induced by the Faraday effect) and the measured change in intensity. A extinction angle of $\phi_{0}=0.3\pm0.1^\circ$ was calculated for this specific setup.
 
 % --- Task 7---
 \subsubsection{Verification of Setup Quality}
@@ -1133,7 +1133,9 @@ Similarly, for the rotation angle $\theta = \frac{1}{K} \frac{U_{SS}}{4 \cdot U_
 
 \subsubsection{Verdet Constant and Effective Oscillator Mass}
 
-As shown in Figure~\ref{fig:angle_vs_B}, the measured Faraday rotation angle $\theta$ shows a linear dependence on the magnetic field amplitude $\bar{B}_{\mathrm{Ampl}}$ for all wavelengths. To extract the Verdet constants, a weighted linear regression ($\theta = m \cdot \bar{B}_{\mathrm{Ampl}}$) was applied to the data for each wavelength and material.
+As shown in Figure~\ref{fig:angle_vs_B}, the measured Faraday rotation angle $\theta$ shows a linear dependence on the magnetic field amplitude $\bar{B}_{\mathrm{Ampl}}$ for all wavelengths, exept for the 508 nm measurement for the N-BK7 glass \ref{fig:angle_vs_B}, which shows major deviations from the expected linear correlation between the strength of the magnatic field and the angle of rotation. That is because during this measurement the peak-to-peak voltage $U_{SS}$ on the oscilloscope was fluctuating and it was not possible to create a stable wave, resulting in a high signal to noise ratio. This was likely due to a misconfiguration of the oscilloscope, which was then solved for later measurements.\\
+
+To extract the Verdet constants, a weighted linear regression ($\theta = m \cdot \bar{B}_{\mathrm{Ampl}}$) was applied to the data for each wavelength and material.
 
 The slopes $m$ of these linear fits correspond to the rotation per unit of magnetic field. The Verdet constant $V(\lambda)$ was then determined by dividing these slopes (converted from the working units of deg/mT to standard SI units of rad/T) by the length of the glass sample, $L = 7.0\,\mathrm{cm}$:
 \begin{equation}
@@ -1201,7 +1203,19 @@ This indicates that, on average, approximately 2.25 electrons per atom in the N-
 % ------------------
 \section{Discussion}
 
-While most measurements were without major complications and resulted in data with values that are to be expected, the measurement for 508 nm with the N-BK7 glass \ref{fig:angle_vs_B} shows major deviations from the expected linear correlation between the strength of the magnatic field and the angle of rotation. That is because during this measurement the peak-to-peak voltage $U_{SS}$ on the oscilloscope was fluctuating and it was not possible to create a stable wave, resulting in a high signal to noise ratio. This was likely due to a misconfiguration of the oscilloscope, which was then solved for later measurements.\\
+It is interesting to see that at B = 0 tesla, the faraday rotation does not seem to be zero, as can be seen in fig. \ref{fig:angle_vs_B} and even better in fig. \ref{fig:angle_vs_B_zoomed}. There are two plausible reasons for this behavior, one could be that the zeropoint for the B field was shifted due to a misconfiguration. This is suggested by fig. \ref{fig:Bcenter_calibration_fit} and equation \ref{eq:Bcenter_calibration_fit}, where for no current the magnetic field is negative. That is likely due to a miscalibration of the teslameter. If this is taken into consideration, that can account towards a shift in the magnetic field strength seen in fig. \ref{fig:angle_vs_B} and \ref{fig:angle_vs_B_zoomed} of $0.49\cdot\sqrt{2} \pm 0.03 \cdot \sqrt{2} \approx 0.69 \pm 0.04 $.\\
+
+While the measurement for N-BK7 was not very accurate, mainly because it was the first glass we measured and we still had to figure out how to do it better, for the SF10 glass all the fit lines are crossing at a point around $-0.80 \pm 0.03$ mT. This still leaves a shift of $0.11 \pm 0.07$ mT without explanation, assuming the first reason with the miscalibration is correct. This could be because of other external magnetic fields such as earths or from other lab devices. Likely it is a combination of both, as earths magnetic field is with 0.03 to 0.06 mT \cite{nasa_earth_magnetic_field} not quite strong enough to account for the remaining shift in the field strength, but it is also no longer negligible.
+
+%Also we should mention that on the discussed graphs the crossing point of the fit lines is not exactly at $\theta = 0 $, since all lines still cross at the same $theta$ it has to be a constant offset, but I dont know why or if that actually matters, maybe it is okay like that.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\textwidth]{../resources/plots/part3/angle_B_zoomed.png}
+  \caption{Zoomed view of fig. \ref{fig:angle_vs_B}}
+  \label{fig:angle_vs_B_zoomed}
+\end{figure}
+
 Another remark to make is that while the fit to the maximum amplitude of the modulation signal indicates the highest sensitivity to be at an angle of $\varphi \approx 46.6 ^\circ$, the actual measurement of the amplitude at $\varphi = 45 ^\circ$ has the same value, thus confirming the appropriotness of the used working point.
 
 % ------------------
