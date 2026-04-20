@@ -702,27 +702,20 @@ As stated in Equation~\ref{eq:sellmeier} and~\ref{eq:sellmeier_linear}, the rela
 \end{equation}
 By plotting $y = \frac{1}{n^2 - 1}$ against $x = \frac{1}{\lambda^2}$, a linear regression $y = mx + c$ allows for the extraction of the model parameters.
 
-While the data was initially considered over a broad spectral range (up to 2.5 $\mu$m), the final fit was restricted to the visible and near-visible range ($0.4\,\mu\text{m} \le \lambda \le 0.8\,\mu\text{m}$). This ensures that the parameters $A$ and $\lambda_R$ are optimized for the spectral region where the Faraday rotation is actually measured, avoiding distortions from infrared lattice vibrations.
+While the data was initially considered over a broad spectral range (up to 2.5 $\mu$m), the final fit was restricted to the visible and near-visible range ($0.4\,\mu\text{m} \le \lambda \le 0.8\,\mu\text{m}$). This ensures that the parameters $A$ and $\lambda_R$ are optimized for the spectral region where the Faraday rotation is actually measured. Restricting the fit avoids distortions from infrared lattice vibrations, which dominate the dispersive behavior at larger wavelengths and would otherwise skew the single-oscillator model away from the relevant visible-range data.
 
-\newpage
 \paragraph{Results for BK7}
-The analysis of the BK7 dispersion data in the visible range yields a highly linear relationship, as shown in Figure~\ref{fig:nbk7_plots}. The results of the linear fit and the derived physical parameters are summarized in Table~\ref{tab:task1_results}.
+To analyze the BK7 glass, the refractive index data was extracted from the public database http://refractiveindex.info/. The analysis of the BK7 dispersion in the visible range yields a highly linear relationship, as shown in Figure~\ref{fig:nbk7_plots}. The results of the linear fit and the derived physical parameters are summarized in Table~\ref{tab:task1_results}.
 
 \begin{figure}[H]
-  \centering
-  \begin{subfigure}{0.9\textwidth}
-    \includegraphics[width=\textwidth]{../resources/plots/part1/N-BK7.png}
-    \caption{Full spectral range.}
-  \end{subfigure}
-  \hfill
   \begin{subfigure}{0.9\textwidth}
     \includegraphics[width=\textwidth]{../resources/plots/part1/N-BK7_plot.png}
     \caption{Visible range (only section of the above).}
   \end{subfigure}
-  \caption{Dispersion analysis and linearization for N-BK7 glass with data from http://refractiveindex.info/}
+  \caption{Dispersion analysis and linearization for BK7 glass with data from http://refractiveindex.info/. Only wavelenght wihtin the visible range were selected.}
   \label{fig:nbk7_plots}
 \end{figure}
-\newpage
+
 \paragraph{Results for SF10}
 
 The SF10 glass shows a significantly higher refractive index and stronger dispersion compared to N-BK7. The linearization over the visible spectrum (Figure~\ref{fig:sf10_plots}) provides the necessary slope $A$ for the subsequent determination of the electron density $N$ in Task 11.
@@ -738,7 +731,7 @@ The SF10 glass shows a significantly higher refractive index and stronger disper
     \includegraphics[width=\textwidth]{../resources/plots/part1/N-SF10_plot.png}
     %\caption{Visible range.}
   \end{subfigure}
-  \caption{Dispersion analysis and linearization for SF10 glass with data from http://refractiveindex.info/ for visible range.}\label{fig:sf10_plots}
+  \caption{Dispersion analysis and linearization for SF10 glass with data from http://refractiveindex.info/. Only wavelenght wihtin the visible range were selected.}\label{fig:sf10_plots}
 \end{figure}
 
 \begin{table}[H]
@@ -763,28 +756,7 @@ A fully rigorous treatment would therefore require additional information about 
 In the following, we therefore use a simpler and conservative estimate in which the positional uncertainty is represented by an effective length uncertainty $\sigma_L$, and the resulting uncertainty of $\bar B_{\mathrm{eff}}$ should be understood as an approximate estimate rather than an exact statistical propagation.
 The teslameter display shows the magnetic flux density with a resolution of $0.1\,\mathrm{mT}$ (least significant digit), and we therefore use $\sigma_B \approx \pm0.1\,\mathrm{mT}$ as reading uncertainty.
 
-\vspace{1em}
-\begin{table}[H]
-  \centering
-  \begin{tabular}{|c|c|c|c|}
-    \toprule
-    $z\,(\mathrm{cm})$ & $B\,(\mathrm{mT})$ & $z\,(\mathrm{cm})$ & $B\,(\mathrm{mT})$ \\
-    \midrule
-    0.0 & 3.5 & 4.0 & 9.2 \\
-    0.5 & 5.2 & 4.5 & 8.9 \\
-    1.0 & 6.4 & 5.0 & 8.4 \\
-    1.5 & 7.4 & 5.5 & 7.6 \\
-    2.0 & 8.2 & 6.0 & 6.6 \\
-    2.5 & 8.8 & 6.5 & 5.3 \\
-    3.0 & 9.1 & 7.0 & 4.2 \\
-    3.5 & 9.3 &  &  \\
-    \bottomrule
-  \end{tabular}
-  \caption{Axial magnetic-flux density profile $B(z)$ measured at $I_{\mathrm{eff}}=1.0\,\mathrm{A}$.}
-  \label{tab:Bz_profile_1A}
-\end{table}
-
-\begin{figure}[H]
+\begin{figure}[h]
   \centering
   \includegraphics[width=0.95\linewidth]{../resources/figures/B_z.png}
   \caption{Magnetic flux density $B$ measured along the coil symmetry axis at a fixed current $I_{\mathrm{eff}}=1.0\,\mathrm{A}$. The dashed curve is a smooth interpolation added only to visualize the shape of the field profile.}\label{fig:B_z}
@@ -836,28 +808,6 @@ Assuming that the shape of the axial field profile remains approximately unchang
 to convert the center-field measurements into estimates of the effective length-averaged magnetic field.
 In the numerical evaluation, the more precise ratio $7.45/9.3$ was used.
 
-\vspace{1em}
-\begin{table}[H]
-  \centering
-  \begin{tabular}{|c|c|}
-    \toprule
-    $I_{\mathrm{eff}}\,(\mathrm{A})$ & $B_{\mathrm{center}}\,(\mathrm{mT})$ \\
-    \midrule
-    0.00 & -0.5 \\
-    0.20 & 1.3 \\
-    0.40 & 3.3 \\
-    0.60 & 5.3 \\
-    0.80 & 7.3 \\
-    1.00 & 9.3 \\
-    1.20 & 11.3 \\
-    1.40 & 13.3 \\
-    1.60 & 15.2 \\
-    \bottomrule
-  \end{tabular}
-  \caption{Measured center-field values $B_{\mathrm{center}}$ at $z=3.5\,\mathrm{cm}$ as a function of $I_{\mathrm{eff}}$.}
-  \label{tab:Bcenter_Ieff}
-\end{table}
-
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.95\linewidth]{../resources/figures/Bcenter_calibration_fit.png}
@@ -871,7 +821,7 @@ As shown in Fig.~\ref{fig:Bcenter_calibration_fit}, a linear regression of these
   \label{eq:Bcenter_calibration_fit}
 \end{equation}
 where the quoted uncertainties are the standard errors of the fitted parameters obtained from the covariance matrix of the least-squares fit.
-The small negative intercept is consistent with the measured offset at $I_{\mathrm{eff}}=0$ (Table~\ref{tab:Bcenter_Ieff}).
+The small negative intercept is consistent with the measured offset at $I_{\mathrm{eff}}=0$ (Figure~\ref{fig:Bcenter_calibration_fit}, Table~\ref{tab:Bcenter_Ieff}).
 Since only one zero-current point and only positive currents were recorded, the exact origin of this offset cannot be identified unambiguously.
 Possible causes are a residual Hall-probe zero offset, ambient background magnetic fields, or a small residual current in the solenoid circuit.
 
@@ -895,37 +845,6 @@ Using these values, the Contrast $K$ and the Degree of Polarization $G$ were cal
   K = \frac{I_{\parallel} - I_{\perp}}{I_{\parallel} + I_{\perp}}, \quad G = \frac{I_{\parallel}}{I_{\perp}}
 \end{equation}
 The results for the setup without glass are summarized in Table~\ref{tab:polarization_results}. The errors for $K$ and $G$ are derived from the covariance matrix of the fit using standard error propagation rules.
-
-\begin{table}[h]
-  \centering
-  \begin{tabular}{c c c}
-    \toprule
-    {$\phi$ [$^\circ$]} & {$I_{\text{Glass}}$ [mV]} & {$I_{\text{Air}}$ [mV]} \\
-    $\sigma_{\phi} = \pm 0.5$ & $\sigma_{I} = \pm 0.02$ & $\sigma_{I} = \pm 0.02$ \\
-    \midrule
-    90  & 5.16  & 5.16 \\
-    80  & 5.00  & 5.01 \\
-    70  & 4.55  & 4.57 \\
-    60  & 3.87  & 3.89 \\
-    50  & 3.02  & 3.04 \\
-    40  & 2.15  & 2.15 \\
-    30  & 1.333 & 1.315 \\
-    20  & 0.667 & 0.628 \\
-    10  & 0.243 & 0.259 \\
-    0   & 0.113 & 0.20 \\
-    -10 & 0.274 & 0.171 \\
-    -20 & 0.710 & 0.593 \\
-    -30 & 1.400 & 1.256 \\
-    -40 & 2.21  & 2.08 \\
-    -50 & 3.06  & 2.99 \\
-    -60 & 3.91  & 3.81 \\
-    -70 & 4.58  & 4.53 \\
-    -80 & 5.01  & 5.00 \\
-    -90 & 5.17  & 5.18 \\
-    \bottomrule
-  \end{tabular}
-  \caption{Measured intensities for the verification of Malus' Law, with and without the glass sample.}\label{tab:malus_measurements}
-\end{table}
 
 \begin{figure}[htbp]
   \centering
@@ -956,7 +875,7 @@ To determine the optimal working point for the Faraday effect measurements, the 
 \begin{equation}
   S(\phi) = \left| \frac{dI}{d\phi} \right| = \left| I_0 \sin(2(\phi-\phi_0)) \right|
 \end{equation}
-The maximum sensitivity occurs at a relative angle of $45^\circ$. The uncertainty of the slope $\sigma_S$ is derived using Gaussian error propagation. The error is calculated as:
+The maximum sensitivity occurs at a relative angle of $\phi_0=45^\circ$. The uncertainty of the slope $\sigma_S$ is derived using Gaussian error propagation. The error is calculated as:
 \begin{equation}
   \sigma_S = \sqrt{ \left( \frac{\partial S}{\partial I_0} \right)^2 \sigma_{I_0}^2 + \left( \frac{\partial S}{\partial \phi_0} \right)^2 \sigma_{\phi_0}^2 }
 \end{equation}
@@ -968,7 +887,7 @@ This slope represents the conversion factor between the rotation angle $\theta$ 
 
 % --- Task 7---
 \subsubsection{Verification of Setup Quality}
-Task 7 requires an optical adjustment such that $G > 40$. As shown in Table~\ref{tab:polarization_results}, the setup with the glass sample achieved a degree of polarization of $G = 52.0 \pm 4.3$, which confirms that the condition $G > 40$ was satisfied and the optical axis was correctly aligned.
+Task 7 requires an optical adjustment such that $G > 40$. As shown in Table~\ref{tab:polarization_results}, the setup with the glass sample achieved a degree of polarization of $G = 52.0 \pm 4.3$, which confirms that the condition $G > 40$ was satisfied and the optical axis was aligned.
 
 \begin{figure}[htbp]
   \centering
@@ -982,14 +901,14 @@ To verify the optimal working point for the Faraday effect measurements, the mag
 
 The modulation signal is physically proportional to the derivative of Malus' Law. Small rotations $\delta\phi$ induced by the magnetic field lead to intensity changes $\delta I$ according to:
 \begin{equation}
-  U_{SS}(\phi) \propto \left| \frac{dI}{d\phi} \right| = \left| I_0 \sin(2(\phi - \phi_0)) \right|
+  U_{SS}(\phi) \propto \left| \frac{dI}{d\phi} \right| \delta\phi = \left| I_0 \sin(2(\phi - \phi_0)) \right| \delta\phi
 \end{equation}
 
-The experimental data were fitted using a non-linear least squares method with the model function:
+The experimental data, recorded in Table~\ref{tab:modulation_data}, were fitted using a non-linear least squares method with the model function:
 \begin{equation}
   U_{model}(\phi) = A \cdot |\cos(2(\phi - \phi_{peak}))| + U_{offset}
 \end{equation}
-where $A$ represents the maximum modulation amplitude and $\phi_{peak}$ the angle of maximum sensitivity.
+where $A$ represents the maximum modulation amplitude and $\phi_{peak}$ the angle of maximum sensitivity. This fit is shown in Figure~\ref{fig:modulation_signal}.
 
 The uncertainties for these parameters were derived from the variance-covariance matrix $P$ of the fit. The standard error $\sigma_i$ for each parameter $p_i$ (specifically $A$ and $\phi_{peak}$) is calculated as the square root of the corresponding diagonal element:
 \begin{equation}
@@ -997,42 +916,13 @@ The uncertainties for these parameters were derived from the variance-covariance
 \end{equation}
 This statistical error accounts for the residual scatter of the measured data points around the theoretical model.
 
-The experimental data are recorded in Table~\ref{tab:modulation_data}, and the fit is shown in Figure~\ref{fig:modulation_signal}.
-
-\begin{table}[h]
-  \centering
-  \begin{tabular}{c c}
-    \toprule
-    {$\phi$ [$^\circ$]} & {$U_{SS}$ [mV]} \\
-    $\sigma_{\phi} = \pm 0.5$ & $\sigma_{U_{SS}} = \pm 0.1$ \\
-    \midrule
-    30 & 33.0 \\
-    35 & 36.0 \\
-    38 & 38.4 \\
-    40 & 39.0 \\
-    42 & 40.0 \\
-    43 & 40.0 \\
-    44 & 40.2 \\
-    45 & 40.4 \\
-    46 & 40.4 \\
-    47 & 40.4 \\
-    48 & 40.2 \\
-    50 & 39.8 \\
-    52 & 39.2 \\
-    55 & 37.8 \\
-    60 & 35.2 \\
-    \bottomrule
-  \end{tabular}
-  \caption{Measurement of the modulation signal amplitudes $U_{SS}$ at analyzer angles $\phi$.}\label{tab:modulation_data}
-\end{table}
-
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\textwidth]{../resources/plots/part2/field_modulation.png}
   \caption{Amplitude of the modulation signal $U_{SS}$ as a function of the analyzer angle $\phi$. The maximum signal indicates the point of highest sensitivity.}\label{fig:modulation_signal}
 \end{figure}
 
-The maximum modulation signal was detected with an amplitude of $U_{SS} = 40.06 \pm 0.59$\,mV at an angle of $\phi_{peak} = 46.59^\circ \pm 0.08^\circ$, with an $U_{\text{offset}}\approx0\pm0.6$mV. Since the SNR was quite high, the background $U_{\text{offset}}$ in the fit resulted in a numerical value of zero.
+The maximum modulation signal was detected with an amplitude of $U_{SS} = 40.06 \pm 0.59$\,mV at an angle of $\phi_{peak} = 46.59^\circ \pm 0.08^\circ$, with an $U_{\text{offset}}\approx0\pm0.6$mV. Since the signal-to-noise ratio was quite high, the background $U_{\text{offset}}$ in the fit resulted in a numerical value of zero.
 
 \subsection{Part 3: Verdet constant and Electron Density}
 \subsubsection{Determination of Faraday Rotation Angles}\label{sec:task9_angles}
@@ -1052,65 +942,6 @@ This equation was applied across all wavelengths and magnetic field strengths. T
 \begin{equation}
   \bar{B}_{\mathrm{Ampl}} = \sqrt{2}\bar{B}_{\mathrm{eff}}
 \end{equation}
-
-\begin{table}[htbp]
-  \centering
-  \renewcommand{\arraystretch}{1.2}
-  \setlength{\tabcolsep}{5pt}
-  \begin{tabular}{l c c c c c}
-    \toprule
-    \multirow{2}{*}{\textbf{Wavelength}} & \textbf{$I_{\mathrm{eff}}$} & \multicolumn{2}{c}{\textbf{N-BK7}} & \multicolumn{2}{c}{\textbf{SF10}} \\
-    \cmidrule(lr){3-4} \cmidrule(lr){5-6}
-    & [A] & $U_{\mathrm{DC}}$ [V] & $U_{\mathrm{SS}}$ [mV] & $U_{\mathrm{DC}}$ [V] & $U_{\mathrm{SS}}$ [mV] \\
-    & $\sigma_{I_{\mathrm{eff}}}=\pm$ 0.01 & $\sigma_{U_{\mathrm{DC}}}=\pm$ 0.01 & $\sigma_{U_{\mathrm{SS}}}=\pm$ 0.1 & $\sigma_{U_{\mathrm{DC}}}=\pm$ 0.01 & $\sigma_{U_{\mathrm{SS}}}=\pm$ 0.1\\
-    \midrule
-    \multirow{4}{*}{\textbf{400 nm}}
-    & 0.40 & 2.93  & 42.0  & 2.04 & 127.0 \\
-    & 0.80 & 2.94  & 82.4  & 2.04 & 248.0 \\
-    & 1.20 & 2.95  & 125.0 & 2.04 & 372.0 \\
-    & 1.60 & 2.96  & 162.0 & 2.04 & 492.0 \\
-    \midrule
-    \multirow{4}{*}{\textbf{470 nm}}
-    & 0.40 & 2.74  & 31.0  & 2.63 & 104.0 \\
-    & 0.80 & 2.75  & 61.0  & 2.63 & 207.0 \\
-    & 1.20 & 2.75  & 92.4  & 2.63 & 307.0 \\
-    & 1.60 & 2.75  & 121.0 & 2.63 & 410.0 \\
-    \midrule
-    \multirow{4}{*}{\textbf{508 nm}}
-    & 0.40 & 0.789 & 6.64  & 2.53 & 78.0  \\
-    & 0.80 & 0.789 & 7.90  & 2.52 & 155.0 \\
-    & 1.20 & 0.787 & 9.50  & 2.53 & 232.0 \\
-    & 1.60 & 0.790 & 27.0  & 2.52 & 306.0 \\
-    \midrule
-    \multirow{4}{*}{\textbf{628 nm}}
-    & 0.40 & 2.57  & 17.0  & 2.58 & 51.6  \\
-    & 0.80 & 2.57  & 29.3  & 2.58 & 101.0 \\
-    & 1.20 & 2.57  & 46.8  & 2.58 & 152.0 \\
-    & 1.60 & 2.56  & 62.6  & 2.53 & 203.0 \\
-    \bottomrule
-  \end{tabular}
-  \caption{Experimental measurement data for the Faraday Effect using different mediums and light sources. Exceptions to the standard errors are the maximum deviation for $I_{\mathrm{eff}}$ at 1.60\,A (628\,nm), which is $\pm 0.02$\,A, and the reading uncertainty for $U_{\mathrm{DC}}$ in the 508\,nm N-BK7 dataset, which is $\pm 0.001$\,V.}\label{tab:rotation_angle}
-\end{table}
-
-\begin{table}[htbp]
-  \centering
-  \renewcommand{\arraystretch}{1.2}
-  \setlength{\tabcolsep}{6pt}
-  \begin{tabular}{l c c c c c c}
-    \toprule
-    \multirow{2}{*}{\textbf{Wavelength}} & \multicolumn{3}{c}{\textbf{N-BK7}} & \multicolumn{3}{c}{\textbf{SF10}} \\
-    \cmidrule(lr){2-4} \cmidrule(lr){5-7}
-    & $U_{||}$ [V] & $U_{\perp}$ [V] & $K$ & $U_{||}$ [V] & $U_{\perp}$ [V] & $K$ \\
-    & $\sigma_{U_{||}}=\pm$ 0.01 & $\sigma_{U_{\perp}}=\pm$ 0.01 & & $\sigma_{U_{||}}=\pm$ 0.01 & $\sigma_{U_{\perp}}=\pm$ 0.01 & \\
-    \midrule
-    \textbf{400 nm} & 5.102 & 0.787 & 0.733 & 4.012 & 0.060 & 0.971 \\
-    \textbf{470 nm} & 5.082 & 0.355 & 0.869 & 5.252 & 0.222 & 0.919 \\
-    \textbf{508 nm} & 4.514 & 0.062 & 0.973 & 4.062 & 0.005 & 0.998 \\
-    \textbf{628 nm} & 5.011 & 0.148 & 0.943 & 5.162 & 0.006 & 0.998 \\
-    \bottomrule
-  \end{tabular}
-  \caption{Maximum ($U_{||}$) and minimum ($U_{\perp}$) detector voltages and the resulting calculated contrast factors $K$ for each wavelength and glass sample. Background voltages of $U_{\mathrm{bg}} \approx 0.008$\,V (and $0.009$\,V for N-BK7 at 628\,nm) were subtracted from the raw measurements prior to determining $K$.}\label{tab:contrast_data}
-\end{table}
 
 Uncertainties for the magnetic field $B$ and rotation angle $\theta$ were calculated using Gaussian error propagation. Based on the linear calibration curve $\bar B(I_{\mathrm{eff}}) = a \cdot I_{\mathrm{eff}} + b$ (with slope $a = 7.92 \pm 0.03\,\mathrm{mT/A}$ and intercept $b = -0.49 \pm 0.03\,\mathrm{mT}$), the uncertainty $\sigma_B$ is given by:
 \begin{equation}
@@ -1153,32 +984,9 @@ where $e$ is the elementary charge, $c$ is the speed of light, and $m_{e}^*$ rep
 
 The refractive index derivatives $dn/d\lambda$ for both N-BK7 and SF10 were calculated numerically for the experimental wavelengths using the standard Sellmeier equations and corresponding material coefficients. The extracted slopes, calculated Verdet constants, dispersion derivatives, and the resulting mass ratios are all unified in Table~\ref{tab:verdet_and_mass}.
 
-\begin{table}[htbp]
-  \centering
-  \renewcommand{\arraystretch}{1.2}
-  \begin{tabular}{l c c c c c}
-    \toprule
-    \textbf{Material} & \textbf{Wavelength [nm]} & \textbf{Slope $m$ [rad/T]} & \textbf{$V(\lambda)$ [rad/(T$\cdot$m)]} & \textbf{$dn/d\lambda$ [m$^{-1}$]} & \textbf{$m_{e}^*/m_{e}$} \\
-    \midrule
-    \multirow{4}{*}{\textbf{N-BK7}}
-    & 400 & $1.044 \pm 0.006$ & $14.91 \pm 0.09$ & $-1.33 \times 10^5$ & $1.048$ \\
-    & 470 & $0.708 \pm 0.004$ & $10.11 \pm 0.06$ & $-8.02 \times 10^4$ & $1.093$ \\
-    & 508 & $0.361 \pm 0.004$ & $5.16 \pm 0.06$ & $-6.34 \times 10^4$ & $1.832$ \\
-    & 628 & $0.347 \pm 0.002$ & $4.96 \pm 0.04$ & $-3.49 \times 10^4$ & $1.298$ \\
-    \midrule
-    \multirow{4}{*}{\textbf{SF10}}
-    & 400 & $3.448 \pm 0.025$ & $49.25 \pm 0.36$ & $-5.47 \times 10^5$ & $1.304$ \\
-    & 470 & $2.347 \pm 0.013$ & $33.53 \pm 0.19$ & $-2.83 \times 10^5$ & $1.162$ \\
-    & 508 & $1.694 \pm 0.011$ & $24.20 \pm 0.16$ & $-2.12 \times 10^5$ & $1.305$ \\
-    & 628 & $1.101 \pm 0.006$ & $15.72 \pm 0.09$ & $-1.03 \times 10^5$ & $1.209$ \\
-    \bottomrule
-  \end{tabular}
-  \caption{Extracted slopes from the linear fits of the Faraday rotation angles, the calculated Verdet constants $V(\lambda)$, refractive index derivatives, and the resulting effective oscillator mass ratios for N-BK7 and SF10 glasses.}\label{tab:verdet_and_mass}
-\end{table}
-
 \subsubsection{Density of Dispersion Electrons}
 
-Using the effective oscillator mass $m_e^*$ determined from the Faraday rotation and the slope parameter $A$ from the linear dispersion model, the density of optically active dispersion electrons $N$ can be calculated. Rearranging the Sellmeier slope parameter yields:
+Using the effective oscillator mass $m_e^*$ determined from the Faraday rotation and the slope parameter $A$ from the linear dispersion model, the density of optically active dispersion electrons $N$ can be calculated. As shown in equation~\ref{eq:N_from_slope}, rearranging the Sellmeier slope parameter yields:
 \begin{equation}
   N = \frac{\epsilon_0 m_e^* (2\pi c)^2}{e^2 A}
 \end{equation}
@@ -1247,6 +1055,189 @@ The results demonstrate a clear wavelength dependence: the Verdet constant decre
 % ----------------
 \newpage
 \section{Appendix}
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|c|c|c|c|}
+    \toprule
+    $z\,(\mathrm{cm})$ & $B\,(\mathrm{mT})$ & $z\,(\mathrm{cm})$ & $B\,(\mathrm{mT})$ \\
+    \midrule
+    0.0 & 3.5 & 4.0 & 9.2 \\
+    0.5 & 5.2 & 4.5 & 8.9 \\
+    1.0 & 6.4 & 5.0 & 8.4 \\
+    1.5 & 7.4 & 5.5 & 7.6 \\
+    2.0 & 8.2 & 6.0 & 6.6 \\
+    2.5 & 8.8 & 6.5 & 5.3 \\
+    3.0 & 9.1 & 7.0 & 4.2 \\
+    3.5 & 9.3 &  &  \\
+    \bottomrule
+  \end{tabular}
+  \caption{Axial magnetic-flux density profile $B(z)$ measured at $I_{\mathrm{eff}}=1.0\,\mathrm{A}$.}
+  \label{tab:Bz_profile_1A}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|c|c|}
+    \toprule
+    $I_{\mathrm{eff}}\,(\mathrm{A})$ & $B_{\mathrm{center}}\,(\mathrm{mT})$ \\
+    \midrule
+    0.00 & -0.5 \\
+    0.20 & 1.3 \\
+    0.40 & 3.3 \\
+    0.60 & 5.3 \\
+    0.80 & 7.3 \\
+    1.00 & 9.3 \\
+    1.20 & 11.3 \\
+    1.40 & 13.3 \\
+    1.60 & 15.2 \\
+    \bottomrule
+  \end{tabular}
+  \caption{Measured center-field values $B_{\mathrm{center}}$ at $z=3.5\,\mathrm{cm}$ as a function of $I_{\mathrm{eff}}$.}
+  \label{tab:Bcenter_Ieff}
+\end{table}
+
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{c c c}
+    \toprule
+    {$\phi$ [$^\circ$]} & {$I_{\text{Glass}}$ [mV]} & {$I_{\text{Air}}$ [mV]} \\
+    $\sigma_{\phi} = \pm 0.5$ & $\sigma_{I} = \pm 0.02$ & $\sigma_{I} = \pm 0.02$ \\
+    \midrule
+    90  & 5.16  & 5.16 \\
+    80  & 5.00  & 5.01 \\
+    70  & 4.55  & 4.57 \\
+    60  & 3.87  & 3.89 \\
+    50  & 3.02  & 3.04 \\
+    40  & 2.15  & 2.15 \\
+    30  & 1.333 & 1.315 \\
+    20  & 0.667 & 0.628 \\
+    10  & 0.243 & 0.259 \\
+    0   & 0.113 & 0.20 \\
+    -10 & 0.274 & 0.171 \\
+    -20 & 0.710 & 0.593 \\
+    -30 & 1.400 & 1.256 \\
+    -40 & 2.21  & 2.08 \\
+    -50 & 3.06  & 2.99 \\
+    -60 & 3.91  & 3.81 \\
+    -70 & 4.58  & 4.53 \\
+    -80 & 5.01  & 5.00 \\
+    -90 & 5.17  & 5.18 \\
+    \bottomrule
+  \end{tabular}
+  \caption{Measured intensities for the verification of Malus' Law, with and without the glass sample.}\label{tab:malus_measurements}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{c c}
+    \toprule
+    {$\phi$ [$^\circ$]} & {$U_{SS}$ [mV]} \\
+    $\sigma_{\phi} = \pm 0.5$ & $\sigma_{U_{SS}} = \pm 0.1$ \\
+    \midrule
+    30 & 33.0 \\
+    35 & 36.0 \\
+    38 & 38.4 \\
+    40 & 39.0 \\
+    42 & 40.0 \\
+    43 & 40.0 \\
+    44 & 40.2 \\
+    45 & 40.4 \\
+    46 & 40.4 \\
+    47 & 40.4 \\
+    48 & 40.2 \\
+    50 & 39.8 \\
+    52 & 39.2 \\
+    55 & 37.8 \\
+    60 & 35.2 \\
+    \bottomrule
+  \end{tabular}
+  \caption{Measurement of the modulation signal amplitudes $U_{SS}$ at analyzer angles $\phi$.}\label{tab:modulation_data}
+\end{table}
+
+
+\begin{table}[H]
+  \centering
+  \renewcommand{\arraystretch}{1.2}
+  \setlength{\tabcolsep}{5pt}
+  \begin{tabular}{l c c c c c}
+    \toprule
+    \multirow{2}{*}{\textbf{Wavelength}} & \textbf{$I_{\mathrm{eff}}$} & \multicolumn{2}{c}{\textbf{N-BK7}} & \multicolumn{2}{c}{\textbf{SF10}} \\
+    \cmidrule(lr){3-4} \cmidrule(lr){5-6}
+    & [A] & $U_{\mathrm{DC}}$ [V] & $U_{\mathrm{SS}}$ [mV] & $U_{\mathrm{DC}}$ [V] & $U_{\mathrm{SS}}$ [mV] \\
+    & $\sigma_{I_{\mathrm{eff}}}=\pm$ 0.01 & $\sigma_{U_{\mathrm{DC}}}=\pm$ 0.01 & $\sigma_{U_{\mathrm{SS}}}=\pm$ 0.1 & $\sigma_{U_{\mathrm{DC}}}=\pm$ 0.01 & $\sigma_{U_{\mathrm{SS}}}=\pm$ 0.1\\
+    \midrule
+    \multirow{4}{*}{\textbf{400 nm}}
+    & 0.40 & 2.93  & 42.0  & 2.04 & 127.0 \\
+    & 0.80 & 2.94  & 82.4  & 2.04 & 248.0 \\
+    & 1.20 & 2.95  & 125.0 & 2.04 & 372.0 \\
+    & 1.60 & 2.96  & 162.0 & 2.04 & 492.0 \\
+    \midrule
+    \multirow{4}{*}{\textbf{470 nm}}
+    & 0.40 & 2.74  & 31.0  & 2.63 & 104.0 \\
+    & 0.80 & 2.75  & 61.0  & 2.63 & 207.0 \\
+    & 1.20 & 2.75  & 92.4  & 2.63 & 307.0 \\
+    & 1.60 & 2.75  & 121.0 & 2.63 & 410.0 \\
+    \midrule
+    \multirow{4}{*}{\textbf{508 nm}}
+    & 0.40 & 0.789 & 6.64  & 2.53 & 78.0  \\
+    & 0.80 & 0.789 & 7.90  & 2.52 & 155.0 \\
+    & 1.20 & 0.787 & 9.50  & 2.53 & 232.0 \\
+    & 1.60 & 0.790 & 27.0  & 2.52 & 306.0 \\
+    \midrule
+    \multirow{4}{*}{\textbf{628 nm}}
+    & 0.40 & 2.57  & 17.0  & 2.58 & 51.6  \\
+    & 0.80 & 2.57  & 29.3  & 2.58 & 101.0 \\
+    & 1.20 & 2.57  & 46.8  & 2.58 & 152.0 \\
+    & 1.60 & 2.56  & 62.6  & 2.53 & 203.0 \\
+    \bottomrule
+  \end{tabular}
+  \caption{Experimental measurement data for the Faraday Effect using different mediums and light sources. Exceptions to the standard errors are the maximum deviation for $I_{\mathrm{eff}}$ at 1.60\,A (628\,nm), which is $\pm 0.02$\,A, and the reading uncertainty for $U_{\mathrm{DC}}$ in the 508\,nm N-BK7 dataset, which is $\pm 0.001$\,V.}\label{tab:rotation_angle}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \renewcommand{\arraystretch}{1.2}
+  \setlength{\tabcolsep}{6pt}
+  \begin{tabular}{l c c c c c c}
+    \toprule
+    \multirow{2}{*}{\textbf{Wavelength}} & \multicolumn{3}{c}{\textbf{N-BK7}} & \multicolumn{3}{c}{\textbf{SF10}} \\
+    \cmidrule(lr){2-4} \cmidrule(lr){5-7}
+    & $U_{||}$ [V] & $U_{\perp}$ [V] & $K$ & $U_{||}$ [V] & $U_{\perp}$ [V] & $K$ \\
+    & $\sigma_{U_{||}}=\pm$ 0.01 & $\sigma_{U_{\perp}}=\pm$ 0.01 & & $\sigma_{U_{||}}=\pm$ 0.01 & $\sigma_{U_{\perp}}=\pm$ 0.01 & \\
+    \midrule
+    \textbf{400 nm} & 5.102 & 0.787 & 0.733 & 4.012 & 0.060 & 0.971 \\
+    \textbf{470 nm} & 5.082 & 0.355 & 0.869 & 5.252 & 0.222 & 0.919 \\
+    \textbf{508 nm} & 4.514 & 0.062 & 0.973 & 4.062 & 0.005 & 0.998 \\
+    \textbf{628 nm} & 5.011 & 0.148 & 0.943 & 5.162 & 0.006 & 0.998 \\
+    \bottomrule
+  \end{tabular}
+  \caption{Maximum ($U_{||}$) and minimum ($U_{\perp}$) detector voltages and the resulting calculated contrast factors $K$ for each wavelength and glass sample. Background voltages of $U_{\mathrm{bg}} \approx 0.008$\,V (and $0.009$\,V for N-BK7 at 628\,nm) were subtracted from the raw measurements prior to determining $K$.}\label{tab:contrast_data}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \renewcommand{\arraystretch}{1.2}
+  \begin{tabular}{l c c c c c}
+    \toprule
+    \textbf{Material} & \textbf{Wavelength [nm]} & \textbf{Slope $m$ [rad/T]} & \textbf{$V(\lambda)$ [rad/(T$\cdot$m)]} & \textbf{$dn/d\lambda$ [m$^{-1}$]} & \textbf{$m_{e}^*/m_{e}$} \\
+    \midrule
+    \multirow{4}{*}{\textbf{N-BK7}}
+    & 400 & $1.044 \pm 0.006$ & $14.91 \pm 0.09$ & $-1.33 \times 10^5$ & $1.048$ \\
+    & 470 & $0.708 \pm 0.004$ & $10.11 \pm 0.06$ & $-8.02 \times 10^4$ & $1.093$ \\
+    & 508 & $0.361 \pm 0.004$ & $5.16 \pm 0.06$ & $-6.34 \times 10^4$ & $1.832$ \\
+    & 628 & $0.347 \pm 0.002$ & $4.96 \pm 0.04$ & $-3.49 \times 10^4$ & $1.298$ \\
+    \midrule
+    \multirow{4}{*}{\textbf{SF10}}
+    & 400 & $3.448 \pm 0.025$ & $49.25 \pm 0.36$ & $-5.47 \times 10^5$ & $1.304$ \\
+    & 470 & $2.347 \pm 0.013$ & $33.53 \pm 0.19$ & $-2.83 \times 10^5$ & $1.162$ \\
+    & 508 & $1.694 \pm 0.011$ & $24.20 \pm 0.16$ & $-2.12 \times 10^5$ & $1.305$ \\
+    & 628 & $1.101 \pm 0.006$ & $15.72 \pm 0.09$ & $-1.03 \times 10^5$ & $1.209$ \\
+    \bottomrule
+  \end{tabular}
+  \caption{Extracted slopes from the linear fits of the Faraday rotation angles, the calculated Verdet constants $V(\lambda)$, refractive index derivatives, and the resulting effective oscillator mass ratios for N-BK7 and SF10 glasses.}\label{tab:verdet_and_mass}
+\end{table}
 
 Additional files:
 
