@@ -9,7 +9,7 @@ __pycache__/
 .mypy_cache/
 pytest_cache/
 .ipynb_checkpoints/
-fp_isolatorkristall.egg-info
+*.egg-info
 
 # Virtual envs created by different tools
 env/

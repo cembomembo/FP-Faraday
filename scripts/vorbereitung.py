@@ -4,16 +4,16 @@ import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 
 files = ['N-BK7.csv', 'N-SF10.csv']
-csv_delimiter = ',' 
+csv_delimiter = ','
 
 def analyze_glass_dispersion(filename):
     print(f"--- Analyzing {filename} ---")
-    
+
     try:
         df = pd.read_csv(filename, delimiter=csv_delimiter, header=None)
         lamb = pd.to_numeric(df.iloc[:, 0], errors='coerce').dropna() # Wavelength in micrometers
         n = pd.to_numeric(df.iloc[:, 1], errors='coerce').dropna()    # Refractive Index
-        
+
     except Exception as e:
         print(f"Error reading {filename}: {e}")
         return
@@ -25,7 +25,7 @@ def analyze_glass_dispersion(filename):
     mask = (lamb >= 0.4) & (lamb <= 0.8)  # Keep only from 400nm
     lamb = lamb[mask]
     n = n[mask]
-    
+
     y_data = 1 / (n**2 - 1)
     x_data = 1 / (lamb**2)
 
@@ -35,21 +35,30 @@ def analyze_glass_dispersion(filename):
 
     popt, pcov = curve_fit(linear_model, x_data, y_data)
     m_fit, c_fit = popt
-    
+
+    perr = np.sqrt(np.diag(pcov))
+    m_err, c_err = perr
+
     # Slope magnitude A = |m|
     # Intercept B = c
     # Resonance Wavelength lambda_R = sqrt(A / B)
-    
+
     A = abs(m_fit)
     B = c_fit
     lambda_R = np.sqrt(A / B)
-    
+
+    A_err = m_err
+    B_err = c_err
+
+    lambda_R_err = 0.5 * lambda_R * np.sqrt((A_err / A)**2 + (B_err / B)**2)
+
     print(f"Linear Fit Results:")
-    print(f"  Slope (m)     : {m_fit:.6f} (matches -A)")
-    print(f"  Intercept (c) : {c_fit:.6f} (matches A/lambda_R^2)")
+    print(f"  Slope (m)     : {m_fit:.6f} +/- {m_err:.6f} (matches -A)")
+    print(f"  Intercept (c) : {c_fit:.6f} +/- {c_err:.6f} (matches A/lambda_R^2)")
     print(f"Calculated Parameters:")
-    print(f"  Parameter A   : {A:.6f} um^2")
-    print(f"  Resonance λ_R : {lambda_R:.6f} um ({lambda_R*1000:.1f} nm)")
+    print(f"  Parameter A   : {A:.6f} +/- {A_err:.6f} um^2")
+    print(f"  Resonance λ_R : {lambda_R:.6f} +/- {lambda_R_err:.6f} um")
+    print(f"                  ({lambda_R*1000:.1f} +/- {lambda_R_err*1000:.1f} nm)")
     print("-" * 30)
 
     # 5. Plotting
@@ -64,24 +73,24 @@ def analyze_glass_dispersion(filename):
     # Plot 2: Linearization (Task 1)
     # Plot Data
     ax2.plot(x_data, y_data, 'rx', label='Linearized Data')
-    
+
     # Plot Fit Line
     x_range = np.linspace(min(x_data), max(x_data), 100)
     y_fit = linear_model(x_range, m_fit, c_fit)
     ax2.plot(x_range, y_fit, 'k-', label=f'Fit: $\lambda_R={lambda_R*1000:.1f}$ nm')
-    
+
     ax2.set_xlabel(r'$1 / \lambda^2$ ($\mu m^{-2}$)')
     ax2.set_ylabel(r'$1 / (n^2 - 1)$')
     ax2.set_title(r'Single-Oscillator Model Linearization')
     ax2.legend()
     ax2.grid(True)
-    
+
     plt.tight_layout()
-    
+
     plot_filename = filename.replace('.csv', '_plot.png')
     plt.savefig(plot_filename, dpi=300)
     print(f"Plot saved as: {plot_filename}")
-    
+
     plt.show()
 
 # Main
