@@ -704,15 +704,15 @@ By plotting $y = \frac{1}{n^2 - 1}$ against $x = \frac{1}{\lambda^2}$, a linear 
 
 While the data was initially considered over a broad spectral range (up to 2.5 $\mu$m), the final fit was restricted to the visible and near-visible range ($0.4\,\mu\text{m} \le \lambda \le 0.8\,\mu\text{m}$). This ensures that the parameters $A$ and $\lambda_R$ are optimized for the spectral region where the Faraday rotation is actually measured. Restricting the fit avoids distortions from infrared lattice vibrations, which dominate the dispersive behavior at larger wavelengths and would otherwise skew the single-oscillator model away from the relevant visible-range data.
 
-\paragraph{Results for BK7}
-To analyze the BK7 glass, the refractive index data was extracted from the public database http://refractiveindex.info/. The analysis of the BK7 dispersion in the visible range yields a highly linear relationship, as shown in Figure~\ref{fig:nbk7_plots}. The results of the linear fit and the derived physical parameters are summarized in Table~\ref{tab:task1_results}.
+\paragraph{Results for N-BK7}
+To analyze the N-BK7 glass, the refractive index data was extracted from the public database http://refractiveindex.info/. The analysis of the N-BK7 dispersion in the visible range yields a highly linear relationship, as shown in Figure~\ref{fig:nbk7_plots}. The results of the linear fit and the derived physical parameters are summarized in Table~\ref{tab:task1_results}.
 
 \begin{figure}[H]
   \begin{subfigure}{0.9\textwidth}
     \includegraphics[width=\textwidth]{../resources/plots/part1/N-BK7_plot.png}
     \caption{Visible range (only section of the above).}
   \end{subfigure}
-  \caption{Dispersion analysis and linearization for BK7 glass with data from http://refractiveindex.info/. Only wavelenght wihtin the visible range were selected.}
+  \caption{Dispersion analysis and linearization for N-BK7 glass with data from http://refractiveindex.info/. Only wavelenght wihtin the visible range were selected.}
   \label{fig:nbk7_plots}
 \end{figure}
 
@@ -998,20 +998,34 @@ Using the previously calculated adjusted average effective mass $m_e^*$ for N-BK
   \item \textbf{SF10:} $N \approx 1.18 \times 10^{23}\,\mathrm{cm}^{-3}$
 \end{itemize}
 
-To contextualize this result for N-BK7, the calculated density of dispersion electrons was compared to the approximate atomic density of the glass matrix. Assuming a standard borosilicate crown glass composition dominated by $\mathrm{SiO}_2$ (density $\rho \approx 2.51\,\mathrm{g/cm}^3$, molar mass $M \approx 60.08\,\mathrm{g/mol}$, and 3 atoms per molecule), the theoretical atom density is approximately $7.55 \times 10^{22}\,\mathrm{cm}^{-3}$.
-
+To contextualize this result for N-BK7, the calculated density of dispersion electrons was compared to the approximate atomic density of the glass matrix. Assuming a standard borosilicate crown glass composition dominated by $\mathrm{SiO}_2$ (density $\rho \approx 2.51\,\mathrm{g/cm}^3$, molar mass $M \approx 60.08\,\mathrm{g/mol}$, and 3 atoms per molecule), the theoretical atom density is approximately $7.55 \times 10^{22}\,\mathrm{cm}^{-3}$:
+\begin{equation}
+  N_{\mathrm{atoms,N-BK7}} = \frac{\rho \cdot N_A \cdot \nu}{M} \approx 7.55 \times 10^{22}\,\mathrm{cm}^{-3}
+\end{equation}
 Comparing the optically active electron density to the atom density yields a ratio of:
 \begin{equation}
-  \frac{N_{\mathrm{dispersion}}}{N_{\mathrm{atoms}}} \approx 2.25
+  \frac{N_{\mathrm{dispersion}}}{N_{\mathrm{atoms,N-BK7}}} \approx 2.25
 \end{equation}
 This indicates that, on average, approximately 2.25 electrons per atom in the N-BK7 glass matrix actively participate in the optical dispersion process in the visible spectrum.
+
+Similarly, the density of dispersion electrons for SF10 was compared to the atomic density of its glass matrix. SF10 is a dense flint glass typically composed of lead oxide and silica (approximately 72\% PbO and 28\% SiO$_2$). Using the corresponding material properties (density $\rho \approx 4.28\,\mathrm{g/cm}^3$~\cite{SchottSF10}, average molar mass $M \approx 177.5\,\mathrm{g/mol}$, and $\nu\approx2.28$ atoms per molecular unit), the theoretical atom density is calculated as:
+\begin{equation}
+  N_{\mathrm{atoms,SF10}} = \frac{\rho \cdot N_A \cdot \nu}{M} \approx 1.417 \times 10^{23}\,\mathrm{cm}^{-3}
+\end{equation}
+
+Comparing the calculated density of optically active electrons ($N \approx 1.18 \times 10^{23}\,\mathrm{cm}^{-3}$) to this atom density yields the following ratio:
+\begin{equation}
+  \frac{N_{\mathrm{dispersion}}}{N_{\mathrm{atoms,SF10}}} \approx 0.83
+\end{equation}
+
+This result indicates that, on average, approximately 0.83 electrons per atom in the SF10 glass matrix contribute to the optical dispersion in the visible spectrum. Interestingly, this ratio is significantly lower than that of N-BK7 ($\sim 2.25$), despite SF10 exhibiting a much stronger macroscopic dispersion and a higher Verdet constant.
 
 % ------------------
 % --- Discussion ---
 % ------------------
 \section{Discussion}
 
-It is interesting to see that at B = 0 tesla, the faraday rotation does not seem to be zero, as can be seen in fig. \ref{fig:angle_vs_B} and even better in fig. \ref{fig:angle_vs_B_zoomed}. There are two plausible reasons for this behavior, one could be that the zeropoint for the B field was shifted due to a misconfiguration. This is suggested by fig. \ref{fig:Bcenter_calibration_fit} and equation \ref{eq:Bcenter_calibration_fit}, where for no current the magnetic field is negative. That is likely due to a miscalibration of the teslameter. If this is taken into consideration, that can account towards a shift in the magnetic field strength seen in fig. \ref{fig:angle_vs_B} and \ref{fig:angle_vs_B_zoomed} of $0.49\cdot\sqrt{2} \pm 0.03 \cdot \sqrt{2} \approx 0.69 \pm 0.04 $.\\
+It is interesting to see that at B = 0 tesla, the faraday rotation does not seem to be zero, as can be seen in Figure~\ref{fig:angle_vs_B} and even better in Figure~\ref{fig:angle_vs_B_zoomed}. There are two plausible reasons for this behavior, one could be that the zeropoint for the B field was shifted due to a misconfiguration. This is suggested by fig.~\ref{fig:Bcenter_calibration_fit} and equation~\ref{eq:Bcenter_calibration_fit}, where for no current the magnetic field is negative. That is likely due to a miscalibration of the teslameter. If this is taken into consideration, that can account towards a shift in the magnetic field strength seen in Figures~\ref{fig:angle_vs_B} and~\ref{fig:angle_vs_B_zoomed} of $0.49\cdot\sqrt{2} \pm 0.03 \cdot \sqrt{2} \approx 0.69 \pm 0.04 $.
 
 While the measurement for N-BK7 was not very accurate, mainly because it was the first glass we measured and we still had to figure out how to do it better, for the SF10 glass all the fit lines are crossing at a point around $-0.80 \pm 0.03$ mT. This still leaves a shift of $0.11 \pm 0.07$ mT without explanation, assuming the first reason with the miscalibration is correct. This could be because of other external magnetic fields such as earths or from other lab devices. Likely it is a combination of both, as earths magnetic field is with 0.03 to 0.06 mT \cite{nasa_earth_magnetic_field} not quite strong enough to account for the remaining shift in the field strength, but it is also no longer negligible.
 
@@ -1026,6 +1040,7 @@ While the measurement for N-BK7 was not very accurate, mainly because it was the
 
 Another remark to make is that while the fit to the maximum amplitude of the modulation signal indicates the highest sensitivity to be at an angle of $\varphi \approx 46.6 ^\circ$, the actual measurement of the amplitude at $\varphi = 45 ^\circ$ has the same value, thus confirming the appropriotness of the used working point.
 
+The comparison between the optically active electron ratios of $2.25$ for N-BK7 and $0.83$ for SF10 indicates fewer `effective' electrons per atom participate in SF10, despite its higher Verdet constant and macroscopic dispersion. This contradiction is explained by the heavy lead ions ($Z=82$) dominating the flint glass. Because lead's outer electrons possess a drastically higher oscillator strength due to their polarizability, a smaller physical number of them is required to drive the massive macroscopic polarization observed.
 % ------------------
 % --- Conclusion ---
 % ------------------
@@ -1048,7 +1063,10 @@ The Faraday rotation angle $\theta$ was measured for four wavelengths (400 nm, 4
 \textbf{Verdet Constant:}
 The results in Table~\ref{tab:verdet_and_mass} show a clear trend: the rotation angle increases significantly as the wavelength decreases (normal dispersion). Furthermore, the rotation in the lead-containing glass (SF10) is consistently larger than in the crown glass (N-BK7) by a factor of approximately 4 to 5, indicating a much higher Verdet constant for SF10.
 
-The results demonstrate a clear wavelength dependence: the Verdet constant decreases strongly with increasing wavelength, which is characteristic of normal dispersion far from the material's resonance frequencies. Furthermore, the lead-containing SF10 glass exhibits a Verdet constant that is approximately three to four times larger than that of the N-BK7 crown glass across the entire measured spectrum, indicating a much stronger magneto-optical response.
+\textbf{Density of dispersion electrons:}
+The high Verdet constant of SF10 is not due to more participating electrons; its electron-to-atom ratio is actually lower than N-BK7's. Instead, the strong magneto-optical response stems from the highly polarizable valence electrons in lead ions.
+
+Overall, both glasses exhibit the expected macroscopic behavior of normal dispersion: the Verdet constant drops rapidly as the incident wavelength moves further from the materials' respective ultraviolet resonance frequencies. While this inverse wavelength dependence is present in both samples, the absolute magnitude of the magneto-optical response in SF10 remains consistently dominant across the entire spectrum. As shown by the electron density analysis, this superior response is not a result of bulk electron participation, but rather a direct consequence of the extreme efficiency and polarizability of the heavy lead ions acting as classical oscillators.
 
 % ----------------
 % --- Appendix ---
